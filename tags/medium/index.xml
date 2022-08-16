@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>medium on Werz</title>
+    
+    
+    
+    <link>https://0xwerz.github.io/tags/medium/</link>
+    <description>Recent content in medium on Werz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2022 Powered by Hugo</copyright>
+    <lastBuildDate>Sun, 14 Aug 2022 10:12:16 +1300</lastBuildDate>
+    
+	<atom:link href="https://0xwerz.github.io/tags/medium/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Outdated -- HTB walkthrough</title>
+      <link>https://0xwerz.github.io/14/08/2022/outdated/</link>
+      <pubDate>Sun, 14 Aug 2022 10:12:16 +1300</pubDate>
+      
+      <guid>https://0xwerz.github.io/14/08/2022/outdated/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          https://app.hackthebox.com/machines/outdated
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Undetected -- HTB walkthrough</title>
+      <link>https://0xwerz.github.io/19/02/2022/undetected/</link>
+      <pubDate>Sat, 19 Feb 2022 06:24:55 +1300</pubDate>
+      
+      <guid>https://0xwerz.github.io/19/02/2022/undetected/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          https://app.hackthebox.com/machines/Undetected
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

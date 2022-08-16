@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pwn on Werz</title>
+    
+    
+    
+    <link>https://0xwerz.github.io/tags/pwn/</link>
+    <description>Recent content in pwn on Werz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2022 Powered by Hugo</copyright>
+    <lastBuildDate>Sat, 11 Apr 2020 11:02:58 +1300</lastBuildDate>
+    
+	<atom:link href="https://0xwerz.github.io/tags/pwn/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tips-and-Tricks -- 247CTF walkthrough </title>
+      <link>https://0xwerz.github.io/11/04/2020/tips-and-tricks/</link>
+      <pubDate>Sat, 11 Apr 2020 11:02:58 +1300</pubDate>
+      
+      <guid>https://0xwerz.github.io/11/04/2020/tips-and-tricks/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          TIPS AND TRICKS 247/CTF 
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>
