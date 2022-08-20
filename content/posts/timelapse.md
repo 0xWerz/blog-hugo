@@ -3,7 +3,7 @@
 title: "Timelapse -- HTB walkthrough"
 Author : '0xWerz'
 description: "https://app.hackthebox.com/machines/Undetected"
-date: 2022-02-19T06:24:55+13:00
+date: 2022-03-26T06:24:55+13:00
 draft: true
 tags : ['htb', 'linux', 'medium', 'retired']
 aliases: [/ctf/htb/boxes/timelapse/]
@@ -27,7 +27,7 @@ startup full ports nmap scan | **-sC for the default set of scripts**. | **-sV f
 > `nmap -sC -sV -T4 10.10.11.152 -p-
 
 ```bash
-werz@ctf01:~/ctf/htb/undetected$ nmap -sC -sV -T4 10.10.11.152 -p-
+werz@ctf01:~/ctf/htb/timelapse$ nmap -sC -sV -T4 10.10.11.152 -p-
 Starting Nmap 7.80 ( https://nmap.org ) at 2022-07-06 02:41 +01
 Nmap scan report for 10.10.11.152
 Host is up (0.29s latency).
@@ -72,8 +72,80 @@ Host script results:
 |_  start_date: N/A
 ```
 
-
-
 ## SMB enumeration
 
- Since smb port-445 is open, as always I'll check for some accessible content  
+ Since smb port-445 is open, as always I'll check for some accessible content im using [smbmap](https://www.google.com/search?q=smbmap&oq=smbmap&aqs=chrome..69i57.262j0j7&sourceid=chrome&ie=UTF-8):
+
+```bash
+werz@ctf01:~/ctf/htb/timelapse$ smbmap -H 10.10.11.152 -u ff                                                                                           INT ✘  06:58:25 PM 
+
+    ________  ___      ___  _______   ___      ___       __         _______
+   /"       )|"  \    /"  ||   _  "\ |"  \    /"  |     /""\       |   __ "\
+  (:   \___/  \   \  //   |(. |_)  :) \   \  //   |    /    \      (. |__) :)
+   \___  \    /\  \/.    ||:     \/   /\   \/.    |   /' /\  \     |:  ____/
+    __/  \   |: \.        |(|  _  \  |: \.        |  //  __'  \    (|  /
+   /" \   :) |.  \    /:  ||: |_)  :)|.  \    /:  | /   /  \   \  /|__/ \
+  (_______/  |___|\__/|___|(_______/ |___|\__/|___|(___/    \___)(_______)
+ -----------------------------------------------------------------------------
+     SMBMap - Samba Share Enumerator | Shawn Evans - ShawnDEvans@gmail.com   
+                     https://github.com/ShawnDEvans/smbmap
+
+
+[+] IP: 10.10.11.152:445    Name: timelapse.htb0          Status: Guest session       
+        Disk                                                      Permissions    Comment
+    ----                                                      -----------    -------
+    ADMIN$                                                NO ACCESS    Remote Admin
+    C$                                                    NO ACCESS    Default share
+    IPC$                                                  READ ONLY    Remote IPC
+    NETLOGON                                              NO ACCESS    Logon server share 
+    Shares                                                READ ONLY    
+    SYSVOL                                                NO ACCESS    Logon server share
+```
+
+So we have access to the shares disk! I'll dig in with smbclient | `-N` for none password you also can leave it empty. 
+
+```bash
+werz@ctf01:~/ctf/htb/timelapse$ smbclient \\\\10.10.11.152\\shares -N                                                                                  INT ✘  07:02:08 PM 
+Try "help" to get a list of possible commands.
+smb: \> dir
+  .                                   D        0  Mon Oct 25 16:39:15 2021
+  ..                                  D        0  Mon Oct 25 16:39:15 2021
+  Dev                                 D        0  Mon Oct 25 20:40:06 2021
+  HelpDesk                            D        0  Mon Oct 25 16:48:42 2021
+
+        6367231 blocks of size 4096. 2043344 blocks available
+```
+
+Dev folder have a single file, which I'll grab:
+
+```bash
+smb: \> cd dev
+smb: \dev\> ls
+  .                                   D        0  Mon Oct 25 20:40:06 2021
+  ..                                  D        0  Mon Oct 25 20:40:06 2021
+  winrm_backup.zip                    A     2611  Mon Oct 25 16:46:42 2021
+get qw
+        6367231 blocks of size 4096. 2086053 blocks available
+smb: \dev\> get winrm_backup.zip 
+getting file \dev\winrm_backup.zip of size 2611 as winrm_backup.zip (3.4 KiloBytes/sec) (average 3.4 KiloBytes/sec)
+```
+
+HelpDesk folder have some files about LAPS they may be helpful:
+
+```bash
+smb: \> dir helpdesk/
+  .                                   D        0  Mon Oct 25 16:48:42 2021
+  ..                                  D        0  Mon Oct 25 16:48:42 2021
+  LAPS.x64.msi                        A  1118208  Mon Oct 25 15:57:50 2021
+  LAPS_Datasheet.docx                 A   104422  Mon Oct 25 15:57:46 2021
+  LAPS_OperationsGuide.docx           A   641378  Mon Oct 25 15:57:40 2021
+  LAPS_TechnicalSpecification.docx      A    72683  Mon Oct 25 15:57:44 2021
+
+        6367231 blocks of size 4096. 2085269 blocks available
+```
+
+## Shell as legacyy
+
+```bash
+
+```
