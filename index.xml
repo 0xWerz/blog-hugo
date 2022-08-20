@@ -29,7 +29,7 @@
         
         
         
-          Hi ’m Werz, a Cyber Security student, full-stack developer. who enjoys building and breaking things.#{ &amp;#34;Personal_Info&amp;#34;: { &amp;#34;Name&amp;#34;: &amp;#34;rabii&amp;#34;, &amp;#34;Alias&amp;#34;: &amp;#34;Werz&amp;#34;, &amp;#34;Age&amp;#34;: 17, &amp;#34;Education&amp;#34;: &amp;#34;Red teaming&amp;#34;, &amp;#34;Position&amp;#34;: &amp;#34;Earth&amp;#34;, &amp;#34;Email&amp;#34;: &amp;#34;d2VyejRidXNpbmVzc0B0dXRhLmlv&amp;#34;, &amp;#34;Interests&amp;#34;: [ &amp;#34;Hardware hacking, Web development, Software Engineering, Visual editing&amp;#34; ] } }  Github Twitter Medium buymeacoffee  
+          Hi ’m Werz, a Cyber Security student, full-stack developer. who enjoys building and breaking things.#{ &amp;#34;Personal_Info&amp;#34;: { &amp;#34;Name&amp;#34;: &amp;#34;rabii&amp;#34;, &amp;#34;Alias&amp;#34;: &amp;#34;Werz&amp;#34;, &amp;#34;Age&amp;#34;: 17, &amp;#34;Education&amp;#34;: &amp;#34;Red teaming&amp;#34;, &amp;#34;Position&amp;#34;: &amp;#34;Earth&amp;#34;, &amp;#34;Email&amp;#34;: &amp;#34;d2VyejRidXNpbmVzc0B0dXRhLmlv&amp;#34;, &amp;#34;Interests&amp;#34;: [ &amp;#34;Hardware hacking, Web development, Software Engineering, Visual editing&amp;#34; ] } }   Hackthebox    Tryhackme    Github  Twitter  Medium  buymeacoffee  
           
         
         </description>
@@ -229,7 +229,7 @@
         
         
         
-          title: &amp;ldquo;Timelapse &amp;ndash; HTB walkthrough&amp;rdquo; Author : &amp;lsquo;0xWerz&amp;rsquo; description: &amp;ldquo;https://app.hackthebox.com/machines/Undetected&amp;#34;date: 2022-02-19T06:24:55+13:00 draft: true tags : [&amp;lsquo;htb&amp;rsquo;, &amp;lsquo;linux&amp;rsquo;, &amp;lsquo;medium&amp;rsquo;, &amp;lsquo;retired&amp;rsquo;] aliases: [/ctf/htb/boxes/timelapse/]# The official box pageon HTB
+          title: &amp;ldquo;Timelapse &amp;ndash; HTB walkthrough&amp;rdquo; Author : &amp;lsquo;0xWerz&amp;rsquo; description: &amp;ldquo;https://app.hackthebox.com/machines/Undetected&amp;#34;date: 2022-03-26T06:24:55+13:00 draft: true tags : [&amp;lsquo;htb&amp;rsquo;, &amp;lsquo;linux&amp;rsquo;, &amp;lsquo;medium&amp;rsquo;, &amp;lsquo;retired&amp;rsquo;] aliases: [/ctf/htb/boxes/timelapse/]# The official box pageon HTB
 The writeup:#System Scan | IP: 10.10.11.152#let&amp;rsquo;s add the ip to to the /etc/hosts file and name it undetected.htb
  echo &#39;10.10.11.152 undetected.htb &#39; &amp;gt;&amp;gt; /etc/hosts
  startup full ports nmap scan | -sC for the default set of scripts.
