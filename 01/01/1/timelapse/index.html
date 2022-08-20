@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+         ::
+        Werz — CyberSecurity
+      </title>
+    
+    <head>
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R2DLLBQDPX"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-R2DLLBQDPX', { 'anonymize_ip': false });
+}
+</script>
+
+
+</head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="title: &amp;ldquo;Timelapse &amp;ndash; HTB walkthrough&amp;rdquo; Author : &amp;lsquo;0xWerz&amp;rsquo; description: &amp;ldquo;https://app.hackthebox.com/machines/Undetected&amp;#34;date: 2022-02-19T06:24:55&#43;13:00 draft: true tags : [&amp;lsquo;htb&amp;rsquo;, &amp;lsquo;linux&amp;rsquo;, &amp;lsquo;medium&amp;rsquo;, &amp;lsquo;retired&amp;rsquo;] aliases: [/ctf/htb/boxes/timelapse/]# The official box pageon HTB
+The writeup:#System Scan | IP: 10.10.11.152#let&amp;rsquo;s add the ip to to the /etc/hosts file and name it undetected.htb
+ echo &#39;10.10.11.152 undetected.htb &#39; &amp;gt;&amp;gt; /etc/hosts
+ startup full ports nmap scan | -sC for the default set of scripts."
+/>
+
+<meta
+  name="keywords"
+  content="ctf, hackthebox, writeup, htb writeup, walkthrough, retired htb, hack the box, cybersecurtiy, capture the flag"
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://0xwerz.github.io/01/01/1/timelapse/" />
+<meta content="Posts about Cybersecurity, Pentesting, CTF writeups, and more" property="og:description" />
+<meta content="https://0xwerz.github.io/" property="og:url" />
+<meta content="Werz         Cybersecurity content, And more" property="og:title" />
+
+
+
+
+
+<link rel="stylesheet" href="https://0xwerz.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://0xwerz.github.io/style.css" />
+
+
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png%20%7c%20absURL">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img//android-chrome-192x192.png">
+<link rel="manifest" href="img/site.webmanifest">
+<link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="title: &ldquo;Timelapse &ndash; HTB walkthrough&rdquo; Author : &lsquo;0xWerz&rsquo; description: &ldquo;https://app.hackthebox.com/machines/Undetected&#34;date: 2022-02-19T06:24:55&#43;13:00 draft: true tags : [&lsquo;htb&rsquo;, &lsquo;linux&rsquo;, &lsquo;medium&rsquo;, &lsquo;retired&rsquo;] aliases: [/ctf/htb/boxes/timelapse/]# The official box pageon HTB
+The writeup:#System Scan | IP: 10.10.11.152#let&rsquo;s add the ip to to the /etc/hosts file and name it undetected.htb
+ echo &#39;10.10.11.152 undetected.htb &#39; &gt;&gt; /etc/hosts
+ startup full ports nmap scan | -sC for the default set of scripts."/>
+
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="title: &ldquo;Timelapse &ndash; HTB walkthrough&rdquo; Author : &lsquo;0xWerz&rsquo; description: &ldquo;https://app.hackthebox.com/machines/Undetected&#34;date: 2022-02-19T06:24:55&#43;13:00 draft: true tags : [&lsquo;htb&rsquo;, &lsquo;linux&rsquo;, &lsquo;medium&rsquo;, &lsquo;retired&rsquo;] aliases: [/ctf/htb/boxes/timelapse/]# The official box pageon HTB
+The writeup:#System Scan | IP: 10.10.11.152#let&rsquo;s add the ip to to the /etc/hosts file and name it undetected.htb
+ echo &#39;10.10.11.152 undetected.htb &#39; &gt;&gt; /etc/hosts
+ startup full ports nmap scan | -sC for the default set of scripts." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://0xwerz.github.io/01/01/1/timelapse/" /><meta property="article:section" content="posts" />
+
+<meta property="og:site_name" content="Werz" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="https://0xwerz.github.io/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >werz@blog:~$</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/archive">./archive</a></li>
+        
+      
+        
+          <li><a href="/posts">./articles</a></li>
+        
+      
+        
+          <li><a href="/about">./whoami</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/archive">./archive</a></li>
+      
+    
+      
+        <li><a href="/posts">./articles</a></li>
+      
+    
+      
+        <li><a href="/about">./whoami</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"></h1>
+    <div class="post-meta">
+      
+
+      
+
+
+      
+        <span class="post-read-time"
+          >— 2 min read</span
+        >
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      <h2 id="aliases-ctfhtbboxestimelapse">
+  title: &ldquo;Timelapse &ndash; HTB walkthrough&rdquo;
+Author : &lsquo;0xWerz&rsquo;
+description: &ldquo;<a href="https://app.hackthebox.com/machines/Undetected%22" target="_blank">https://app.hackthebox.com/machines/Undetected&#34;</a>
+
+date: 2022-02-19T06:24:55+13:00
+draft: true
+tags : [&lsquo;htb&rsquo;, &lsquo;linux&rsquo;, &lsquo;medium&rsquo;, &lsquo;retired&rsquo;]
+aliases: [/ctf/htb/boxes/timelapse/]
+  <a href="#aliases-ctfhtbboxestimelapse" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<hr>
+<p>The official <a href="https://app.hackthebox.com/machines/Timelapse" target="_blank">box page</a>
+ on HTB</p>
+<img src="https://github.com/0xWerz/CTF-writeups/raw/main/HTB/Machines/timelapse/img/Timelapse.png" style="border-radius: 3%;" alt="">
+<h3 id="the-writeup">
+  The writeup:
+  <a href="#the-writeup" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<h4 id="system-scan--ip-101011152">
+  System Scan | <strong>IP: 10.10.11.152</strong>
+  <a href="#system-scan--ip-101011152" class="h-anchor" aria-hidden="true">#</a>
+</h4>
+<p>let&rsquo;s add the ip to to the <code>/etc/hosts</code> file and name it <code>undetected.htb</code></p>
+<blockquote>
+<p><code>echo '10.10.11.152 undetected.htb ' &gt;&gt; /etc/hosts</code></p>
+</blockquote>
+<p>startup full ports nmap scan | <strong>-sC for the default set of scripts</strong>. | <strong>-sV for Enables version detection</strong>. | <strong>-T4 for sending the traffic fast</strong>.</p>
+<blockquote>
+<p>`nmap -sC -sV -T4 10.10.11.152 -p-</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">werz@ctf01:~/ctf/htb/undetected$ nmap -sC -sV -T4 10.10.11.152 -p-
+Starting Nmap 7.80 <span style="color:#f92672">(</span> https://nmap.org <span style="color:#f92672">)</span> at 2022-07-06 02:41 +01
+Nmap scan report <span style="color:#66d9ef">for</span> 10.10.11.152
+Host is up <span style="color:#f92672">(</span>0.29s latency<span style="color:#f92672">)</span>.
+Not shown: <span style="color:#ae81ff">998</span> filtered ports 
+
+PORT      STATE SERVICE           VERSION
+53/tcp    open  domain            Simple DNS Plus
+88/tcp    open  kerberos-sec      Microsoft Windows Kerberos <span style="color:#f92672">(</span>server time: 2022-07-15 10:09:34Z<span style="color:#f92672">)</span>
+135/tcp   open  msrpc             Microsoft Windows RPC
+139/tcp   open  netbios-ssn       Microsoft Windows netbios-ssn
+389/tcp   open  ldap              Microsoft Windows Active Directory LDAP <span style="color:#f92672">(</span>Domain: timelapse.htb0., Site: Default-First-Site-Name<span style="color:#f92672">)</span>
+445/tcp   open  microsoft-ds?
+464/tcp   open  kpasswd5?
+593/tcp   open  ncacn_http        Microsoft Windows RPC over HTTP 1.0
+636/tcp   open  ldapssl?
+3268/tcp  open  ldap              Microsoft Windows Active Directory LDAP <span style="color:#f92672">(</span>Domain: timelapse.htb0., Site: Default-First-Site-Name<span style="color:#f92672">)</span>
+3269/tcp  open  globalcatLDAPssl?
+5986/tcp  open  ssl/http          Microsoft HTTPAPI httpd 2.0 <span style="color:#f92672">(</span>SSDP/UPnP<span style="color:#f92672">)</span>
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+| ssl-cert: Subject: commonName<span style="color:#f92672">=</span>dc01.timelapse.htb
+| Not valid before: 2021-10-25T14:05:29
+|_Not valid after:  2022-10-25T14:25:29
+|_ssl-date: 2022-07-15T10:11:07+00:00; +7h59m59s from scanner time.
+| tls-alpn: 
+|_  http/1.1
+9389/tcp  open  mc-nmf            .NET Message Framing
+49667/tcp open  msrpc             Microsoft Windows RPC
+49673/tcp open  ncacn_http        Microsoft Windows RPC over HTTP 1.0
+49674/tcp open  msrpc             Microsoft Windows RPC
+49696/tcp open  msrpc             Microsoft Windows RPC
+56370/tcp open  msrpc             Microsoft Windows RPC
+Service Info: Host: DC01; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_clock-skew: mean: 7h59m58s, deviation: 0s, median: 7h59m57s
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled and required
+| smb2-time: 
+|   date: 2022-07-15T10:10:30
+|_  start_date: N/A
+</code></pre></div><h2 id="smb-enumeration">
+  SMB enumeration
+  <a href="#smb-enumeration" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Since smb port-445 is open, as always I&rsquo;ll check for some accessible content</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://0xwerz.github.io/11/04/2020/tips-and-tricks/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Tips-and-Tricks -- 247CTF walkthrough </span>
+                </a>
+              </span>
+            
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">© 2022 Powered by Hugo</div>
+      
+  </div>
+</footer>
+
+<script src="https://0xwerz.github.io/assets/main.js"></script>
+<script src="https://0xwerz.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+      
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R2DLLBQDPX"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-R2DLLBQDPX', { 'anonymize_ip': false });
+}
+</script>
+
+    
+  </body>
+</html>
