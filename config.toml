@@ -2,6 +2,7 @@ baseurl = "https://0xwerz.github.io/"
 languageCode = "en-us"
 theme = "hello-friend"
 paginate = 5
+googleAnalytics = 'G-R2DLLBQDPX'
 [params]
   hugoEncryptorLanguage = "en-us"
   # dir name of your blog content (default is `content/posts`).
