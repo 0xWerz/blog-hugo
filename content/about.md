@@ -20,7 +20,6 @@ hrefTargetBlank: true
     ]
   }
 }
-
 ```
 - Hackthebox {{< img-link linksrc="https://app.hackthebox.com/profile/716133" imgsrc="https://www.hackthebox.com/badge/image/716133" >}}
 
