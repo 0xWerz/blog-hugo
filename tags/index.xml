@@ -10,7 +10,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2022 Powered by Hugo</copyright>
-    <lastBuildDate>Sun, 14 Aug 2022 10:12:16 +1300</lastBuildDate>
+    <lastBuildDate>Sat, 20 Aug 2022 01:42:39 +0100</lastBuildDate>
     
 	<atom:link href="https://0xwerz.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,7 +18,7 @@
     <item>
       <title>active</title>
       <link>https://0xwerz.github.io/tags/active/</link>
-      <pubDate>Sun, 14 Aug 2022 10:12:16 +1300</pubDate>
+      <pubDate>Sat, 20 Aug 2022 01:42:39 +0100</pubDate>
       
       <guid>https://0xwerz.github.io/tags/active/</guid>
       <description>
@@ -38,7 +38,7 @@
     <item>
       <title>htb</title>
       <link>https://0xwerz.github.io/tags/htb/</link>
-      <pubDate>Sun, 14 Aug 2022 10:12:16 +1300</pubDate>
+      <pubDate>Sat, 20 Aug 2022 01:42:39 +0100</pubDate>
       
       <guid>https://0xwerz.github.io/tags/htb/</guid>
       <description>
@@ -56,9 +56,29 @@
     </item>
     
     <item>
+      <title>linux</title>
+      <link>https://0xwerz.github.io/tags/linux/</link>
+      <pubDate>Sat, 20 Aug 2022 01:42:39 +0100</pubDate>
+      
+      <guid>https://0xwerz.github.io/tags/linux/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
       <title>medium</title>
       <link>https://0xwerz.github.io/tags/medium/</link>
-      <pubDate>Sun, 14 Aug 2022 10:12:16 +1300</pubDate>
+      <pubDate>Sat, 20 Aug 2022 01:42:39 +0100</pubDate>
       
       <guid>https://0xwerz.github.io/tags/medium/</guid>
       <description>
@@ -116,11 +136,11 @@
     </item>
     
     <item>
-      <title>linux</title>
-      <link>https://0xwerz.github.io/tags/linux/</link>
+      <title>retired</title>
+      <link>https://0xwerz.github.io/tags/retired/</link>
       <pubDate>Sat, 23 Apr 2022 06:29:07 +1300</pubDate>
       
-      <guid>https://0xwerz.github.io/tags/linux/</guid>
+      <guid>https://0xwerz.github.io/tags/retired/</guid>
       <description>
         
           
@@ -136,11 +156,51 @@
     </item>
     
     <item>
-      <title>retired</title>
-      <link>https://0xwerz.github.io/tags/retired/</link>
-      <pubDate>Sat, 23 Apr 2022 06:29:07 +1300</pubDate>
+      <title>evil-winrm</title>
+      <link>https://0xwerz.github.io/tags/evil-winrm/</link>
+      <pubDate>Sat, 26 Mar 2022 06:24:55 +1300</pubDate>
       
-      <guid>https://0xwerz.github.io/tags/retired/</guid>
+      <guid>https://0xwerz.github.io/tags/evil-winrm/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>laps</title>
+      <link>https://0xwerz.github.io/tags/laps/</link>
+      <pubDate>Sat, 26 Mar 2022 06:24:55 +1300</pubDate>
+      
+      <guid>https://0xwerz.github.io/tags/laps/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>smbclient</title>
+      <link>https://0xwerz.github.io/tags/smbclient/</link>
+      <pubDate>Sat, 26 Mar 2022 06:24:55 +1300</pubDate>
+      
+      <guid>https://0xwerz.github.io/tags/smbclient/</guid>
       <description>
         
           
