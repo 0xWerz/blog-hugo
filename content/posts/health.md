@@ -7,7 +7,9 @@ tags : ['htb', 'linux', 'medium', 'active']
 aliases: [/ctf/htb/boxes/health/]
 ---
 
-## > [outdated.pdf](/protected/htb/health.pdf)
+* [health.pdf](/protected/htb/health.pdf)
+
+### Note:
 
 The password for this is the Administrator password hash which looks like this:
 
