@@ -4,7 +4,7 @@ date: 2022-08-16T04:07:33+13:00
 draft: true
 hrefTargetBlank: true
 ---
-## Hi ’m Werz, a Cyber Security student, full-stack developer. who enjoys building and breaking things.
+## Hi I am Werz, a Cyber Security student, full-stack developer. who enjoys building and breaking things.
 
 ```json
 {
