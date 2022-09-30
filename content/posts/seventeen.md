@@ -14,8 +14,8 @@ The official [box page](https://app.hackthebox.com/machines/seventeen) on HTB
 
 ### The writeup:
 #### System Scan | **IP: 10.10.11.146**
-let's add the ip to to the `/etc/hosts` file and name it `undetected.htb`
-> `echo '10.10.11.146    undetected.htb ' >> /etc/hosts`
+let's add the ip to to the `/etc/hosts` file and name it `seventeen.htb`
+> `echo '10.10.11.146    seventeen.htb ' >> /etc/hosts`
 
 
 Startup a nmap scan | **-sC for the default set of scripts**. | **-sV version detection**. | **-T4 traffic speed**.
