@@ -1,5 +1,5 @@
 ---
-title: "Seventeen"
+title: "Seventeen -- HTB walkthrough"
 date: 2022-28-05T12:27:01+13:00
 draft: true
 description: "https://app.hackthebox.com/machines/seventeen"
