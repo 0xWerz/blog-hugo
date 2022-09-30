@@ -1,7 +1,8 @@
-title: "Seventeen -- HTB walkthrough"
+---
+title: "Seventeen"
 date: 2022-28-05T12:27:01+13:00
 draft: true
-description: "https://app.hackthebox.com/machines/shoppy"
+description: "https://app.hackthebox.com/machines/seventeen"
 tags : ['htb', 'linux', 'hard', 'retired']
 aliases: ['/ctf/htb/boxes/seventeen/']
 ---
