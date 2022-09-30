@@ -3,7 +3,7 @@
   <head>
     
       <title>
-         ::
+        Seventeen ::
         Werz — CyberSecurity
       </title>
     
@@ -27,10 +27,12 @@ if (!doNotTrack) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta
   name="description"
-  content="title: &amp;ldquo;Seventeen &amp;ndash; HTB walkthrough&amp;rdquo; date: 2022-28-05T12:27:01&#43;13:00 draft: true description: &amp;ldquo;https://app.hackthebox.com/machines/shoppy&amp;#34; tags : [&amp;lsquo;htb&amp;rsquo;, &amp;lsquo;linux&amp;rsquo;, &amp;lsquo;hard&amp;rsquo;, &amp;lsquo;retired&amp;rsquo;] aliases: [&#39;/ctf/htb/boxes/seventeen/&#39;] #  The official box page on HTB
+  content="The official box page on HTB
 The writeup: #  System Scan | IP: 10.10.11.146 #  let&amp;rsquo;s add the ip to to the /etc/hosts file and name it undetected.htb
  echo &#39;10.10.11.146 undetected.htb &#39; &amp;gt;&amp;gt; /etc/hosts
- Startup a nmap scan | -sC for the default set of scripts."
+ Startup a nmap scan | -sC for the default set of scripts. | -sV version detection. | -T4 traffic speed.
+ nmap -sC -sV -T4 10.10.11.146
+ werz@ctf01:~/ctf/htb/seventenn$ nmap -sC -sV -T4 10."
 />
 
 <meta
@@ -71,19 +73,13 @@ The writeup: #  System Scan | IP: 10.10.11.146 #  let&amp;rsquo;s add the ip to 
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="title: &ldquo;Seventeen &ndash; HTB walkthrough&rdquo; date: 2022-28-05T12:27:01&#43;13:00 draft: true description: &ldquo;https://app.hackthebox.com/machines/shoppy&#34; tags : [&lsquo;htb&rsquo;, &lsquo;linux&rsquo;, &lsquo;hard&rsquo;, &lsquo;retired&rsquo;] aliases: [&#39;/ctf/htb/boxes/seventeen/&#39;] #  The official box page on HTB
-The writeup: #  System Scan | IP: 10.10.11.146 #  let&rsquo;s add the ip to to the /etc/hosts file and name it undetected.htb
- echo &#39;10.10.11.146 undetected.htb &#39; &gt;&gt; /etc/hosts
- Startup a nmap scan | -sC for the default set of scripts."/>
+<meta name="twitter:title" content="Seventeen"/>
+<meta name="twitter:description" content="https://app.hackthebox.com/machines/seventeen"/>
 
 
 
-<meta property="og:title" content="" />
-<meta property="og:description" content="title: &ldquo;Seventeen &ndash; HTB walkthrough&rdquo; date: 2022-28-05T12:27:01&#43;13:00 draft: true description: &ldquo;https://app.hackthebox.com/machines/shoppy&#34; tags : [&lsquo;htb&rsquo;, &lsquo;linux&rsquo;, &lsquo;hard&rsquo;, &lsquo;retired&rsquo;] aliases: [&#39;/ctf/htb/boxes/seventeen/&#39;] #  The official box page on HTB
-The writeup: #  System Scan | IP: 10.10.11.146 #  let&rsquo;s add the ip to to the /etc/hosts file and name it undetected.htb
- echo &#39;10.10.11.146 undetected.htb &#39; &gt;&gt; /etc/hosts
- Startup a nmap scan | -sC for the default set of scripts." />
+<meta property="og:title" content="Seventeen" />
+<meta property="og:description" content="https://app.hackthebox.com/machines/seventeen" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://0xwerz.github.io/01/01/1/seventeen/" /><meta property="article:section" content="posts" />
 
@@ -189,7 +185,7 @@ The writeup: #  System Scan | IP: 10.10.11.146 #  let&rsquo;s add the ip to to t
   
 
   <div class="post">
-    <h1 class="post-title"></h1>
+    <h1 class="post-title">Seventeen</h1>
     <div class="post-meta">
       
 
@@ -204,22 +200,24 @@ The writeup: #  System Scan | IP: 10.10.11.146 #  let&rsquo;s add the ip to to t
     </div>
 
     
+      <span class="post-tags">
+        
+          <a href="https://0xwerz.github.io/tags/htb/">#htb</a>&nbsp;
+        
+          <a href="https://0xwerz.github.io/tags/linux/">#linux</a>&nbsp;
+        
+          <a href="https://0xwerz.github.io/tags/hard/">#hard</a>&nbsp;
+        
+          <a href="https://0xwerz.github.io/tags/retired/">#retired</a>&nbsp;
+        
+      </span>
+    
 
     
 
     <div class="post-content">
       
-      <h2 id="aliases-ctfhtbboxesseventeen">
-  title: &ldquo;Seventeen &ndash; HTB walkthrough&rdquo;
-date: 2022-28-05T12:27:01+13:00
-draft: true
-description: &ldquo;<a href="https://app.hackthebox.com/machines/shoppy%22" target="_blank">https://app.hackthebox.com/machines/shoppy&#34;</a>
-
-tags : [&lsquo;htb&rsquo;, &lsquo;linux&rsquo;, &lsquo;hard&rsquo;, &lsquo;retired&rsquo;]
-aliases: ['/ctf/htb/boxes/seventeen/']
-  <a href="#aliases-ctfhtbboxesseventeen" class="h-anchor" aria-hidden="true">#</a>
-</h2>
-<p>The official <a href="https://app.hackthebox.com/machines/seventeen" target="_blank">box page</a>
+      <p>The official <a href="https://app.hackthebox.com/machines/seventeen" target="_blank">box page</a>
  on HTB</p>
 <img src="https://github.com/0xWerz/CTF-writeups/raw/main/HTB/Machines/seventeen/img/seventeen.png" style="border-radius: 3%;" alt="">
 <h3 id="the-writeup">
@@ -668,7 +666,7 @@ www-data@c5d1cc2e5e93:/var/www/html/oldmanagement/files/31235$
 </h2>
 <p>I&rsquo;ll stabilize my shell:</p>
 <blockquote>
-<p>python -c &lsquo;import pty; pty.spawn(&quot;/bin/bash&rdquo;)&rsquo;</p>
+<p>python -c &lsquo;import pty; pty.spawn(&quot;/bin/bash&quot;)&rsquo;</p>
 </blockquote>
 <blockquote>
 <p>export TERM=xterm</p>

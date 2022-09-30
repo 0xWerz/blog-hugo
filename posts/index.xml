@@ -196,7 +196,7 @@
     </item>
     
     <item>
-      <title></title>
+      <title>Seventeen</title>
       <link>https://0xwerz.github.io/01/01/1/seventeen/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -209,10 +209,7 @@
         
         
         
-          title: &amp;ldquo;Seventeen &amp;ndash; HTB walkthrough&amp;rdquo; date: 2022-28-05T12:27:01+13:00 draft: true description: &amp;ldquo;https://app.hackthebox.com/machines/shoppy&amp;#34; tags : [&amp;lsquo;htb&amp;rsquo;, &amp;lsquo;linux&amp;rsquo;, &amp;lsquo;hard&amp;rsquo;, &amp;lsquo;retired&amp;rsquo;] aliases: [&#39;/ctf/htb/boxes/seventeen/&#39;] #  The official box page on HTB
-The writeup: #  System Scan | IP: 10.10.11.146 #  let&amp;rsquo;s add the ip to to the /etc/hosts file and name it undetected.htb
- echo &#39;10.10.11.146 undetected.htb &#39; &amp;gt;&amp;gt; /etc/hosts
- Startup a nmap scan | -sC for the default set of scripts.
+          https://app.hackthebox.com/machines/seventeen
           
         
         </description>
