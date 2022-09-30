@@ -116,11 +116,11 @@
     </item>
     
     <item>
-      <title>easy</title>
-      <link>https://0xwerz.github.io/tags/easy/</link>
-      <pubDate>Sat, 23 Apr 2022 06:29:07 +1300</pubDate>
+      <title>hard</title>
+      <link>https://0xwerz.github.io/tags/hard/</link>
+      <pubDate>Sat, 28 May 2022 12:27:01 +1300</pubDate>
       
-      <guid>https://0xwerz.github.io/tags/easy/</guid>
+      <guid>https://0xwerz.github.io/tags/hard/</guid>
       <description>
         
           
@@ -138,9 +138,29 @@
     <item>
       <title>retired</title>
       <link>https://0xwerz.github.io/tags/retired/</link>
-      <pubDate>Sat, 23 Apr 2022 06:29:07 +1300</pubDate>
+      <pubDate>Sat, 28 May 2022 12:27:01 +1300</pubDate>
       
       <guid>https://0xwerz.github.io/tags/retired/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>easy</title>
+      <link>https://0xwerz.github.io/tags/easy/</link>
+      <pubDate>Sat, 23 Apr 2022 06:29:07 +1300</pubDate>
+      
+      <guid>https://0xwerz.github.io/tags/easy/</guid>
       <description>
         
           
@@ -261,26 +281,6 @@
       <pubDate>Sat, 11 Apr 2020 11:02:58 +1300</pubDate>
       
       <guid>https://0xwerz.github.io/tags/pwn/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>hard</title>
-      <link>https://0xwerz.github.io/tags/hard/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://0xwerz.github.io/tags/hard/</guid>
       <description>
         
           
