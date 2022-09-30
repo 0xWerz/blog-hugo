@@ -10,7 +10,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2022 Powered by Hugo</copyright>
-    <lastBuildDate>Sun, 18 Sep 2022 12:27:01 +1300</lastBuildDate>
+    <lastBuildDate>Sat, 20 Aug 2022 01:42:39 +0100</lastBuildDate>
     
 	<atom:link href="https://0xwerz.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,7 +18,7 @@
     <item>
       <title>active</title>
       <link>https://0xwerz.github.io/tags/active/</link>
-      <pubDate>Sun, 18 Sep 2022 12:27:01 +1300</pubDate>
+      <pubDate>Sat, 20 Aug 2022 01:42:39 +0100</pubDate>
       
       <guid>https://0xwerz.github.io/tags/active/</guid>
       <description>
@@ -36,29 +36,9 @@
     </item>
     
     <item>
-      <title>easy</title>
-      <link>https://0xwerz.github.io/tags/easy/</link>
-      <pubDate>Sun, 18 Sep 2022 12:27:01 +1300</pubDate>
-      
-      <guid>https://0xwerz.github.io/tags/easy/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          
-          
-        
-        </description>
-    </item>
-    
-    <item>
       <title>htb</title>
       <link>https://0xwerz.github.io/tags/htb/</link>
-      <pubDate>Sun, 18 Sep 2022 12:27:01 +1300</pubDate>
+      <pubDate>Sat, 20 Aug 2022 01:42:39 +0100</pubDate>
       
       <guid>https://0xwerz.github.io/tags/htb/</guid>
       <description>
@@ -78,7 +58,7 @@
     <item>
       <title>linux</title>
       <link>https://0xwerz.github.io/tags/linux/</link>
-      <pubDate>Sun, 18 Sep 2022 12:27:01 +1300</pubDate>
+      <pubDate>Sat, 20 Aug 2022 01:42:39 +0100</pubDate>
       
       <guid>https://0xwerz.github.io/tags/linux/</guid>
       <description>
@@ -121,6 +101,26 @@
       <pubDate>Sun, 14 Aug 2022 10:12:16 +1300</pubDate>
       
       <guid>https://0xwerz.github.io/tags/windows/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>easy</title>
+      <link>https://0xwerz.github.io/tags/easy/</link>
+      <pubDate>Sat, 23 Apr 2022 06:29:07 +1300</pubDate>
+      
+      <guid>https://0xwerz.github.io/tags/easy/</guid>
       <description>
         
           
