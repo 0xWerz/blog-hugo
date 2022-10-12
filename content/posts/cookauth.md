@@ -1,5 +1,5 @@
 ---
-title: "Cookauth"
+title: "GDG-2022 -- Cookauth"
 date: 2022-10-12T14:06:01+01:00
 draft: true
 description: "https://ctf.gdgalgiers.com/challenges"

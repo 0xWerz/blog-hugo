@@ -1,5 +1,5 @@
 ---
-title: "Postal"
+title: "GDG-2022 -- Postal"
 date: 2022-10-12T14:11:16+01:00
 draft: true
 description: "https://ctf.gdgalgiers.com/challenges"

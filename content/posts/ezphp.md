@@ -1,5 +1,5 @@
 ---
-title: "Ezphp"
+title: "GDG-2022 -- Ezphp"
 date: 2022-10-12T14:05:54+01:00
 draft: true
 description: "https://ctf.gdgalgiers.com/challenges"
