@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        Counter ::
+        Werz — CyberSecurity
+      </title>
+    
+    <head>
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R2DLLBQDPX"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-R2DLLBQDPX', { 'anonymize_ip': false });
+}
+</script>
+
+
+</head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Preview #  Source code: #  #include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;#include &amp;lt;stdbool.h&amp;gt;#include &amp;lt;unistd.h&amp;gt;#include &amp;lt;errno.h&amp;gt; #define NUM_BUF_SIZE 24 #define STRTOUL_BASE 10  void flag(void); void disable_buffering(void); void input_str(char *msg, char *str, size_t size); unsigned long get_num(char *msg); void flag(void) { system(&amp;#34;cat flag.txt&amp;#34;); } int main(int argc, char *argv[]) { unsigned char counter = 1; disable_buffering(); while (true) { printf(&amp;#34;Counter: %d\n&amp;#34;, counter); puts(&amp;#34;1) &#43;&#43;&amp;#34;); puts(&amp;#34;2) --&amp;#34;); puts(&amp;#34;3) Flag&amp;#34;); puts(&amp;#34;0) Exit&amp;#34;); switch (get_num(&amp;#34;Choice: &amp;#34;)) { case 1: counter&#43;&#43;; break; case 2: if (counter &amp;gt; 1) { counter--; } break; case 3: if (counter == 0) { flag(); } else { puts(&amp;#34;No."
+/>
+
+<meta
+  name="keywords"
+  content="ctf, hackthebox, writeup, htb writeup, walkthrough, retired htb, hack the box, cybersecurtiy, capture the flag"
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://0xwerz.github.io/12/10/2022/counter/" />
+<meta content="Posts about Cybersecurity, Pentesting, CTF writeups, and more" property="og:description" />
+<meta content="https://0xwerz.github.io/" property="og:url" />
+<meta content="Werz         Cybersecurity content, And more" property="og:title" />
+
+
+
+
+
+<link rel="stylesheet" href="https://0xwerz.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://0xwerz.github.io/style.css" />
+
+
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png%20%7c%20absURL">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img//android-chrome-192x192.png">
+<link rel="manifest" href="img/site.webmanifest">
+<link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://0xwerz.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Counter"/>
+<meta name="twitter:description" content="https://ctf.gdgalgiers.com/challenges"/>
+
+
+
+<meta property="og:title" content="Counter" />
+<meta property="og:description" content="https://ctf.gdgalgiers.com/challenges" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://0xwerz.github.io/12/10/2022/counter/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-10-12T14:01:30+01:00" />
+<meta property="article:modified_time" content="2022-10-12T14:01:30+01:00" /><meta property="og:site_name" content="Werz" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="https://0xwerz.github.io/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >werz@blog:~$</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/archive">./archive</a></li>
+        
+      
+        
+          <li><a href="/posts">./articles</a></li>
+        
+      
+        
+          <li><a href="/about">./whoami</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/archive">./archive</a></li>
+      
+    
+      
+        <li><a href="/posts">./articles</a></li>
+      
+    
+      
+        <li><a href="/about">./whoami</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">Counter</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2022-10-12
+        </span>
+
+        
+          
+        
+      
+
+      
+
+
+      
+        <span class="post-read-time"
+          >— 2 min read</span
+        >
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://0xwerz.github.io/tags/gdgalgiers/">#gdgalgiers</a>&nbsp;
+        
+          <a href="https://0xwerz.github.io/tags/c/">#c</a>&nbsp;
+        
+          <a href="https://0xwerz.github.io/tags/very-easy/">#very easy</a>&nbsp;
+        
+          <a href="https://0xwerz.github.io/tags/pwn/">#pwn</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      <h2 id="preview">
+  Preview
+  <a href="#preview" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p><img src="https://github.com/0xWerz/CTF-writeups/blob/main/GDG-Algiers-2022/pwn/counter/img/desc.png?raw=true" alt=""></p>
+<h3 id="source-code">
+  Source code:
+  <a href="#source-code" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdbool.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;errno.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">#define NUM_BUF_SIZE 24
+</span><span style="color:#75715e">#define STRTOUL_BASE 10
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">flag</span>(<span style="color:#66d9ef">void</span>);
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">disable_buffering</span>(<span style="color:#66d9ef">void</span>);
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">input_str</span>(<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>msg, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>str, size_t size);
+<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">get_num</span>(<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>msg);
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">flag</span>(<span style="color:#66d9ef">void</span>) {
+    system(<span style="color:#e6db74">&#34;cat flag.txt&#34;</span>);
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[])
+{
+    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span> counter <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+
+    disable_buffering();
+
+    <span style="color:#66d9ef">while</span> (true) {
+        printf(<span style="color:#e6db74">&#34;Counter: %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, counter);
+        puts(<span style="color:#e6db74">&#34;1) ++&#34;</span>);
+        puts(<span style="color:#e6db74">&#34;2) --&#34;</span>);
+        puts(<span style="color:#e6db74">&#34;3) Flag&#34;</span>);
+        puts(<span style="color:#e6db74">&#34;0) Exit&#34;</span>);
+
+        <span style="color:#66d9ef">switch</span> (get_num(<span style="color:#e6db74">&#34;Choice: &#34;</span>)) {
+            <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span>
+                counter<span style="color:#f92672">++</span>;
+                <span style="color:#66d9ef">break</span>;
+            <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">:</span>
+                <span style="color:#66d9ef">if</span> (counter <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>) {
+                    counter<span style="color:#f92672">--</span>;
+                }
+                <span style="color:#66d9ef">break</span>;
+            <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">:</span>
+                <span style="color:#66d9ef">if</span> (counter <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+                    flag();
+                } <span style="color:#66d9ef">else</span> {
+                    puts(<span style="color:#e6db74">&#34;No.&#34;</span>);
+                }
+                <span style="color:#66d9ef">break</span>;
+            <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">:</span>
+                puts(<span style="color:#e6db74">&#34;Bye!&#34;</span>);
+            <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+                fprintf(stderr, <span style="color:#e6db74">&#34;Invalid option</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+                <span style="color:#66d9ef">break</span>;
+        }
+
+        putchar(<span style="color:#e6db74">&#39;\n&#39;</span>);
+    }
+
+    <span style="color:#66d9ef">return</span> EXIT_SUCCESS;
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">disable_buffering</span>(<span style="color:#66d9ef">void</span>)
+{
+    setbuf(stdin, NULL);
+    setbuf(stdout, NULL);
+    setbuf(stderr, NULL);
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">input_str</span>(<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>msg, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>str, size_t size)
+{
+    ssize_t num_bytes;
+
+    fputs(msg, stdout);
+    num_bytes <span style="color:#f92672">=</span> read(STDIN_FILENO, str, size <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+    <span style="color:#66d9ef">if</span> (num_bytes <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
+        perror(<span style="color:#e6db74">&#34;read&#34;</span>);
+        exit(EXIT_FAILURE);
+    } <span style="color:#66d9ef">else</span> {
+        str[num_bytes] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;\0&#39;</span>;
+    }
+
+    <span style="color:#66d9ef">return</span>;
+}
+
+<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">get_num</span>(<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>msg)
+{
+    <span style="color:#66d9ef">char</span> str[NUM_BUF_SIZE] <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#39;\0&#39;</span> };
+    <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>endptr <span style="color:#f92672">=</span> NULL;
+    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> num;
+
+    input_str(msg, str, NUM_BUF_SIZE);
+    num <span style="color:#f92672">=</span> strtoul(str, <span style="color:#f92672">&amp;</span>endptr, STRTOUL_BASE);
+    <span style="color:#66d9ef">if</span> (errno <span style="color:#f92672">==</span> ERANGE) {
+        perror(<span style="color:#e6db74">&#34;strtoul&#34;</span>);
+        exit(EXIT_FAILURE);
+    }
+
+    <span style="color:#66d9ef">return</span> num;
+}
+</code></pre></div><h2 id="walkthrough">
+  Walkthrough
+  <a href="#walkthrough" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>We know that the the unsigned char typically has a range of [0 to 255] for <a href="https://www.geeksforgeeks.org/what-happens-if-loop-runs-till-maximum-of-signed-and-unsigned-in-c/" target="_blank">more</a>
+ - if we loop through  it will jump to the 0 and that&rsquo;s the goal. I&rsquo;ll set up a script automation for that.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> pwn <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
+
+r <span style="color:#f92672">=</span> remote(<span style="color:#e6db74">&#34;pwn.chal.ctf.gdgalgiers.com&#34;</span>,<span style="color:#e6db74">&#34;1402&#34;</span>)
+
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">255</span> ):
+    r<span style="color:#f92672">.</span>sendlineafter(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;Choice:&#39;</span>, <span style="color:#e6db74">&#39;1&#39;</span>)
+
+r<span style="color:#f92672">.</span>interactive()
+</code></pre></div>
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://0xwerz.github.io/12/10/2022/ezphp/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Ezphp</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://0xwerz.github.io/20/08/2022/health/">
+                  <span class="button__text">Health -- HTB walkthrough</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">© 2022 Powered by Hugo</div>
+      
+  </div>
+</footer>
+
+<script src="https://0xwerz.github.io/assets/main.js"></script>
+<script src="https://0xwerz.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+      
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R2DLLBQDPX"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-R2DLLBQDPX', { 'anonymize_ip': false });
+}
+</script>
+
+    
+  </body>
+</html>

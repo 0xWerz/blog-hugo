@@ -3,7 +3,67 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://0xwerz.github.io/</loc>
-    <lastmod>2022-08-20T01:42:39+01:00</lastmod>
+    <lastmod>2022-10-12T14:11:16+01:00</lastmod>
+  </url><url>
+    <loc>https://0xwerz.github.io/tags/easy/</loc>
+    <lastmod>2022-10-12T14:11:16+01:00</lastmod>
+  </url><url>
+    <loc>https://0xwerz.github.io/tags/forensics/</loc>
+    <lastmod>2022-10-12T14:11:16+01:00</lastmod>
+  </url><url>
+    <loc>https://0xwerz.github.io/tags/gdgalgiers/</loc>
+    <lastmod>2022-10-12T14:11:16+01:00</lastmod>
+  </url><url>
+    <loc>https://0xwerz.github.io/tags/misc/</loc>
+    <lastmod>2022-10-12T14:11:16+01:00</lastmod>
+  </url><url>
+    <loc>https://0xwerz.github.io/tags/osint/</loc>
+    <lastmod>2022-10-12T14:11:16+01:00</lastmod>
+  </url><url>
+    <loc>https://0xwerz.github.io/12/10/2022/postal/</loc>
+    <lastmod>2022-10-12T14:11:16+01:00</lastmod>
+  </url><url>
+    <loc>https://0xwerz.github.io/posts/</loc>
+    <lastmod>2022-10-12T14:11:16+01:00</lastmod>
+  </url><url>
+    <loc>https://0xwerz.github.io/tags/</loc>
+    <lastmod>2022-10-12T14:11:16+01:00</lastmod>
+  </url><url>
+    <loc>https://0xwerz.github.io/tags/jail/</loc>
+    <lastmod>2022-10-12T14:06:24+01:00</lastmod>
+  </url><url>
+    <loc>https://0xwerz.github.io/12/10/2022/red-diamond/</loc>
+    <lastmod>2022-10-12T14:06:24+01:00</lastmod>
+  </url><url>
+    <loc>https://0xwerz.github.io/tags/ruby/</loc>
+    <lastmod>2022-10-12T14:06:24+01:00</lastmod>
+  </url><url>
+    <loc>https://0xwerz.github.io/12/10/2022/cookauth/</loc>
+    <lastmod>2022-10-12T14:06:01+01:00</lastmod>
+  </url><url>
+    <loc>https://0xwerz.github.io/tags/misconfiguration/</loc>
+    <lastmod>2022-10-12T14:06:01+01:00</lastmod>
+  </url><url>
+    <loc>https://0xwerz.github.io/tags/very-easy/</loc>
+    <lastmod>2022-10-12T14:06:01+01:00</lastmod>
+  </url><url>
+    <loc>https://0xwerz.github.io/tags/web/</loc>
+    <lastmod>2022-10-12T14:06:01+01:00</lastmod>
+  </url><url>
+    <loc>https://0xwerz.github.io/12/10/2022/ezphp/</loc>
+    <lastmod>2022-10-12T14:05:54+01:00</lastmod>
+  </url><url>
+    <loc>https://0xwerz.github.io/tags/php/</loc>
+    <lastmod>2022-10-12T14:05:54+01:00</lastmod>
+  </url><url>
+    <loc>https://0xwerz.github.io/tags/c/</loc>
+    <lastmod>2022-10-12T14:01:30+01:00</lastmod>
+  </url><url>
+    <loc>https://0xwerz.github.io/12/10/2022/counter/</loc>
+    <lastmod>2022-10-12T14:01:30+01:00</lastmod>
+  </url><url>
+    <loc>https://0xwerz.github.io/tags/pwn/</loc>
+    <lastmod>2022-10-12T14:01:30+01:00</lastmod>
   </url><url>
     <loc>https://0xwerz.github.io/tags/active/</loc>
     <lastmod>2022-08-20T01:42:39+01:00</lastmod>
@@ -18,12 +78,6 @@
     <lastmod>2022-08-20T01:42:39+01:00</lastmod>
   </url><url>
     <loc>https://0xwerz.github.io/tags/medium/</loc>
-    <lastmod>2022-08-20T01:42:39+01:00</lastmod>
-  </url><url>
-    <loc>https://0xwerz.github.io/posts/</loc>
-    <lastmod>2022-08-20T01:42:39+01:00</lastmod>
-  </url><url>
-    <loc>https://0xwerz.github.io/tags/</loc>
     <lastmod>2022-08-20T01:42:39+01:00</lastmod>
   </url><url>
     <loc>https://0xwerz.github.io/about/</loc>
@@ -43,9 +97,6 @@
   </url><url>
     <loc>https://0xwerz.github.io/28/05/2022/seventeen/</loc>
     <lastmod>2022-05-28T12:27:01+13:00</lastmod>
-  </url><url>
-    <loc>https://0xwerz.github.io/tags/easy/</loc>
-    <lastmod>2022-04-23T06:29:07+13:00</lastmod>
   </url><url>
     <loc>https://0xwerz.github.io/23/04/2022/late/</loc>
     <lastmod>2022-04-23T06:29:07+13:00</lastmod>
@@ -78,9 +129,6 @@
     <lastmod>2021-10-30T06:29:07+13:00</lastmod>
   </url><url>
     <loc>https://0xwerz.github.io/tags/247ctf/</loc>
-    <lastmod>2020-04-11T11:02:58+13:00</lastmod>
-  </url><url>
-    <loc>https://0xwerz.github.io/tags/pwn/</loc>
     <lastmod>2020-04-11T11:02:58+13:00</lastmod>
   </url><url>
     <loc>https://0xwerz.github.io/11/04/2020/tips-and-tricks/</loc>

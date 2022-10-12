@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>web on Werz</title>
+    
+    
+    
+    <link>https://0xwerz.github.io/tags/web/</link>
+    <description>Recent content in web on Werz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2022 Powered by Hugo</copyright>
+    <lastBuildDate>Wed, 12 Oct 2022 14:06:01 +0100</lastBuildDate>
+    
+	<atom:link href="https://0xwerz.github.io/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cookauth</title>
+      <link>https://0xwerz.github.io/12/10/2022/cookauth/</link>
+      <pubDate>Wed, 12 Oct 2022 14:06:01 +0100</pubDate>
+      
+      <guid>https://0xwerz.github.io/12/10/2022/cookauth/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          https://ctf.gdgalgiers.com/challenges
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Ezphp</title>
+      <link>https://0xwerz.github.io/12/10/2022/ezphp/</link>
+      <pubDate>Wed, 12 Oct 2022 14:05:54 +0100</pubDate>
+      
+      <guid>https://0xwerz.github.io/12/10/2022/ezphp/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          https://ctf.gdgalgiers.com/challenges
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

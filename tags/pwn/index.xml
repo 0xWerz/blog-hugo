@@ -10,10 +10,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2022 Powered by Hugo</copyright>
-    <lastBuildDate>Sat, 11 Apr 2020 11:02:58 +1300</lastBuildDate>
+    <lastBuildDate>Wed, 12 Oct 2022 14:01:30 +0100</lastBuildDate>
     
 	<atom:link href="https://0xwerz.github.io/tags/pwn/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Counter</title>
+      <link>https://0xwerz.github.io/12/10/2022/counter/</link>
+      <pubDate>Wed, 12 Oct 2022 14:01:30 +0100</pubDate>
+      
+      <guid>https://0xwerz.github.io/12/10/2022/counter/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          https://ctf.gdgalgiers.com/challenges
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>Tips-and-Tricks -- 247CTF walkthrough </title>
