@@ -4,7 +4,7 @@ date: 2022-10-12T14:06:24+01:00
 draft: true
 description: "https://ctf.gdgalgiers.com/challenges"
 tags : ['gdgalgiers','easy', 'ruby','jail']
-aliases: [/ctf/gdg/jail/postal/]
+aliases: [/ctf/gdg/jail/red-diamond/]
 
 ---
 ## Preview:
