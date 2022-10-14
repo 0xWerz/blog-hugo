@@ -24,7 +24,7 @@ hrefTargetBlank: true
 - Hackthebox {{< img-link linksrc="https://app.hackthebox.com/profile/716133" imgsrc="https://www.hackthebox.com/badge/image/716133" >}}
 
 
-- Tryhackme {{< img-link linksrc="https://tryhackme.com/p/razewerz" imgsrc="https://tryhackme-badges.s3.amazonaws.com/razewerz.png" >}}
+- Tryhackme {{< img-link linksrc="https://tryhackme.com/p/0xwerz" imgsrc="https://tryhackme-badges.s3.amazonaws.com/0xwerz.png" >}}
 
 - [Github](https://github.com/0xwerz)
 - [Twitter](https://twitter.com/cyberwerz)
