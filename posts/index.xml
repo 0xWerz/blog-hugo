@@ -5,22 +5,42 @@
     
     
     
-    <link>https://0xwerz.github.io/posts/</link>
+    <link>https://werz.is-a.dev/posts/</link>
     <description>Recent content in Posts on Werz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2022 Powered by Hugo</copyright>
-    <lastBuildDate>Wed, 12 Oct 2022 14:11:16 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 20 Nov 2022 09:31:46 +1300</lastBuildDate>
     
-	<atom:link href="https://0xwerz.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://werz.is-a.dev/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Backdoor -- HTB walkthrough</title>
+      <link>https://werz.is-a.dev/20/11/2022/backdoor/</link>
+      <pubDate>Sun, 20 Nov 2022 09:31:46 +1300</pubDate>
+      
+      <guid>https://werz.is-a.dev/20/11/2022/backdoor/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          https://app.hackthebox.com/machines/late
+          
+        
+        </description>
+    </item>
+    
+    <item>
       <title>GDG-2022 -- Postal</title>
-      <link>https://0xwerz.github.io/12/10/2022/postal/</link>
+      <link>https://werz.is-a.dev/12/10/2022/postal/</link>
       <pubDate>Wed, 12 Oct 2022 14:11:16 +0100</pubDate>
       
-      <guid>https://0xwerz.github.io/12/10/2022/postal/</guid>
+      <guid>https://werz.is-a.dev/12/10/2022/postal/</guid>
       <description>
         
           
@@ -37,10 +57,10 @@
     
     <item>
       <title>GDG-2022 -- Red Diamond</title>
-      <link>https://0xwerz.github.io/12/10/2022/red-diamond/</link>
+      <link>https://werz.is-a.dev/12/10/2022/red-diamond/</link>
       <pubDate>Wed, 12 Oct 2022 14:06:24 +0100</pubDate>
       
-      <guid>https://0xwerz.github.io/12/10/2022/red-diamond/</guid>
+      <guid>https://werz.is-a.dev/12/10/2022/red-diamond/</guid>
       <description>
         
           
@@ -57,10 +77,10 @@
     
     <item>
       <title>GDG-2022 -- Cookauth</title>
-      <link>https://0xwerz.github.io/12/10/2022/cookauth/</link>
+      <link>https://werz.is-a.dev/12/10/2022/cookauth/</link>
       <pubDate>Wed, 12 Oct 2022 14:06:01 +0100</pubDate>
       
-      <guid>https://0xwerz.github.io/12/10/2022/cookauth/</guid>
+      <guid>https://werz.is-a.dev/12/10/2022/cookauth/</guid>
       <description>
         
           
@@ -77,10 +97,10 @@
     
     <item>
       <title>GDG-2022 -- Ezphp</title>
-      <link>https://0xwerz.github.io/12/10/2022/ezphp/</link>
+      <link>https://werz.is-a.dev/12/10/2022/ezphp/</link>
       <pubDate>Wed, 12 Oct 2022 14:05:54 +0100</pubDate>
       
-      <guid>https://0xwerz.github.io/12/10/2022/ezphp/</guid>
+      <guid>https://werz.is-a.dev/12/10/2022/ezphp/</guid>
       <description>
         
           
@@ -97,10 +117,10 @@
     
     <item>
       <title>GDG-2022 -- Counter</title>
-      <link>https://0xwerz.github.io/12/10/2022/counter/</link>
+      <link>https://werz.is-a.dev/12/10/2022/counter/</link>
       <pubDate>Wed, 12 Oct 2022 14:01:30 +0100</pubDate>
       
-      <guid>https://0xwerz.github.io/12/10/2022/counter/</guid>
+      <guid>https://werz.is-a.dev/12/10/2022/counter/</guid>
       <description>
         
           
@@ -117,10 +137,10 @@
     
     <item>
       <title>Health -- HTB walkthrough</title>
-      <link>https://0xwerz.github.io/20/08/2022/health/</link>
+      <link>https://werz.is-a.dev/20/08/2022/health/</link>
       <pubDate>Sat, 20 Aug 2022 01:42:39 +0100</pubDate>
       
-      <guid>https://0xwerz.github.io/20/08/2022/health/</guid>
+      <guid>https://werz.is-a.dev/20/08/2022/health/</guid>
       <description>
         
           
@@ -137,10 +157,10 @@
     
     <item>
       <title>Outdated -- HTB walkthrough</title>
-      <link>https://0xwerz.github.io/14/08/2022/outdated/</link>
+      <link>https://werz.is-a.dev/14/08/2022/outdated/</link>
       <pubDate>Sun, 14 Aug 2022 10:12:16 +1300</pubDate>
       
-      <guid>https://0xwerz.github.io/14/08/2022/outdated/</guid>
+      <guid>https://werz.is-a.dev/14/08/2022/outdated/</guid>
       <description>
         
           
@@ -157,10 +177,10 @@
     
     <item>
       <title>Seventeen -- HTB walkthrough</title>
-      <link>https://0xwerz.github.io/28/05/2022/seventeen/</link>
+      <link>https://werz.is-a.dev/28/05/2022/seventeen/</link>
       <pubDate>Sat, 28 May 2022 12:27:01 +1300</pubDate>
       
-      <guid>https://0xwerz.github.io/28/05/2022/seventeen/</guid>
+      <guid>https://werz.is-a.dev/28/05/2022/seventeen/</guid>
       <description>
         
           
@@ -177,10 +197,10 @@
     
     <item>
       <title>Late -- HTB walkthrough</title>
-      <link>https://0xwerz.github.io/23/04/2022/late/</link>
+      <link>https://werz.is-a.dev/23/04/2022/late/</link>
       <pubDate>Sat, 23 Apr 2022 06:29:07 +1300</pubDate>
       
-      <guid>https://0xwerz.github.io/23/04/2022/late/</guid>
+      <guid>https://werz.is-a.dev/23/04/2022/late/</guid>
       <description>
         
           
@@ -197,10 +217,10 @@
     
     <item>
       <title>Timelapse -- HTB walkthrough</title>
-      <link>https://0xwerz.github.io/26/03/2022/timelapse/</link>
+      <link>https://werz.is-a.dev/26/03/2022/timelapse/</link>
       <pubDate>Sat, 26 Mar 2022 06:24:55 +1300</pubDate>
       
-      <guid>https://0xwerz.github.io/26/03/2022/timelapse/</guid>
+      <guid>https://werz.is-a.dev/26/03/2022/timelapse/</guid>
       <description>
         
           
@@ -217,10 +237,10 @@
     
     <item>
       <title>Undetected -- HTB walkthrough</title>
-      <link>https://0xwerz.github.io/19/02/2022/undetected/</link>
+      <link>https://werz.is-a.dev/19/02/2022/undetected/</link>
       <pubDate>Sat, 19 Feb 2022 06:24:55 +1300</pubDate>
       
-      <guid>https://0xwerz.github.io/19/02/2022/undetected/</guid>
+      <guid>https://werz.is-a.dev/19/02/2022/undetected/</guid>
       <description>
         
           
@@ -237,10 +257,10 @@
     
     <item>
       <title>Acute -- HTB walkthrough</title>
-      <link>https://0xwerz.github.io/12/02/2022/acute/</link>
+      <link>https://werz.is-a.dev/12/02/2022/acute/</link>
       <pubDate>Sat, 12 Feb 2022 10:12:12 +1300</pubDate>
       
-      <guid>https://0xwerz.github.io/12/02/2022/acute/</guid>
+      <guid>https://werz.is-a.dev/12/02/2022/acute/</guid>
       <description>
         
           
@@ -257,10 +277,10 @@
     
     <item>
       <title>Pandora -- HTB walkthrough</title>
-      <link>https://0xwerz.github.io/08/01/2022/pandora/</link>
+      <link>https://werz.is-a.dev/08/01/2022/pandora/</link>
       <pubDate>Sat, 08 Jan 2022 09:47:56 +1300</pubDate>
       
-      <guid>https://0xwerz.github.io/08/01/2022/pandora/</guid>
+      <guid>https://werz.is-a.dev/08/01/2022/pandora/</guid>
       <description>
         
           
@@ -277,10 +297,10 @@
     
     <item>
       <title>Secret -- HTB walkthrough</title>
-      <link>https://0xwerz.github.io/30/10/2021/secret/</link>
+      <link>https://werz.is-a.dev/30/10/2021/secret/</link>
       <pubDate>Sat, 30 Oct 2021 06:29:07 +1300</pubDate>
       
-      <guid>https://0xwerz.github.io/30/10/2021/secret/</guid>
+      <guid>https://werz.is-a.dev/30/10/2021/secret/</guid>
       <description>
         
           
@@ -297,10 +317,10 @@
     
     <item>
       <title>Tips-and-Tricks -- 247CTF walkthrough </title>
-      <link>https://0xwerz.github.io/11/04/2020/tips-and-tricks/</link>
+      <link>https://werz.is-a.dev/11/04/2020/tips-and-tricks/</link>
       <pubDate>Sat, 11 Apr 2020 11:02:58 +1300</pubDate>
       
-      <guid>https://0xwerz.github.io/11/04/2020/tips-and-tricks/</guid>
+      <guid>https://werz.is-a.dev/11/04/2020/tips-and-tricks/</guid>
       <description>
         
           
