@@ -1,4 +1,4 @@
-baseurl = "https://0xwerz.github.io/"
+baseurl = "https://werz.is-a.dev/"
 languageCode = "en-us"
 theme = "hello-friend"
 paginate = 5
@@ -49,7 +49,7 @@ googleAnalytics = 'G-R2DLLBQDPX'
 
     [languages.en.params.logo]
       logoText = "werz@blog:~$"
-      logoHomeLink = "https://0xwerz.github.io/"
+      logoHomeLink = "https://werz.is-a.dev/"
     # or
     #
     # path = "/static/logo.png"
