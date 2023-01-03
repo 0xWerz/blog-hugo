@@ -2,7 +2,7 @@
 title: "Pandora -- HTB walkthrough"
 date: 2022-01-08T09:47:56+13:00
 draft: true
-description: "https://app.hackthebox.com/machines/pandora"
+description: "Pandora is a easy ranked linux box"
 tags : ['htb', 'linux', 'easy', 'retired']
 aliases: [/ctf/htb/boxes/pandora/]
 ---

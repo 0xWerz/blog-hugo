@@ -2,7 +2,7 @@
 title: "Secret -- HTB walkthrough"
 date: 2021-10-30T06:29:07+13:00
 draft: true
-description: "https://app.hackthebox.com/machines/secret"
+description: "Secret is a easy ranked linux box"
 tags : ['htb', 'linux', 'easy', 'retired']
 aliases: ['/ctf/htb/boxes/secret/']
 ---

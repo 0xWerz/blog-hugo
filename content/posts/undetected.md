@@ -1,7 +1,7 @@
 ---
 title: "Undetected -- HTB walkthrough"
 Author : '0xWerz'
-description: "https://app.hackthebox.com/machines/Undetected"
+description: "Undetected is a medium ranked linux box"
 date: 2022-02-19T06:24:55+13:00
 draft: true
 tags : ['htb', 'linux', 'medium', 'retired']

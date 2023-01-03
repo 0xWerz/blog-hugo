@@ -1,7 +1,6 @@
 <head>
   {{ template "_internal/google_analytics.html" . }}
 
-</head>
 
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,16 +8,21 @@
   name="description"
   content="{{ if .IsHome }}{{ $.Site.Params.Subtitle }}{{ else }}{{ .Summary | plainify }}{{ end }}"
 />
-
+<meta name="twitter:card" content="https://werz.is-a.dev/img/og_icon.png">
+<meta name="og:site_name" content="Werz Portfolio | Cybersecurity content | CTF writeup | CTF walkthrough ">
+<meta name="twitter:image:alt" content="Werz">
 <meta
   name="keywords"
   content="{{ with .Params.Keywords }}{{ delimit . ", " }}{{ else }}{{ $.Site.Params.Keywords }}{{ end }}"
 />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="{{ .Permalink }}" />
-<meta content="Posts about Cybersecurity, Pentesting, CTF writeups, and more" property="og:description" />
+<meta content="Portfolio - Cybersecurity Posts - CTF" property="og:description" />
 <meta content="https://werz.is-a.dev/" property="og:url" />
-<meta content="Werz         Cybersecurity content, And more" property="og:title" />
+<meta property="og:image" content="https://werz.is-a.dev/img/og_icon.png">
+<meta property="fb:app_id" content="your_app_id" />
+<meta name="twitter:site" content="@werz0xff">
+<meta content="Werz Portfolio | Cybersecurity content" property="og:title" />
 
 <!-- head custom -->
 {{- partial "prepended_head.html" . }}
@@ -59,3 +63,4 @@
 
 <!-- head custom -->
 {{- partial "extended_head.html" . }}
+</head>

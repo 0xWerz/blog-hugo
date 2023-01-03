@@ -2,7 +2,7 @@
 title: "Late -- HTB walkthrough"
 date: 2022-04-23T06:29:07+13:00
 draft: true
-description: "https://app.hackthebox.com/machines/late"
+description: "Late is a easy ranked linux box"
 tags : ['htb', 'linux', 'easy', 'retired']
 aliases: [/ctf/htb/boxes/late/]
 ---

@@ -2,7 +2,7 @@
 title: "GDG-2022 -- Cookauth"
 date: 2022-10-12T14:06:01+01:00
 draft: true
-description: "https://ctf.gdgalgiers.com/challenges"
+description: "Cookauth is a web easy challange"
 tags : ['gdgalgiers','misconfiguration','very easy', 'web']
 aliases: [/ctf/gdg/web/cookauth/]
 ---

@@ -2,7 +2,7 @@
 title: "Acute -- HTB walkthrough"
 date: 2022-02-12T10:12:12+13:00
 draft: true
-description: "https://app.hackthebox.com/machines/acute"
+description: "Acute is a insane ranked windows box"
 tags : ['htb', 'windows', 'insane', 'retired']
 aliases: [/ctf/htb/boxes/outdated/]
 ---

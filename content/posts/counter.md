@@ -2,7 +2,7 @@
 title: "GDG-2022 -- Counter"
 date: 2022-10-12T14:01:30+01:00
 draft: true
-description: "https://ctf.gdgalgiers.com/challenges"
+description: "Counter is a easy pwn gdg challange "
 tags : ['gdgalgiers', 'c', 'very easy', 'pwn']
 aliases: [/ctf/gdg/pwn/counter/]
 ---

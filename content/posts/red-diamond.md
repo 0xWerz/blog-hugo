@@ -2,7 +2,7 @@
 title: "GDG-2022 -- Red Diamond"
 date: 2022-10-12T14:06:24+01:00
 draft: true
-description: "https://ctf.gdgalgiers.com/challenges"
+description: "Red Diamond is a easy jail challange"
 tags : ['gdgalgiers','easy', 'ruby','jail']
 aliases: [/ctf/gdg/jail/red-diamond/]
 

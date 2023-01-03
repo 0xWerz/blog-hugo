@@ -2,7 +2,7 @@
 title: "Outdated -- HTB walkthrough"
 date: 2022-08-14T10:12:16+13:00
 draft: true
-description: "https://app.hackthebox.com/machines/outdated"
+description: "Outdated is a medium ranked windows box"
 tags : ['htb', 'windows', 'medium', 'active']
 aliases: [/ctf/htb/boxes/outdated/]
 ---

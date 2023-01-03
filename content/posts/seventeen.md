@@ -2,7 +2,7 @@
 title: "Seventeen -- HTB walkthrough"
 date: 2022-05-28T12:27:01+13:00
 draft: true
-description: "https://app.hackthebox.com/machines/seventeen"
+description: "Seventeen is a hard ranked linux box"
 tags : ['htb', 'linux', 'hard', 'retired']
 aliases: ['/ctf/htb/boxes/seventeen/']
 ---

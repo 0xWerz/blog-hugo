@@ -2,7 +2,7 @@
 title: "GDG-2022 -- Ezphp"
 date: 2022-10-12T14:05:54+01:00
 draft: true
-description: "https://ctf.gdgalgiers.com/challenges"
+description: "Ezphp is a easy web challange"
 tags : ['gdgalgiers', 'php', 'very easy', 'web', 'misconfiguration']
 aliases: [/ctf/gdg/web/ezphp/]
 ---

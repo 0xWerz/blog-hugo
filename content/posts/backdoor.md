@@ -2,7 +2,7 @@
 title: "Backdoor -- HTB walkthrough"
 date: 2022-11-20T09:31:46+13:00
 draft: true
-description: "https://app.hackthebox.com/machines/late"
+description: "Backdoor is a easy ranked linux box"
 tags : ['htb', 'linux', 'easy', 'retired']
 aliases: [/ctf/htb/boxes/backdoor/]
 ---

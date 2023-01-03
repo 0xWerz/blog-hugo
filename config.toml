@@ -1,8 +1,10 @@
 baseurl = "https://werz.is-a.dev/"
 languageCode = "en-us"
 theme = "hello-friend"
-paginate = 5
+paginate = 8
 googleAnalytics = 'G-R2DLLBQDPX'
+enableRobotsTXT = true
+
 [params]
   hugoEncryptorLanguage = "en-us"
   # dir name of your blog content (default is `content/posts`).

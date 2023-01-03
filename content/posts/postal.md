@@ -2,7 +2,7 @@
 title: "GDG-2022 -- Postal"
 date: 2022-10-12T14:11:16+01:00
 draft: true
-description: "https://ctf.gdgalgiers.com/challenges"
+description: "Postal is a easy gdg challange"
 tags : ['gdgalgiers', 'OSINT', 'easy', 'misc','forensics']
 aliases: [/ctf/gdg/misc/postal/]
 ---
