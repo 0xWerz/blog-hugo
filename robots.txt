@@ -1,0 +1,105 @@
+User-agent: *
+
+Disallow: /
+
+Disallow: /20/11/2022/backdoor/
+
+Disallow: /tags/easy/
+
+Disallow: /tags/htb/
+
+Disallow: /tags/linux/
+
+Disallow: /posts/
+
+Disallow: /tags/retired/
+
+Disallow: /tags/
+
+Disallow: /tags/forensics/
+
+Disallow: /12/10/2022/postal/
+
+Disallow: /tags/gdgalgiers/
+
+Disallow: /tags/misc/
+
+Disallow: /tags/osint/
+
+Disallow: /12/10/2022/red-diamond/
+
+Disallow: /tags/jail/
+
+Disallow: /tags/ruby/
+
+Disallow: /12/10/2022/cookauth/
+
+Disallow: /tags/misconfiguration/
+
+Disallow: /tags/very-easy/
+
+Disallow: /tags/web/
+
+Disallow: /12/10/2022/ezphp/
+
+Disallow: /tags/php/
+
+Disallow: /tags/c/
+
+Disallow: /12/10/2022/counter/
+
+Disallow: /tags/pwn/
+
+Disallow: /tags/active/
+
+Disallow: /20/08/2022/health/
+
+Disallow: /tags/medium/
+
+Disallow: /about/
+
+Disallow: /14/08/2022/outdated/
+
+Disallow: /tags/windows/
+
+Disallow: /tags/hard/
+
+Disallow: /28/05/2022/seventeen/
+
+Disallow: /23/04/2022/late/
+
+Disallow: /tags/evil-winrm/
+
+Disallow: /tags/laps/
+
+Disallow: /tags/smbclient/
+
+Disallow: /26/03/2022/timelapse/
+
+Disallow: /19/02/2022/undetected/
+
+Disallow: /12/02/2022/acute/
+
+Disallow: /tags/insane/
+
+Disallow: /08/01/2022/pandora/
+
+Disallow: /30/10/2021/secret/
+
+Disallow: /tags/247ctf/
+
+Disallow: /11/04/2020/tips-and-tricks/
+
+Disallow: /showcase/
+
+Disallow: /categories/list/
+
+Disallow: /archive/
+
+Disallow: /categories/
+
+Disallow: /categories/
+
+Disallow: /categories/ctf/
+
+Disallow: /categories/publishing/
