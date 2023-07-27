@@ -1,5 +1,4 @@
-baseurl = "https://werz.info/blog/"
-relativeURLs = true
+baseurl = "https://blog.werz.info/"
 languageCode = "en-us"
 theme = "hello-friend"
 paginate = 8
