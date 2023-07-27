@@ -5,22 +5,22 @@
     
     
     
-    <link>https://werz.is-a.dev/tags/</link>
+    <link>https://werz.info/blog/tags/</link>
     <description>Recent content in Tags on Werz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2022 Powered by Hugo</copyright>
     <lastBuildDate>Sun, 20 Nov 2022 09:31:46 +1300</lastBuildDate>
     
-	<atom:link href="https://werz.is-a.dev/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://werz.info/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>easy</title>
-      <link>https://werz.is-a.dev/tags/easy/</link>
+      <link>https://werz.info/blog/tags/easy/</link>
       <pubDate>Sun, 20 Nov 2022 09:31:46 +1300</pubDate>
       
-      <guid>https://werz.is-a.dev/tags/easy/</guid>
+      <guid>https://werz.info/blog/tags/easy/</guid>
       <description>
         
           
@@ -37,10 +37,10 @@
     
     <item>
       <title>htb</title>
-      <link>https://werz.is-a.dev/tags/htb/</link>
+      <link>https://werz.info/blog/tags/htb/</link>
       <pubDate>Sun, 20 Nov 2022 09:31:46 +1300</pubDate>
       
-      <guid>https://werz.is-a.dev/tags/htb/</guid>
+      <guid>https://werz.info/blog/tags/htb/</guid>
       <description>
         
           
@@ -57,10 +57,10 @@
     
     <item>
       <title>linux</title>
-      <link>https://werz.is-a.dev/tags/linux/</link>
+      <link>https://werz.info/blog/tags/linux/</link>
       <pubDate>Sun, 20 Nov 2022 09:31:46 +1300</pubDate>
       
-      <guid>https://werz.is-a.dev/tags/linux/</guid>
+      <guid>https://werz.info/blog/tags/linux/</guid>
       <description>
         
           
@@ -77,10 +77,10 @@
     
     <item>
       <title>retired</title>
-      <link>https://werz.is-a.dev/tags/retired/</link>
+      <link>https://werz.info/blog/tags/retired/</link>
       <pubDate>Sun, 20 Nov 2022 09:31:46 +1300</pubDate>
       
-      <guid>https://werz.is-a.dev/tags/retired/</guid>
+      <guid>https://werz.info/blog/tags/retired/</guid>
       <description>
         
           
@@ -97,10 +97,10 @@
     
     <item>
       <title>forensics</title>
-      <link>https://werz.is-a.dev/tags/forensics/</link>
+      <link>https://werz.info/blog/tags/forensics/</link>
       <pubDate>Wed, 12 Oct 2022 14:11:16 +0100</pubDate>
       
-      <guid>https://werz.is-a.dev/tags/forensics/</guid>
+      <guid>https://werz.info/blog/tags/forensics/</guid>
       <description>
         
           
@@ -117,10 +117,10 @@
     
     <item>
       <title>gdgalgiers</title>
-      <link>https://werz.is-a.dev/tags/gdgalgiers/</link>
+      <link>https://werz.info/blog/tags/gdgalgiers/</link>
       <pubDate>Wed, 12 Oct 2022 14:11:16 +0100</pubDate>
       
-      <guid>https://werz.is-a.dev/tags/gdgalgiers/</guid>
+      <guid>https://werz.info/blog/tags/gdgalgiers/</guid>
       <description>
         
           
@@ -137,10 +137,10 @@
     
     <item>
       <title>misc</title>
-      <link>https://werz.is-a.dev/tags/misc/</link>
+      <link>https://werz.info/blog/tags/misc/</link>
       <pubDate>Wed, 12 Oct 2022 14:11:16 +0100</pubDate>
       
-      <guid>https://werz.is-a.dev/tags/misc/</guid>
+      <guid>https://werz.info/blog/tags/misc/</guid>
       <description>
         
           
@@ -157,10 +157,10 @@
     
     <item>
       <title>OSINT</title>
-      <link>https://werz.is-a.dev/tags/osint/</link>
+      <link>https://werz.info/blog/tags/osint/</link>
       <pubDate>Wed, 12 Oct 2022 14:11:16 +0100</pubDate>
       
-      <guid>https://werz.is-a.dev/tags/osint/</guid>
+      <guid>https://werz.info/blog/tags/osint/</guid>
       <description>
         
           
@@ -177,10 +177,10 @@
     
     <item>
       <title>jail</title>
-      <link>https://werz.is-a.dev/tags/jail/</link>
+      <link>https://werz.info/blog/tags/jail/</link>
       <pubDate>Wed, 12 Oct 2022 14:06:24 +0100</pubDate>
       
-      <guid>https://werz.is-a.dev/tags/jail/</guid>
+      <guid>https://werz.info/blog/tags/jail/</guid>
       <description>
         
           
@@ -197,10 +197,10 @@
     
     <item>
       <title>ruby</title>
-      <link>https://werz.is-a.dev/tags/ruby/</link>
+      <link>https://werz.info/blog/tags/ruby/</link>
       <pubDate>Wed, 12 Oct 2022 14:06:24 +0100</pubDate>
       
-      <guid>https://werz.is-a.dev/tags/ruby/</guid>
+      <guid>https://werz.info/blog/tags/ruby/</guid>
       <description>
         
           
@@ -217,10 +217,10 @@
     
     <item>
       <title>misconfiguration</title>
-      <link>https://werz.is-a.dev/tags/misconfiguration/</link>
+      <link>https://werz.info/blog/tags/misconfiguration/</link>
       <pubDate>Wed, 12 Oct 2022 14:06:01 +0100</pubDate>
       
-      <guid>https://werz.is-a.dev/tags/misconfiguration/</guid>
+      <guid>https://werz.info/blog/tags/misconfiguration/</guid>
       <description>
         
           
@@ -237,10 +237,10 @@
     
     <item>
       <title>very easy</title>
-      <link>https://werz.is-a.dev/tags/very-easy/</link>
+      <link>https://werz.info/blog/tags/very-easy/</link>
       <pubDate>Wed, 12 Oct 2022 14:06:01 +0100</pubDate>
       
-      <guid>https://werz.is-a.dev/tags/very-easy/</guid>
+      <guid>https://werz.info/blog/tags/very-easy/</guid>
       <description>
         
           
@@ -257,10 +257,10 @@
     
     <item>
       <title>web</title>
-      <link>https://werz.is-a.dev/tags/web/</link>
+      <link>https://werz.info/blog/tags/web/</link>
       <pubDate>Wed, 12 Oct 2022 14:06:01 +0100</pubDate>
       
-      <guid>https://werz.is-a.dev/tags/web/</guid>
+      <guid>https://werz.info/blog/tags/web/</guid>
       <description>
         
           
@@ -277,10 +277,10 @@
     
     <item>
       <title>php</title>
-      <link>https://werz.is-a.dev/tags/php/</link>
+      <link>https://werz.info/blog/tags/php/</link>
       <pubDate>Wed, 12 Oct 2022 14:05:54 +0100</pubDate>
       
-      <guid>https://werz.is-a.dev/tags/php/</guid>
+      <guid>https://werz.info/blog/tags/php/</guid>
       <description>
         
           
@@ -297,10 +297,10 @@
     
     <item>
       <title>c</title>
-      <link>https://werz.is-a.dev/tags/c/</link>
+      <link>https://werz.info/blog/tags/c/</link>
       <pubDate>Wed, 12 Oct 2022 14:01:30 +0100</pubDate>
       
-      <guid>https://werz.is-a.dev/tags/c/</guid>
+      <guid>https://werz.info/blog/tags/c/</guid>
       <description>
         
           
@@ -317,10 +317,10 @@
     
     <item>
       <title>pwn</title>
-      <link>https://werz.is-a.dev/tags/pwn/</link>
+      <link>https://werz.info/blog/tags/pwn/</link>
       <pubDate>Wed, 12 Oct 2022 14:01:30 +0100</pubDate>
       
-      <guid>https://werz.is-a.dev/tags/pwn/</guid>
+      <guid>https://werz.info/blog/tags/pwn/</guid>
       <description>
         
           
@@ -337,10 +337,10 @@
     
     <item>
       <title>active</title>
-      <link>https://werz.is-a.dev/tags/active/</link>
+      <link>https://werz.info/blog/tags/active/</link>
       <pubDate>Sat, 20 Aug 2022 01:42:39 +0100</pubDate>
       
-      <guid>https://werz.is-a.dev/tags/active/</guid>
+      <guid>https://werz.info/blog/tags/active/</guid>
       <description>
         
           
@@ -357,10 +357,10 @@
     
     <item>
       <title>medium</title>
-      <link>https://werz.is-a.dev/tags/medium/</link>
+      <link>https://werz.info/blog/tags/medium/</link>
       <pubDate>Sat, 20 Aug 2022 01:42:39 +0100</pubDate>
       
-      <guid>https://werz.is-a.dev/tags/medium/</guid>
+      <guid>https://werz.info/blog/tags/medium/</guid>
       <description>
         
           
@@ -377,10 +377,10 @@
     
     <item>
       <title>windows</title>
-      <link>https://werz.is-a.dev/tags/windows/</link>
+      <link>https://werz.info/blog/tags/windows/</link>
       <pubDate>Sun, 14 Aug 2022 10:12:16 +1300</pubDate>
       
-      <guid>https://werz.is-a.dev/tags/windows/</guid>
+      <guid>https://werz.info/blog/tags/windows/</guid>
       <description>
         
           
@@ -397,10 +397,10 @@
     
     <item>
       <title>hard</title>
-      <link>https://werz.is-a.dev/tags/hard/</link>
+      <link>https://werz.info/blog/tags/hard/</link>
       <pubDate>Sat, 28 May 2022 12:27:01 +1300</pubDate>
       
-      <guid>https://werz.is-a.dev/tags/hard/</guid>
+      <guid>https://werz.info/blog/tags/hard/</guid>
       <description>
         
           
@@ -417,10 +417,10 @@
     
     <item>
       <title>evil-winrm</title>
-      <link>https://werz.is-a.dev/tags/evil-winrm/</link>
+      <link>https://werz.info/blog/tags/evil-winrm/</link>
       <pubDate>Sat, 26 Mar 2022 06:24:55 +1300</pubDate>
       
-      <guid>https://werz.is-a.dev/tags/evil-winrm/</guid>
+      <guid>https://werz.info/blog/tags/evil-winrm/</guid>
       <description>
         
           
@@ -437,10 +437,10 @@
     
     <item>
       <title>laps</title>
-      <link>https://werz.is-a.dev/tags/laps/</link>
+      <link>https://werz.info/blog/tags/laps/</link>
       <pubDate>Sat, 26 Mar 2022 06:24:55 +1300</pubDate>
       
-      <guid>https://werz.is-a.dev/tags/laps/</guid>
+      <guid>https://werz.info/blog/tags/laps/</guid>
       <description>
         
           
@@ -457,10 +457,10 @@
     
     <item>
       <title>smbclient</title>
-      <link>https://werz.is-a.dev/tags/smbclient/</link>
+      <link>https://werz.info/blog/tags/smbclient/</link>
       <pubDate>Sat, 26 Mar 2022 06:24:55 +1300</pubDate>
       
-      <guid>https://werz.is-a.dev/tags/smbclient/</guid>
+      <guid>https://werz.info/blog/tags/smbclient/</guid>
       <description>
         
           
@@ -477,10 +477,10 @@
     
     <item>
       <title>insane</title>
-      <link>https://werz.is-a.dev/tags/insane/</link>
+      <link>https://werz.info/blog/tags/insane/</link>
       <pubDate>Sat, 12 Feb 2022 10:12:12 +1300</pubDate>
       
-      <guid>https://werz.is-a.dev/tags/insane/</guid>
+      <guid>https://werz.info/blog/tags/insane/</guid>
       <description>
         
           
@@ -497,10 +497,10 @@
     
     <item>
       <title>247ctf</title>
-      <link>https://werz.is-a.dev/tags/247ctf/</link>
+      <link>https://werz.info/blog/tags/247ctf/</link>
       <pubDate>Sat, 11 Apr 2020 11:02:58 +1300</pubDate>
       
-      <guid>https://werz.is-a.dev/tags/247ctf/</guid>
+      <guid>https://werz.info/blog/tags/247ctf/</guid>
       <description>
         
           
