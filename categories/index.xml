@@ -5,21 +5,21 @@
     
     
     
-    <link>https://werz.info/blog/categories/</link>
+    <link>https://blog.werz.info/categories/</link>
     <description>Recent content in Categories on Werz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2022 Powered by Hugo</copyright>
     
-	<atom:link href="https://werz.info/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.werz.info/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>CTF</title>
-      <link>https://werz.info/blog/categories/ctf/</link>
+      <link>https://blog.werz.info/categories/ctf/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://werz.info/blog/categories/ctf/</guid>
+      <guid>https://blog.werz.info/categories/ctf/</guid>
       <description>
         
           
@@ -36,10 +36,10 @@
     
     <item>
       <title>publishing</title>
-      <link>https://werz.info/blog/categories/publishing/</link>
+      <link>https://blog.werz.info/categories/publishing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://werz.info/blog/categories/publishing/</guid>
+      <guid>https://blog.werz.info/categories/publishing/</guid>
       <description>
         
           

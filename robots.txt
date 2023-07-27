@@ -1,105 +1,105 @@
 User-agent: *
 
-Disallow: /blog/
+Disallow: /
 
-Disallow: /blog/20/11/2022/backdoor/
+Disallow: /20/11/2022/backdoor/
 
-Disallow: /blog/tags/easy/
+Disallow: /tags/easy/
 
-Disallow: /blog/tags/htb/
+Disallow: /tags/htb/
 
-Disallow: /blog/tags/linux/
+Disallow: /tags/linux/
 
-Disallow: /blog/posts/
+Disallow: /posts/
 
-Disallow: /blog/tags/retired/
+Disallow: /tags/retired/
 
-Disallow: /blog/tags/
+Disallow: /tags/
 
-Disallow: /blog/tags/forensics/
+Disallow: /tags/forensics/
 
-Disallow: /blog/12/10/2022/postal/
+Disallow: /12/10/2022/postal/
 
-Disallow: /blog/tags/gdgalgiers/
+Disallow: /tags/gdgalgiers/
 
-Disallow: /blog/tags/misc/
+Disallow: /tags/misc/
 
-Disallow: /blog/tags/osint/
+Disallow: /tags/osint/
 
-Disallow: /blog/12/10/2022/red-diamond/
+Disallow: /12/10/2022/red-diamond/
 
-Disallow: /blog/tags/jail/
+Disallow: /tags/jail/
 
-Disallow: /blog/tags/ruby/
+Disallow: /tags/ruby/
 
-Disallow: /blog/12/10/2022/cookauth/
+Disallow: /12/10/2022/cookauth/
 
-Disallow: /blog/tags/misconfiguration/
+Disallow: /tags/misconfiguration/
 
-Disallow: /blog/tags/very-easy/
+Disallow: /tags/very-easy/
 
-Disallow: /blog/tags/web/
+Disallow: /tags/web/
 
-Disallow: /blog/12/10/2022/ezphp/
+Disallow: /12/10/2022/ezphp/
 
-Disallow: /blog/tags/php/
+Disallow: /tags/php/
 
-Disallow: /blog/tags/c/
+Disallow: /tags/c/
 
-Disallow: /blog/12/10/2022/counter/
+Disallow: /12/10/2022/counter/
 
-Disallow: /blog/tags/pwn/
+Disallow: /tags/pwn/
 
-Disallow: /blog/tags/active/
+Disallow: /tags/active/
 
-Disallow: /blog/20/08/2022/health/
+Disallow: /20/08/2022/health/
 
-Disallow: /blog/tags/medium/
+Disallow: /tags/medium/
 
-Disallow: /blog/about/
+Disallow: /about/
 
-Disallow: /blog/14/08/2022/outdated/
+Disallow: /14/08/2022/outdated/
 
-Disallow: /blog/tags/windows/
+Disallow: /tags/windows/
 
-Disallow: /blog/tags/hard/
+Disallow: /tags/hard/
 
-Disallow: /blog/28/05/2022/seventeen/
+Disallow: /28/05/2022/seventeen/
 
-Disallow: /blog/23/04/2022/late/
+Disallow: /23/04/2022/late/
 
-Disallow: /blog/tags/evil-winrm/
+Disallow: /tags/evil-winrm/
 
-Disallow: /blog/tags/laps/
+Disallow: /tags/laps/
 
-Disallow: /blog/tags/smbclient/
+Disallow: /tags/smbclient/
 
-Disallow: /blog/26/03/2022/timelapse/
+Disallow: /26/03/2022/timelapse/
 
-Disallow: /blog/19/02/2022/undetected/
+Disallow: /19/02/2022/undetected/
 
-Disallow: /blog/12/02/2022/acute/
+Disallow: /12/02/2022/acute/
 
-Disallow: /blog/tags/insane/
+Disallow: /tags/insane/
 
-Disallow: /blog/08/01/2022/pandora/
+Disallow: /08/01/2022/pandora/
 
-Disallow: /blog/30/10/2021/secret/
+Disallow: /30/10/2021/secret/
 
-Disallow: /blog/tags/247ctf/
+Disallow: /tags/247ctf/
 
-Disallow: /blog/11/04/2020/tips-and-tricks/
+Disallow: /11/04/2020/tips-and-tricks/
 
-Disallow: /blog/showcase/
+Disallow: /showcase/
 
-Disallow: /blog/categories/list/
+Disallow: /categories/list/
 
-Disallow: /blog/archive/
+Disallow: /archive/
 
-Disallow: /blog/categories/
+Disallow: /categories/
 
-Disallow: /blog/categories/
+Disallow: /categories/
 
-Disallow: /blog/categories/ctf/
+Disallow: /categories/ctf/
 
-Disallow: /blog/categories/publishing/
+Disallow: /categories/publishing/
